@@ -1,0 +1,174 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 1000px;
+  width: 100%;
+}
+
+
+/* ------- now for the classic view styles (flexbox) ------------ */
+/*                   main area                      */
+/*                  /         \                     */
+/*           classicHeader     gridStats            */
+/*                             \        \           */
+/*                             grid      rightMenus */
+/* ----------------------------------------------------------------*/
+
+.mainArea {
+  margin: 0;
+  padding: 0;
+  height: 1000px;
+  width: 100%;
+}
+
+.classicHeader {
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #333;
+}
+
+.gridStats {
+  margin: 0;
+  padding: 0;
+  height: 950px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.grid {
+  flex: 10;
+  background-color: #e3e3e8;
+}
+
+.rightMenus {
+  flex: 2;
+  background-color: #3f6846;
+}
+
+#viewSelect1 {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.classicNavCal {
+  flex: 10;
+  margin-left: 50px;
+  color: #fff;
+  height: 100%;
+  display: flex;
+}
+
+.calMonthFlex {
+  flex: .3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.calNavYear {
+  flex: 1;
+  margin-top: 5px;
+  padding: 0;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.calNavYear > button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.calNavYear > button:hover {
+  color: #b2001d;
+}
+
+.calNavMonth {
+  flex: 3;
+  margin-top: 5px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+
+}
+
+.calNavMonth > li {
+  list-style-type: none;
+  margin-left: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.calNavMonth > li a {
+  display: block;
+  text-decoration: none;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1em;
+  border-width: medium;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.calNavMonth > li a:hover {
+  color: #b2001d;
+  border-color: #b2001d;
+}
+
+.calCircleColor {
+  color: #fff;
+  border-color: #fff;
+}
+
+.calCircleColorActive {
+  color: #b2001d;
+  border-color: #b2001d;
+}
+
+.calCircleColorPast {
+  color: #898989;
+  border-color: #898989;
+}
+
+.exportIcons {
+  flex: 1;
+  display: flex;
+  padding-right: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.exportIcons > button {
+  display: inline;
+  margin-left: 10px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+}
+
+.exportIcons > button:hover {
+  color: #b2001d;
+}
+
