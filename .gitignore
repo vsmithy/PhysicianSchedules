@@ -16,6 +16,8 @@
 .env.test.local
 .env.production.local
 *.bmpr
+backlog.txt
+rawMarkup.html
 
 npm-debug.log*
 yarn-debug.log*

@@ -12,19 +12,18 @@ import RightMenus from '../components/classicView/RightMenus'
 class ClassicContainer extends Component {
   render(){
     return (
-      <div className='mainArea'>
+      <body>
         <Header {...this.props} />
-        <section className='gridStats'>
+        <main className='gridStats'>
           <Grid />
           <RightMenus />
-        </section>
-      </div>
+        </main>
+      </body>
     )//return
   }//render
 }//Component
 
 const mapStateToProps = state => ({
-  classicViewData: state.classicViewData,
   currentViewProperties: state.currentViewProperties,
   shifts: state.shifts
  })

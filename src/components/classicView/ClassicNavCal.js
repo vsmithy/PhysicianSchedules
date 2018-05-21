@@ -49,7 +49,7 @@ export default class ClassicNavCal extends Component {
     const whichClass = (idx) => currentViewProperties.currentMonth > idx ? 'calCircleColorPast' : 'calCircleColor'
 
     return (
-      <div className='classicNavCal'>
+      <span className='classicNavCal'>
         <div className='calMonthFlex'>
           <span className='calNavYear'>
             <button onClick={() => this.props.changeYear(-1)}><i className="fas fa-chevron-left"></i></button>
@@ -67,7 +67,7 @@ export default class ClassicNavCal extends Component {
             }
           </ul>
         </div>
-      </div>
+      </span>
     )//return
   }//render
 }//ClassicNavCal

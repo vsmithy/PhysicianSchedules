@@ -9,9 +9,9 @@ export default class Grid extends Component {
 
   render(){
     return (
-      <div className="grid">
-        <h1>I am the classic Grid 80% of width</h1>
-      </div>
+      <section className="grid">
+        I am the classic Grid 80% of width
+      </section>
     )//return
   }//render
 }//grid
