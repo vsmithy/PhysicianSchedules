@@ -10,7 +10,7 @@ export const pdfExport = () => ({ type: types.PDF_EXPORT })
 export const addShift = (data) => ({ type: types.ADD_SHIFT, data })
 export const updateShift = (id, data) => ({ type: types.UPDATE_SHIFT, id, data })
 export const removeShift = (id) => ({ type: types.REMOVE_SHIFT, id })
-
+export const changeSelectedShft = (shift) => ({ type: types.CHANGE_SELECTED_SHFT, shift })
 
 
 
