@@ -1,13 +1,7 @@
-import React, {Component, PropTypes}  from 'react'
+import React, {Component}  from 'react'
 import { Link } from 'react-router'
 
 export default class ClassName extends Component {
-  
-  // static propTypes = {
-  //   sortInvName: PropTypes.func.isRequired,
-  //   sortInvAmount: PropTypes.func.isRequired,
-  // }//proptypes
-
   render(){
     return (
       <div className='classicComponent'>
