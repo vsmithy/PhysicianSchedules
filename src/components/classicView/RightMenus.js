@@ -39,9 +39,9 @@ export default class RightMenus extends Component {
         <button className='expandToggle' onClick={() => this.handleShiftToggle()}>Add Shifts</button>
         <ShiftSelect viewHeight={this.state.shiftViewHeight} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
         <button className='expandToggle' onClick={() => this.handleConflictToggle()}>Assignment Conflicts</button>
-        <Conflicts viewHeight={this.state.conflictViewHeight}/>
+        <Conflicts viewHeight={this.state.conflictViewHeight} {...this.props} />
         <button className='expandToggle' onClick={() => this.handleStatsToggle()}>Stats</button>
-        <Stats viewHeight={this.state.statsViewHeight}/>
+        <Stats viewHeight={this.state.statsViewHeight} {...this.props} />
         <button className='expandToggle' onClick={() => this.handleNotesToggle()}>Notes</button>
         <NotesComponent viewHeight={this.state.notesViewHeight}/>
       </aside>

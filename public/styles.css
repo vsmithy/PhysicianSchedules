@@ -229,3 +229,52 @@ section, aside {
 .shiftBtnNone {
   display: none;
 }
+
+
+/*   conflicts stuffs   */
+.conflicts {
+  margin: 0;
+  padding: 0.12rem;
+}
+
+.conflicts > ul {
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+}
+
+.conflicts > ul li {
+  list-style-type: none;
+}
+
+.conflictListNone {
+  display: none;
+}
+
+.conflictsList {
+  margin-left: 0.12rem;
+  margin-bottom: 0.5rem;
+}
+
+/*  stats stuff     */
+.stats {
+  margin: 0;
+  padding: 0.12rem;
+}
+
+.stats > ul {
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+}
+
+.stats > ul li {
+  list-style-type: none;
+}
+
+.statsListNone {
+  display: none;
+}
+
+.statsList {
+  margin-left: 0.12rem;
+  margin-bottom: 0.5rem;
+}

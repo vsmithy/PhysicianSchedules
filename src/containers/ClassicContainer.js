@@ -25,7 +25,9 @@ class ClassicContainer extends Component {
 
 const mapStateToProps = state => ({
   currentViewProperties: state.currentViewProperties,
-  shifts: state.shifts
+  shifts: state.shifts,
+  conflicts: state.conflicts,
+  stats: state.stats,
  })
  
  const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))

@@ -12,9 +12,11 @@ export const updateShift = (id, data) => ({ type: types.UPDATE_SHIFT, id, data }
 export const removeShift = (id) => ({ type: types.REMOVE_SHIFT, id })
 export const changeSelectedShft = (shift) => ({ type: types.CHANGE_SELECTED_SHFT, shift })
 
+//conflicts
+export const resolveConflicts = (id) => ({ type: types.RESOLVE_CONFLICT, id })
 
-
-
+//stats
+export const addStats = () => ({ type: types.ADD_STAT })
 
 
 

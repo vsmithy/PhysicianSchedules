@@ -10,3 +10,10 @@ export const ADD_SHIFT = 'ADD_SHIFT'
 export const UPDATE_SHIFT = 'UPDATE_SHIFT'
 export const REMOVE_SHIFT = 'REMOVE_SHIFT'
 export const CHANGE_SELECTED_SHFT = 'CHANGE_SELECTED_SHFT'
+
+//conflicts
+export const RESOLVE_CONFLICT = 'RESOLVE_CONFLICT'
+
+//stats
+//this is only for sample data. once live, the app will calc stats from the other data stores
+export const ADD_STAT = 'ADD_STAT'

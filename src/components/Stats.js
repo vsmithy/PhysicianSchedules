@@ -2,7 +2,7 @@ import React, {Component}  from 'react'
 
 export default class Stats extends Component {
   render(){
-    const { viewHeight } = this.props
+    const { viewHeight, stats } = this.props
     const defaultStyle = {
       transition: 'height 125ms ease-in-out',
       height: viewHeight, 
@@ -10,7 +10,9 @@ export default class Stats extends Component {
 
     return (
       <section className='stats' style={defaultStyle}>
-        I am the header text of stats componentn!!
+        <ul>
+          {stats.map(item => <li className={viewHeight === 0 ? 'statsListNone' : 'statsList'} key={item.id}>{item.count} - {item.stat}</li>)}
+        </ul>
       </section>
     )//return
   }//render
