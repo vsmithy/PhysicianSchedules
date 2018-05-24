@@ -1,10 +1,8 @@
 import React, {Component}  from 'react'
 
 //import the right-menu components
-import ShiftSelect from '../ShiftSelect'
 import Stats from '../Stats'
 import NotesComponent from '../NotesComponent'
-import Conflicts from '../Conflicts'
 
 export default class RightMenus extends Component {
   constructor(props){
@@ -36,10 +34,7 @@ export default class RightMenus extends Component {
     const { shifts, currentViewProperties, changeSelectedShft } = this.props
     return (
       <aside className='rightMenus'>
-        <button className='expandToggle' onClick={() => this.handleShiftToggle()}>Assign Shifts</button>
-        <ShiftSelect viewHeight={this.state.shiftViewHeight} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
-        <button className='expandToggle' onClick={() => this.handleConflictToggle()}>Assignment Conflicts</button>
-        <Conflicts viewHeight={this.state.conflictViewHeight} {...this.props} />
+        <div className='leaveBtnBkg'><button className='assgnLeaveBtn'>Assign Leave</button></div>
         <button className='expandToggle' onClick={() => this.handleStatsToggle()}>Stats</button>
         <Stats viewHeight={this.state.statsViewHeight} {...this.props} />
         <button className='expandToggle' onClick={() => this.handleNotesToggle()}>Notes</button>

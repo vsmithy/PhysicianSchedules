@@ -1,20 +1,43 @@
-import React, {Component, PropTypes}  from 'react'
-import { Link } from 'react-router-dom'
+import React, {Component}  from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actionCreators from '../actions'
 
-export default class LeaveContainer extends Component {
-  
-  // static propTypes = {
-  //   sortInvName: PropTypes.func.isRequired,
-  //   sortInvAmount: PropTypes.func.isRequired,
-  // }//proptypes
+//the sub components
+import Leave from '../components/leave/Leave'
 
+
+class LeaveContainer extends Component {
   render(){
     return (
-      <div className='classicComponent'>
-        <h1 className="headerText">
-          <Link to='/'>I am the header text of this componentn!! - Leave </Link>
-        </h1>
-      </div>
+      <Leave {...this.props} />
     )//return
   }//render
 }//Component
+
+const mapStateToProps = state => ({
+  currentViewProperties: state.currentViewProperties,
+  shifts: state.shifts,
+  conflicts: state.conflicts,
+  stats: state.stats,
+ })
+ 
+ const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+ 
+ export default connect(mapStateToProps, mapDispatchToProps)(LeaveContainer)
+
+
+
+// class ClassicContainer extends Component {
+//   render(){
+//     return (
+//       <body>
+//         <Header {...this.props} />
+//         <main className='gridStats'>
+//           <Grid />
+//           <RightMenus {...this.props}/>
+//         </main>
+//       </body>
+//     )//return
+//   }//render
+// }//Component

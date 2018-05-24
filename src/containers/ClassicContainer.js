@@ -12,13 +12,13 @@ import RightMenus from '../components/classicView/RightMenus'
 class ClassicContainer extends Component {
   render(){
     return (
-      <body>
+      <div>
         <Header {...this.props} />
         <main className='gridStats'>
           <Grid />
           <RightMenus {...this.props}/>
         </main>
-      </body>
+      </div>
     )//return
   }//render
 }//Component

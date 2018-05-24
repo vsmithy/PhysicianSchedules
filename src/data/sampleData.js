@@ -54,23 +54,28 @@ export const shiftList = [
 export const people = [
   {
     'name':'janeDoe',
-    'role':'GYN'
+    'role':'GYN',
+    'id':1,
   },
   {
     'name':'johnDoe',
-    'role':'FULLSCOPE'
+    'role':'FULLSCOPE',
+    'id':2,
   },
   {
-    'name':'janeDoe',
-    'role':'FULLSCOPE'
+    'name':'person3',
+    'role':'FULLSCOPE',
+    'id':3,
   },
   {
-    'name':'janeDoe',
-    'role':'MFM'
+    'name':'person4',
+    'role':'MFM',
+    'id':4,
   },
   {
-    'name':'janeDoe',
-    'role':'FULLSCOPE'
+    'name':'person5',
+    'role':'FULLSCOPE',
+    'id':5,
   }
 ]
 
@@ -123,6 +128,14 @@ export const statsData = [
   },
 ]
 
+export const events = [
+  {
+    'id':1,
+    'date':'ttt',
+    'personId':2,
+    'shift':8,
+  }
+]
+
 export const rules = {}
 export const notes = {}
-export const events = {}
