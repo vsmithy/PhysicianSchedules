@@ -96,49 +96,50 @@ let monthSelect = currentViewProperties.monthSelect
 let yearSelect = currentViewProperties.yearSelect
 
 //calc start and end date
-const findDate = dateRef(monthSelect, yearSelect)  //returns a 5-digit number for the date
+const findDate = dateRef(monthSelect, yearSelect)  //returns milliseconds of UTC date
+const aDay = 86400000
 let startDate = findDate[0]
 let weeks = findDate[1]
-console.log('startDate '+startDate)
+// console.log('startDate '+startDate)
 //get all the days for the view
 const viewDays = []
 for(let i=0;i<42;i++){
-  viewDays.push(startDate + i)
+  viewDays.push(startDate + (i*aDay))
 }
-console.log('viewDays  '+viewDays.length)
+// console.log('viewDays  '+viewDays.length)
 //now we calculate the dates to map over for each week
-const week1Dates = viewDays.filter(day => day < startDate + 7)
-const week2Dates = viewDays.filter(day => day >= startDate+7 && day<startDate+14)
-const week3Dates = viewDays.filter(day => day >= startDate+14 && day<startDate+21)
-const week4Dates = viewDays.filter(day => day >= startDate+21 && day<startDate+28)
-const week5Dates = viewDays.filter(day => day >= startDate+28 && day<startDate+35)
-const week6Dates = viewDays.filter(day => day >= startDate+35)
+const week1Dates = viewDays.filter(day => day < startDate + 7*aDay)
+const week2Dates = viewDays.filter(day => day >= startDate+7*aDay && day<startDate+14*aDay)
+const week3Dates = viewDays.filter(day => day >= startDate+14*aDay && day<startDate+21*aDay)
+const week4Dates = viewDays.filter(day => day >= startDate+21*aDay && day<startDate+28*aDay)
+const week5Dates = viewDays.filter(day => day >= startDate+28*aDay && day<startDate+35*aDay)
+const week6Dates = viewDays.filter(day => day >= startDate+35*aDay)
 
-console.log('week1Dates '+week1Dates)
-console.log('week2Dates '+week2Dates)
-console.log('week3Dates '+week3Dates)
-console.log('week4Dates '+week4Dates)
-console.log('week5Dates '+week5Dates)
-console.log('week5Dates '+week6Dates)
+// console.log('week1Dates '+week1Dates)
+// console.log('week2Dates '+week2Dates)
+// console.log('week3Dates '+week3Dates)
+// console.log('week4Dates '+week4Dates)
+// console.log('week5Dates '+week5Dates)
+// console.log('week5Dates '+week6Dates)
 
 return(
-  <table>
+  <table style={{ width:100+'%', borderCollapse:'collapse'}}>
     <tbody>
-      <tr>
-        <td>Sun</td>
-        <td>Mon</td>
-        <td>Tues</td>
-        <td>Wed</td>
-        <td>Thurs</td>
-        <td>Fri</td>
-        <td>Sat</td>
+      <tr className='calHeadRow'> 
+        <td className='calHeader'>Sun</td>
+        <td className='calHeader'>Mon</td>
+        <td className='calHeader'>Tues</td>
+        <td className='calHeader'>Wed</td>
+        <td className='calHeader'>Thurs</td>
+        <td className='calHeader'>Fri</td>
+        <td className='calHeader'>Sat</td>
       </tr>
-      <tr>{week1Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
-      <tr>{week2Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
-      <tr>{week3Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
-      <tr>{week4Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
-      <tr>{week5Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
-      <tr>{week6Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
+      <tr className='calRow'>{week1Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
+      <tr className='calRow'>{week2Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
+      <tr className='calRow'>{week3Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
+      <tr className='calRow'>{week4Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
+      <tr className='calRow'>{week5Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
+      <tr className='calRow'>{week6Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
     </tbody>
   </table>
 )

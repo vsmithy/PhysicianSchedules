@@ -207,13 +207,19 @@ section, aside {
   margin-top: 1rem;
 }
 
-td, th {
+.grid > td {
   border: 0.125rem solid #ddd;
   text-align: left;
   padding: 0.2rem;
 }
 
-tr:nth-child(even){
+.grid > th {
+  border: 0.125rem solid #ddd;
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.grid > tr:nth-child(even){
   background-color: #ddd;
 }
 
@@ -330,4 +336,30 @@ tr:nth-child(even){
 
 .assgnLeaveBtn:hover {
   background-color: #0061ff;
+}
+
+.calGrid {
+  margin: 0;
+  flex-basis: 75rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calHeader {
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-top-color: #ddd;
+  border-left-color: #ddd;
+  border-right-color: #ddd;
+  border-bottom-color: #fff;
+  padding: 0.25rem;
+}
+
+.calCell {
+  border: 0.0625rem solid #dddddd;
+  text-align: left;
+  padding: 0.25rem;
 }
