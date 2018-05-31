@@ -1,0 +1,283 @@
+
+/* ------- now for the classic view styles ------------ */
+/*                      body                        */
+/*                  /         \                     */
+/*           header            gridStats            */
+/*                             \        \           */
+/*                             grid      rightMenus */
+/* ----------------------------------------------------------------*/
+
+
+.classicHeader {
+  margin: 0;
+  padding: 0;
+  height: 4.4rem;
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gridStats {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+
+
+/* header stuffs */
+#viewSelect1 {
+  flex: 1;
+  margin-left: 1.25rem;
+}
+
+.classicNavCal {
+  flex: 10;
+  margin-left: 3.125rem;
+  color: #fff;
+  height: 100%;
+  display: flex;
+}
+
+.exportIcons {
+  flex: 1;
+  display: flex;
+  padding-right: 1.25rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.exportIcons > button {
+  display: inline;
+  margin-left: 0.625rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+}
+
+.exportIcons > button:hover {
+  color: #b2001d;
+}
+
+.calMonthFlex {
+  width: 28.125rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.calNavYear {
+  flex: 1;
+  margin-top: 0.3125rem;
+  padding: 0;
+  align-self: center;
+  font-size: 1.2rem;
+}
+
+.calNavYear > button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  margin-right: 0.3125rem;
+  margin-left: 0.3125rem;
+}
+
+.calNavYear > button:hover {
+  color: #b2001d;
+}
+
+.calNavMonth {
+  flex: 3;
+  margin-top: 0.3125rem;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  
+}
+
+.calNavMonth > li {
+  list-style-type: none;
+  margin-left: 0.625rem;
+  flex: 1;
+  text-align: center;
+}
+
+.calNavMonth > li a {
+  display: block;
+  text-decoration: none;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  border-width: medium;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.calNavMonth > li a:hover {
+  color: #b2001d;
+  border-color: #b2001d;
+}
+
+.calCircleColor {
+  color: #fff;
+  border-color: #fff;
+}
+
+.calCircleColorActive {
+  color: #b2001d;
+  border-color: #b2001d;
+}
+
+.calCircleColorPast {
+  color: #898989;
+  border-color: #898989;
+}
+
+
+
+/* gridstats stuffs */
+.grid {
+  margin: 0;
+  flex-basis: 75rem;
+  background-color: #e3e3e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightMenus {
+  margin: 0;
+  padding: 0;
+  height: 60rem;
+  flex-basis: 19rem;
+  background-color: #898989;
+  display: inline-block;
+}
+
+
+/*     grid stuff     */
+.classicTable {
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.grid > td {
+  border: 0.125rem solid #ddd;
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.grid > th {
+  border: 0.125rem solid #ddd;
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.grid > tr:nth-child(even){
+  background-color: #ddd;
+}
+
+
+/*   rightMenu stuff    */
+.expandToggle {
+  width: 100%;
+  height: 3rem;
+  border: 0.0625rem solid #000;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+}
+
+.expandToggle:hover {
+  color: #b2001d;
+}
+
+.shiftBtn {
+  width: 6rem;
+  height: 2.2rem;
+  background-color: #f2f2f2;
+  border: none;
+  margin: 0.12rem;
+}
+
+.shiftBtnActive {
+  width: 6rem;
+  height: 2.2rem;
+  background-color: #fff;
+  border: none;
+  margin: 0.12rem;
+  border: 0.125rem solid #b2001d;
+  font-size: 1.1rem;
+}
+
+.shiftBtn:hover {
+  border: 0.125rem solid #b2001d;
+}
+
+.shiftBtnNone {
+  display: none;
+}
+
+
+/*   conflicts stuffs   */
+.conflicts {
+  margin: 0;
+  padding: 0.12rem;
+}
+
+.conflicts > ul {
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+}
+
+.conflicts > ul li {
+  list-style-type: none;
+}
+
+.conflictListNone {
+  display: none;
+}
+
+.conflictsList {
+  margin-left: 0.12rem;
+  margin-bottom: 0.5rem;
+}
+
+/*  stats stuff     */
+.stats {
+  margin: 0;
+  padding: 0.12rem;
+}
+
+.stats > ul {
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+}
+
+.stats > ul li {
+  list-style-type: none;
+}
+
+.statsListNone {
+  display: none;
+}
+
+.statsList {
+  margin-left: 0.12rem;
+  margin-bottom: 0.5rem;
+}
+

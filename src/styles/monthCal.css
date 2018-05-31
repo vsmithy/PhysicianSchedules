@@ -1,0 +1,72 @@
+
+/*****************   Leave Stuff  *******************/
+.leaveContainer {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 94rem;
+  background-color: #fff;
+}
+
+.leaveBtnBkg {
+  width: 100%;
+  height: 5rem;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.assgnLeaveBtn {
+  background-color: #004fce;
+  border: none;
+  border-radius: 0.2rem;
+  color: #fff;
+  height: 2rem;
+}
+
+.assgnLeaveBtn:hover {
+  background-color: #0061ff;
+}
+
+.calGrid {
+  margin: 0;
+  flex-basis: 75rem;
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calHeader {
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-top-color: #ddd;
+  border-left-color: #ddd;
+  border-right-color: #ddd;
+  border-bottom-color: #fff;
+  padding: 0.25rem;
+}
+
+.calCell {
+  border: 0.0625rem solid #dddddd;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+/* .calBodyRows {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+} */
+
+.calRow {
+  height: 8rem;
+
+}

@@ -124,7 +124,7 @@ const week6Dates = viewDays.filter(day => day >= startDate+35*aDay)
 
 return(
   <table style={{ width:100+'%', borderCollapse:'collapse'}}>
-    <tbody>
+    <thead className='calBodyHead'>
       <tr className='calHeadRow'> 
         <td className='calHeader'>Sun</td>
         <td className='calHeader'>Mon</td>
@@ -134,6 +134,8 @@ return(
         <td className='calHeader'>Fri</td>
         <td className='calHeader'>Sat</td>
       </tr>
+    </thead>
+    <tbody className='calBodyRows'>
       <tr className='calRow'>{week1Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
       <tr className='calRow'>{week2Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
       <tr className='calRow'>{week3Dates.map(day => <CalCell day={day} key={day} events={'events'} /> )}</tr>
