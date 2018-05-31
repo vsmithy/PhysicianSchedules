@@ -1,0 +1,57 @@
+header {
+  display: flex;
+  background-color: #dddddd;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+#headerDropdown {
+  flex: 1;
+  border-style: solid;
+  border-color: #dddddd;
+  border-width: 0;
+  border-radius: 0.2rem;
+}
+
+.headerDateSelector {
+  flex: 10;
+  margin-left: 1rem;
+  background-color: orange;
+}
+
+.headerExportBtns {
+  flex: 1;
+  align-self: flex-end;
+  background-color: navy;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: wheat;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 60rem;
+  width: 94rem;
+  background-color: lavender;
+}
+
+section, aside {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles/styles.css.map */

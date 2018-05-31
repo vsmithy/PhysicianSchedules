@@ -15,9 +15,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 60rem;
   width: 94rem;
-  background-color: #fff;
+  background-color: lavender;
 }
 
 section, aside {
