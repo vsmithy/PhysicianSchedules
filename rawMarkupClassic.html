@@ -5,44 +5,379 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>rawMarkup</title>
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  <script src="main.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="src/styles/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Roboto+Mono">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
 <body>
   <header>
-    <select name="navDropdown" id="navDropdown">
-      <option value="classic">View1</option>
-      <option value="classic">View2</option>
-      <option value="classic">View3</option>
-      <option value="classic">View4</option>
-    </select>
-    <h1 style="display:inline;">i am the calendar area</h1>
-    <span>
-      <button>btn1</button>
-      <button>btn2</button>
-    </span>
+    <div role="presentation" class="viewSelectBtns">
+      <button type="button" class="active"><i class="fas fa-th fa-2x"></i></button>
+      <button type="button"><i class="far fa-calendar-alt fa-2x"></i></button>
+    </div>
+    <div role="presentation" class="headerDateSelector">
+      <div class="headerFlexContainer" role="presentation">
+        <div role="presentation" class="headerCalNavYear">
+          <button type="button"><i class="fas fa-chevron-left"></i></button>
+          <span>2018</span>
+          <button type="button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <ol role="listbox" class="headerCalNavMonth">
+          <li value="1" style="display: inline;"><a class="headerCalCircleColorPast">J</a></li>
+          <li value="2" style="display: inline;"><a class="headerCalCircleColorPast">F</a></li>
+          <li value="3" style="display: inline;"><a class="headerCalCircleColorPast">M</a></li>
+          <li value="4" style="display: inline;"><a class="headerCalCircleColorPast">A</a></li>
+          <li value="5" style="display: inline;"><a class="headerCalCircleColor">M</a></li>
+          <li value="6" style="display: inline;"><a class="headerCalCircleColor">J</a></li>
+          <li value="7" style="display: inline;"><a class="headerCalCircleColor">J</a></li>
+          <li value="8" style="display: inline;"><a class="headerCalCircleColorActive">A</a></li>
+          <li value="9" style="display: inline;"><a class="headerCalCircleColor">S</a></li>
+          <li value="10" style="display: inline;"><a class="headerCalCircleColor">O</a></li>
+          <li value="11" style="display: inline;"><a class="headerCalCircleColor">N</a></li>
+          <li value="12" style="display: inline;"><a class="headerCalCircleColor">D</a></li>
+        </ol>
+      </div>
+      <div role="presentation" class="headerExportBtns">
+        <button type="button"><i class="far fa-file-excel fa-2x"></i></button>
+        <button type="button"><i class="far fa-file-pdf fa-2x"></i></button>
+      </div>
+    </div>
   </header>
   <main>
-    <section style="display: inline-block;text-align: center;width: 500px;">I am serving this page up bro!!!</section>
-    <aside style="display: inline-block; width:200px">
-      <h2>section1</h2>
-      <section>
-        <ul>
-          <li><button>btn</button></li>
-          <li><button>btn</button></li>
-          <li><button>btn</button></li>
-          <li><button>btn</button></li>
-          <li><button>btn</button></li>
-          <li><button>btn</button></li>
-          <li><button>btn</button></li>
-        </ul>
-      </section>
-      <h2>section2</h2>
-      <section style="background-color: lightblue;">In nostrud amet laborum mollit. Labore magna amet adipisicing exercitation sit. Enim et aliqua cupidatat pariatur irure et occaecat quis labore eu anim culpa Lorem. Eiusmod elit sint nulla ea. In qui aliqua in nostrud irure nulla ut ea dolore anim incididunt consectetur deserunt.</section>
-      <h2>section3</h2>
-      <section>Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</section>
-      <h2>section4</h2>
-      <section style="background-color: lightblue;">crud notes for this month</section>
+    <section class="classicGridSection" role="application" style="display: inline-block;text-align: center;width: 400px;">
+      <div class="grid" role="grid">
+        <!-- the rows of the grid -->
+        <div class="classicGridDateCol" role="grid">
+          <div class="classicGridMonthName" role="columnheader">April</div>
+          <div class="classicGridDate" role="rowheader">1</div>
+          <div class="classicGridDate" role="rowheader">2</div>
+          <div class="classicGridDate" role="rowheader">3</div>
+          <div class="classicGridDate" role="rowheader">4</div>
+          <div class="classicGridDate" role="rowheader">5</div>
+          <div class="classicGridDate" role="rowheader">6</div>
+          <div class="classicGridDate" role="rowheader">7</div>
+          <div class="classicGridDate" role="rowheader">8</div>
+          <div class="classicGridDate" role="rowheader">9</div>
+          <div class="classicGridDate" role="rowheader">10</div>
+          <div class="classicGridDate" role="rowheader">11</div>
+          <div class="classicGridDate" role="rowheader">12</div>
+          <div class="classicGridDate" role="rowheader">13</div>
+          <div class="classicGridDate" role="rowheader">14</div>
+          <div class="classicGridDate" role="rowheader">15</div>
+          <div class="classicGridDate" role="rowheader">16</div>
+          <div class="classicGridDate" role="rowheader">17</div>
+          <div class="classicGridDate" role="rowheader">18</div>
+          <div class="classicGridDate" role="rowheader">19</div>
+          <div class="classicGridDate" role="rowheader">20</div>
+          <div class="classicGridDate" role="rowheader">21</div>
+          <div class="classicGridDate" role="rowheader">22</div>
+          <div class="classicGridDate" role="rowheader">23</div>
+          <div class="classicGridDate" role="rowheader">24</div>
+          <div class="classicGridDate" role="rowheader">25</div>
+          <div class="classicGridDate" role="rowheader">26</div>
+          <div class="classicGridDate" role="rowheader">27</div>
+          <div class="classicGridDate" role="rowheader">28</div>
+          <div class="classicGridDate" role="rowheader">29</div>
+          <div class="classicGridDate" role="rowheader">30</div>
+          <div class="classicGridDate" role="rowheader">31</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Person 1</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Person 2</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Person 3</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Person 4</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Person 5</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Person 6</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">MFM Call</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">.</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+        </div>
+        <div class="classicGridPersonCol" role="column">
+          <div class="classicGridPersonName" role="columnheader">Backup</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+          <div class="classicGridCell" role="cell">stuff</div>
+        </div>
+      </div>
+    </section>
+    <aside class="classicAside">
+      <div class="supportingInfo">
+        <button role="switch" type="button" class="switchBtn">Assign Shifts <i class="fas fa-chevron-down"></i></button>
+        <div role="presentation" class="shiftComponent">
+          <ul role="listbox">
+            <li><button type="button" class="shiftBtn">Admin</button></li>
+            <li><button type="button" class="shiftBtn">Clinic</button></li>
+            <li><button type="button" class="shiftBtn">G</button></li>
+            <li><button type="button" class="shiftBtn">Leave</button></li>
+            <li><button type="button" class="shiftBtn">LDD</button></li>
+            <li><button type="button" class="shiftBtn">LDN</button></li>
+            <li><button type="button" class="shiftBtn active">OR</button></li>
+            <li><button type="button" class="shiftBtn">Processing</button></li>
+            <li><button type="button" class="shiftBtn">Ward</button></li>
+          </ul>
+        </div>
+        <button role="switch" type="button" class="switchBtn">Assignment Conflicts <i class="fas fa-chevron-down"></i></button>
+        <div role="presentation" style="background-color: lightblue;"  class="conflictsComponent">In nostrud amet laborum mollit. Labore magna amet adipisicing exercitation sit. Enim et aliqua cupidatat pariatur irure et occaecat quis labore eu anim culpa Lorem. Eiusmod elit sint nulla ea. In qui aliqua in nostrud irure nulla ut ea dolore anim incididunt consectetur deserunt.</div>
+        <button role="switch" type="button" class="switchBtn">Stats <i class="fas fa-chevron-down"></i></button>
+        <div role="presentation"  class="statsComponent">Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</div>
+        <div role="presentation" style="background-color: lightblue;"  class="notesComponent">crud notes for this month Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</div>
+      </div>
     </aside>
   </main>
 </body>
