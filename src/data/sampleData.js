@@ -131,10 +131,157 @@ export const statsData = [
 export const events = [
   {
     'id':1,
-    'date':'ttt',
-    'personId':2,
-    'shift':8,
-  }
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 2,
+    'shiftName': 'OR',
+    'notes': [
+      {
+        'id': 1,
+        'date': new Date(),
+        'detail': 'I am a note...come at me bro!!!'
+      },
+      {
+        'id': 2,
+        'date': new Date(),
+        'detail': 'He whom has smelt it has dealt it.'
+      },
+    ],
+  },
+  {
+    'id':2,
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 3,
+    'shiftName': 'LDD',
+    'notes': [],
+  },
+  {
+    'id':3,
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 3,
+    'shiftName': 'Clinic 1',
+    'notes': [
+      {
+        'id': 3,
+        'date': new Date(),
+        'detail': 'Clinic 3 Bro!!!'
+      },
+    ],
+  },
+  {
+    'id':4,
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 1,
+    'shiftName': 'Leave',
+    'notes': [],
+  },
+  {
+    'id':5,
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 1,
+    'shiftName': 'Ward',
+    'notes': [],
+  },
+  {
+    'id':6,
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 3,
+    'shiftName': 'G',
+    'notes': [],
+  },
+  {
+    'id':7,
+    'date': new Date(), //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 4,
+    'shiftName': 'Processing',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+]
+
+export const person = [
+  {
+    'id': 4,
+    'name': 'Person Obi',
+    'jobRole': 'fullscope',
+    'rules': [
+      {
+        'id': 334,
+        'detail': 'no pizza after 9pm (on odd numbered days only)'
+      },
+      {
+        'id': 335,
+        'detail': 'no OR after next week'
+      },
+      {
+        'id': 336,
+        'detail': 'mandatory admin time every wednesday morning'
+      },
+    ],
+    'isActive': true,
+  },
+  {
+    'id': 1,
+    'name': 'Mary Wan',
+    'jobRole': 'fullscope',
+    'rules': [
+      {
+        'id': 337,
+        'detail': 'day call only'
+      },
+      {
+        'id': 338,
+        'detail': 'off during entire month of Ramadan'
+      },
+      {
+        'id': 339,
+        'detail': 'must have chocolate for every shift'
+      },
+    ],
+    'isActive': true,
+  },
+  {
+    'id': 2,
+    'name': 'Cartey Bee',
+    'jobRole': 'mfm',
+    'rules': [
+      {
+        'id': 340,
+        'detail': 'only assigned the EASY stuff and ONLY under supervision'
+      },
+    ],
+    'isActive': true,
+  },
+  {
+    'id': 3,
+    'name': 'Thunder Magnussen',
+    'jobRole': 'gyn',
+    'rules': [
+      {
+        'id': 341,
+        'detail': 'no OR for this guy after THAT happened'
+      },
+    ],
+    'isActive': true,
+  },
 ]
 
 export const rules = {}
