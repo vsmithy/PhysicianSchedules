@@ -2,12 +2,18 @@
 // the dropdown
 // the date selector
 // the export buttons
-  
-  
+
+//variables
+$red: #b2001d
+$white: #fff
+$dark-grey: #333
+$medium-grey: #898989
+
+//header
 header
   height: 4.4rem
   width: 100%
-  background-color: #333
+  background-color: $dark-grey
   display: flex
   flex-direction: row
   justify-content: flex-start
@@ -15,15 +21,16 @@ header
   
   .viewSelectBtns
     margin-left: 0.5rem
-    button 
-      display: inline
-      color: #fff
-      background-color: #333
-      border: none
-      &:hover
-        color: #b2001d
-      &.active
-        color: #b2001d
+  
+  .viewSelectBtn 
+    display: inline
+    color: $white
+    background-color: $dark-grey
+    border: none
+    &:hover
+      color: $red
+    &.active
+      color: $red
 
 
   
@@ -31,10 +38,10 @@ header
 .headerDateSelector
   flex: 10
   margin-left: 3.125rem
-  color: #fff
+  color: $white
   height: 100%
   display: flex
-  background-color: #333
+  background-color: $dark-grey
 
 .headerFlexContainer
   width: 28.125rem
@@ -49,17 +56,15 @@ header
   margin-top: 0.3125rem
   align-self: center
   font-size: 1.2rem
-
   button
     text-decoration: none
-    color: #fff
-    background-color: #333
+    color: $white
+    background-color: $dark-grey
     border: none
     margin-right: 0.3125rem
     margin-left: 0.3125rem
-
-  button:hover 
-    color: #b2001d
+    &:hover 
+      color: $red
 
 .headerCalNavMonth 
   flex: 3
@@ -69,13 +74,11 @@ header
   flex-direction: row
   justify-content: center
   align-items: stretch
-
   li 
     list-style-type: none
     margin-left: 0.625rem
     flex: 1
     text-align: center
-
   li a 
     display: block
     text-decoration: none
@@ -84,22 +87,21 @@ header
     border-width: medium
     border-style: solid
     border-radius: 50%
-
-  li a:hover 
-    color: #b2001d
-    border-color: #b2001d
+    &:hover 
+      color: $red
+      border-color: $red
 
 .headerCalCircleColor 
-  color: #fff
-  border-color: #fff
+  color: $white
+  border-color: $white
 
 .headerCalCircleColorActive 
-  color: #b2001d
-  border-color: #b2001d
+  color: $red
+  border-color: $red
 
 .headerCalCircleColorPast 
-  color: #898989
-  border-color: #898989
+  color: $medium-grey
+  border-color: $medium-grey
   
   
   
@@ -113,13 +115,11 @@ header
   justify-content: flex-end
   align-items: center
 
-.headerExportBtns
-  button 
-    display: inline
-    margin-left: 0.625rem
-    color: #fff
-    background-color: #333
-    border: none
-
-  button:hover 
-    color: #b2001d
+.headerExportBtn
+  display: inline
+  margin-left: 0.625rem
+  color: $white
+  background-color: $dark-grey
+  border: none
+  &:hover 
+    color: $red

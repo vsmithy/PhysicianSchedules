@@ -46,16 +46,16 @@ header {
 header .viewSelectBtns {
   margin-left: 0.5rem;
 }
-header .viewSelectBtns button {
+header .viewSelectBtn {
   display: inline;
   color: #fff;
   background-color: #333;
   border: none;
 }
-header .viewSelectBtns button:hover {
+header .viewSelectBtn:hover {
   color: #b2001d;
 }
-header .viewSelectBtns button.active {
+header .viewSelectBtn.active {
   color: #b2001d;
 }
 
@@ -148,14 +148,14 @@ header .viewSelectBtns button.active {
   align-items: center;
 }
 
-.headerExportBtns button {
+.headerExportBtn {
   display: inline;
   margin-left: 0.625rem;
   color: #fff;
   background-color: #333;
   border: none;
 }
-.headerExportBtns button:hover {
+.headerExportBtn:hover {
   color: #b2001d;
 }
 
@@ -180,7 +180,7 @@ header .viewSelectBtns button.active {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-left: 0.0625rem solid #ddd;
+  border-left: 0.0625rem solid #eeeeee;
 }
 
 .gridRow {
@@ -190,14 +190,14 @@ header .viewSelectBtns button.active {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  border-bottom: 0.0625rem solid #ddd;
-  border-left: 0.0625rem solid #ddd;
+  border-bottom: 0.0625rem solid #eeeeee;
+  border-left: 0.0625rem solid #eeeeee;
 }
 
 .gridHeaderCell {
   flex: 1;
   text-align: left;
-  border-right: 0.0625rem solid #ddd;
+  border-right: 0.0625rem solid #eeeeee;
   height: 100%;
 }
 
@@ -208,7 +208,7 @@ header .viewSelectBtns button.active {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  border-right: 0.0625rem solid #ddd;
+  border-right: 0.0625rem solid #eeeeee;
 }
 
 .gridNum {
@@ -217,7 +217,7 @@ header .viewSelectBtns button.active {
 
 .gridEvent {
   background-color: teal;
-  color: #ffffff;
+  color: #fff;
   text-align: left;
   width: 90%;
   padding: 0.125rem;
@@ -228,42 +228,9 @@ header .viewSelectBtns button.active {
 .classicGridSection {
   flex-basis: 75rem;
   height: 100%;
-}
-
-.classicGridDateCol {
-  width: 6rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.classicGridPersonCol {
-  width: 6rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 0.2rem;
-}
-
-.classicGridCell, .classicGridPersonName, .classicGridDate, .classicGridMonthName {
-  flex: 1;
-  width: 100%;
-  border: 0.0625rem solid #ffffff;
-}
-.classicGridCell:hover, .classicGridPersonName:hover, .classicGridDate:hover, .classicGridMonthName:hover {
-  border-color: #b2001d;
-}
-
-.classicGridCell:nth-child(odd) {
-  background-color: #eee;
-}
-
-.classicGridDate:nth-child(odd) {
-  background-color: #eee;
+  display: inline-block;
+  border-bottom: 0.0625rem solid #eeeeee;
+  border-left: 0.0625rem solid #eeeeee;
 }
 
 .classicGrid {
@@ -273,6 +240,53 @@ header .viewSelectBtns button.active {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+.classicGridDateCol {
+  width: 6rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-right: 0.0625rem solid #eeeeee;
+}
+
+.classicGridPersonCol {
+  width: 6rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-right: 0.0625rem solid #eeeeee;
+}
+
+.classicGridPersonName {
+  border-bottom: 0.0625rem solid #eeeeee;
+}
+
+.classicGridMonthName {
+  border-bottom: 0.0625rem solid #eeeeee;
+}
+
+.classicGridCell, .classicGridPersonName, .classicGridDate, .classicGridMonthName {
+  flex: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.classicGridCell:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.classicGridDate:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.classicGridCell:hover {
+  background-color: #898989;
+  color: #fff;
 }
 
 aside {
