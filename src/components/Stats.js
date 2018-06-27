@@ -17,3 +17,7 @@ export default class Stats extends Component {
     )//return
   }//render
 }//Component
+
+
+
+        <div role="presentation"  class="statsComponent">Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</div>

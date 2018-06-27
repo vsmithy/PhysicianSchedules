@@ -357,6 +357,7 @@ aside .supportingInfo .switchBtn:hover {
 aside .supportingInfo .shiftComponent {
   height: 4.9rem;
   transition: height 0.35s ease-in-out;
+  overflow: hidden;
 }
 aside .supportingInfo .shiftComponent.closed {
   height: 0;

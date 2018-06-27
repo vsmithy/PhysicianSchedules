@@ -14,7 +14,7 @@ class ClassicContainer extends Component {
     return (
       <div>
         <Header {...this.props} />
-        <main className='gridStats'>
+        <main>
           <Grid />
           <RightMenus {...this.props}/>
         </main>

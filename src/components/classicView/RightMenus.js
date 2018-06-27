@@ -24,28 +24,25 @@ export default class RightMenus extends Component {
   }//handle shift toggle
   handleConflictToggle(){
     this.state.conflictViewHeight === 0 ? this.setState({conflictViewHeight: '10rem'}) : this.setState({conflictViewHeight: 0})
-  }//handle shift toggle
+  }//handle conflict toggle
   handleStatsToggle(){
     this.state.statsViewHeight === 0 ? this.setState({statsViewHeight: '10rem'}) : this.setState({statsViewHeight: 0})
-  }//handle shift toggle
-  handleNotesToggle(){
-    this.state.notesViewHeight === 0 ? this.setState({notesViewHeight: '20rem'}) : this.setState({notesViewHeight: 0})
-  }//handle shift toggle
+  }//handle stats toggle
 
   render(){
     const { shifts, currentViewProperties, changeSelectedShft } = this.props
     return (
-      <aside className='rightMenus'>
-        <button className='expandToggle' onClick={() => this.handleShiftToggle()}>Assign Shifts</button>
-        <ShiftSelect viewHeight={this.state.shiftViewHeight} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
-        <button className='expandToggle' onClick={() => this.handleConflictToggle()}>Assignment Conflicts</button>
-        <Conflicts viewHeight={this.state.conflictViewHeight} {...this.props} />
-        <button className='expandToggle' onClick={() => this.handleStatsToggle()}>Stats</button>
-        <Stats viewHeight={this.state.statsViewHeight} {...this.props} />
-        <button className='expandToggle' onClick={() => this.handleNotesToggle()}>Notes</button>
-        <NotesComponent viewHeight={this.state.notesViewHeight}/>
+      <aside className="classicAside">
+        <div className="classicSupportingInfo">
+          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleShiftToggle()}>Assign Shifts <i className="fas fa-chevron-down"></i></button>
+          <ShiftSelect viewHeight={this.state.shiftViewHeight} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
+          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleConflictToggle()}>Assignment Conflicts <i className="fas fa-chevron-down"></i></button>
+          <Conflicts viewHeight={this.state.conflictViewHeight} {...this.props} />
+          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleStatsToggle()}>Stats <i className="fas fa-chevron-down"></i></button>
+          <Stats viewHeight={this.state.statsViewHeight} {...this.props} />
+          <NotesComponent viewHeight={this.state.notesViewHeight}/>
+        </div>
       </aside>
     )//return
   }//render
 }//right mennu
-

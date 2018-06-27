@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 
 //others and such
 import ClassicContainer from './ClassicContainer'
-import LeaveContainer from './LeaveContainer'
+import "../styles/styles.css"
+// import LeaveContainer from './LeaveContainer'
 
 export default class AppContainer extends Component {
   render() {

@@ -16,3 +16,6 @@ export default class Conflicts extends Component {
     )//return
   }//render
 }//Component
+
+
+        <div role="presentation" style="background-color: lightblue;"  class="conflictsComponent">In nostrud amet laborum mollit. Labore magna amet adipisicing exercitation sit. Enim et aliqua cupidatat pariatur irure et occaecat quis labore eu anim culpa Lorem. Eiusmod elit sint nulla ea. In qui aliqua in nostrud irure nulla ut ea dolore anim incididunt consectetur deserunt.</div>

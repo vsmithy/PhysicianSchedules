@@ -46,28 +46,23 @@ export default class ClassicNavCal extends Component {
   render(){
     const { currentViewProperties } = this.props
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
-    const whichClass = (idx) => currentViewProperties.currentMonth > idx ? 'calCircleColorPast' : 'calCircleColor'
+    const whichClass = (idx) => currentViewProperties.currentMonth > idx ? 'headerCalCircleColorPast' : 'headerCalCircleColor'
 
     return (
-      <span className='classicNavCal'>
-        <div className='calMonthFlex'>
-          <span className='calNavYear'>
-            <button onClick={() => this.props.changeYear(-1)}><i className="fas fa-chevron-left"></i></button>
-            {this.props.currentViewProperties.yearSelect}
-            <button onClick={() => this.props.changeYear(1)}><i className="fas fa-chevron-right"></i></button>
-          </span>
-          <ul className='calNavMonth'>
-            {
-              months.map((month, i) => (
-                  <li key={i}>
-                    <a className={this.state.activeMonthSelection === i ? 'calCircleColorActive' : whichClass(i)} onClick={() => this.updateMonth(i)}>{month[0]}</a>
-                  </li>
-                )
-              )//map
-            }
-          </ul>
+      <div className="headerFlexContainer" role="presentation">
+        <div role="presentation" className="headerCalNavYear">
+          <button type="button" onClick={() => this.props.changeYear(-1)}><i className="fas fa-chevron-left"></i></button>
+          <span>{this.props.currentViewProperties.yearSelect}</span>
+          <button type="button" onClick={() => this.props.changeYear(1)}><i className="fas fa-chevron-right"></i></button>
         </div>
-      </span>
+        <ol role="listbox" className="headerCalNavMonth">
+          {
+            months.map((month, i) => (
+              <li key={i} value={i}><a className={this.state.activeMonthSelection === i ? 'headerCalCircleColorActive' : whichClass(i)} onClick={() => this.updateMonth(i)}>{month[0]}</a></li>
+            ))
+          }
+        </ol>
+      </div>
     )//return
   }//render
 }//ClassicNavCal
