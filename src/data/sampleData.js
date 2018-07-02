@@ -131,7 +131,7 @@ export const statsData = [
 export const events = [
   {
     'id':1,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1526169600000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 2,
@@ -151,7 +151,7 @@ export const events = [
   },
   {
     'id':2,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1526169600000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 3,
@@ -160,7 +160,7 @@ export const events = [
   },
   {
     'id':3,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1525392000000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 3,
@@ -175,7 +175,7 @@ export const events = [
   },
   {
     'id':4,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1526342400000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 1,
@@ -184,7 +184,7 @@ export const events = [
   },
   {
     'id':5,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1527206400000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 1,
@@ -193,7 +193,7 @@ export const events = [
   },
   {
     'id':6,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1527292800000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 3,
@@ -202,7 +202,7 @@ export const events = [
   },
   {
     'id':7,
-    'date': new Date(), //actually make this milliseconds
+    'date': 1527292800000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 4,
@@ -272,7 +272,7 @@ export const person = [
   },
   {
     'id': 3,
-    'name': 'Thunder Magnussen',
+    'name': 'Thund',
     'jobRole': 'gyn',
     'rules': [
       {
