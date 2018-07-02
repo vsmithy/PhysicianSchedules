@@ -41,3 +41,5 @@ export default class ClassicPersonCol extends Component{
     )
   }
 }
+
+// if getUTCDay() is 0 or 6

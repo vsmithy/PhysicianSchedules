@@ -262,18 +262,21 @@ header .viewSelectBtn.active {
   border-right: 0.0625rem solid #eeeeee;
 }
 
-.classicGridPersonName {
-  border-bottom: 0.0625rem solid #eeeeee;
-}
-
-.classicGridMonthName {
-  border-bottom: 0.0625rem solid #eeeeee;
-}
-
 .classicGridCell, .classicGridPersonName, .classicGridDate, .classicGridMonthName {
   flex: 1;
   width: 100%;
   text-align: center;
+}
+
+.classicGridPersonName {
+  border-bottom: 0.0625rem solid #eeeeee;
+  flex: 2;
+  overflow: hidden;
+}
+
+.classicGridMonthName {
+  border-bottom: 0.0625rem solid #eeeeee;
+  flex: 2;
 }
 
 .classicGridCell:nth-child(odd) {
@@ -412,6 +415,11 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   right: 0.8rem;
   float: right;
   margin-top: 0.3rem;
+  transition: all 0.35s ease-in-out;
+  transform: rotate(180deg);
+}
+.classicSupportingInfo .switchBtn i.rotated {
+  transform: rotate(0deg);
 }
 .classicSupportingInfo .switchBtn:hover {
   color: #b2001d;

@@ -34,11 +34,11 @@ export default class RightMenus extends Component {
     return (
       <aside className="classicAside">
         <div className="classicSupportingInfo">
-          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleShiftToggle()}>Assign Shifts <i className="fas fa-chevron-down"></i></button>
+          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleShiftToggle()}>Assign Shifts <i className={this.state.shiftViewToggle === "shiftComponent closed" ? "fas fa-chevron-down" : "fas fa-chevron-down rotated"}></i></button>
           <ShiftSelect viewHeight={this.state.shiftViewToggle} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
-          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleConflictToggle()}>Assignment Conflicts <i className="fas fa-chevron-down"></i></button>
+          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleConflictToggle()}>Assignment Conflicts <i className={this.state.conflictViewToggle === "conflictsComponent closed" ? "fas fa-chevron-down" : "fas fa-chevron-down rotated"}></i></button>
           <Conflicts viewHeight={this.state.conflictViewToggle} {...this.props} />
-          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleStatsToggle()}>Stats <i className="fas fa-chevron-down"></i></button>
+          <button role="switch" type="button" className="switchBtn" onClick={() => this.handleStatsToggle()}>Stats <i className={this.state.statsViewToggle === "statsComponent closed" ? "fas fa-chevron-down" : "fas fa-chevron-down rotated"}></i></button>
           <Stats viewHeight={this.state.statsViewToggle} {...this.props} />
           <NotesComponent {...this.props}/>
         </div>
