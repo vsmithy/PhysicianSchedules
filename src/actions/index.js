@@ -18,7 +18,8 @@ export const resolveConflicts = (id) => ({ type: types.RESOLVE_CONFLICT, id })
 //stats
 export const addStats = () => ({ type: types.ADD_STAT })
 
-
+//events
+export const addEvent = eventDetails => ({ type: types.ADD_EVENT, eventDetails })
 
 
 

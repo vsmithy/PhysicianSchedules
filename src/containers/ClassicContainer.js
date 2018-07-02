@@ -28,6 +28,7 @@ const mapStateToProps = state => ({
   shifts: state.shifts,
   conflicts: state.conflicts,
   stats: state.stats,
+  eventsReducer: state.eventsReducer,
  })
  
  const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))

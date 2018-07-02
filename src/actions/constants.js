@@ -17,3 +17,6 @@ export const RESOLVE_CONFLICT = 'RESOLVE_CONFLICT'
 //stats
 //this is only for sample data. once live, the app will calc stats from the other data stores
 export const ADD_STAT = 'ADD_STAT'
+
+//events
+export const ADD_EVENT = 'ADD_EVENT'

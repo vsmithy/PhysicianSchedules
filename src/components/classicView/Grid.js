@@ -49,7 +49,14 @@ export default class Grid extends Component {
             {monthDates.map(day => <div className="classicGridDate" role="rowheader" key={day}>{day}</div>)}
           </div>
 
-          {person.map(item => <ClassicPersonCol monthDates={monthDates} personID={item.id} key={item.id} personDetails={item} currentViewProperties={this.props.currentViewProperties} />)}
+          {person.map(item => <ClassicPersonCol 
+            key={item.id} 
+            monthDates={monthDates} 
+            personID={item.id} 
+            personDetails={item} 
+            currentViewProperties={this.props.currentViewProperties}
+            addEvent={this.props.addEvent} 
+            />)}
 
         </div>
       </section>

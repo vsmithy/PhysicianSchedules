@@ -2,6 +2,35 @@ import React, { Component } from 'react'
 import { events } from '../../data/sampleData'
 
 export default class ClassicPersonCol extends Component{
+  constructor(props){
+    super(props)
+
+    this.state = {
+      'monthSelect': this.props.currentViewProperties.monthSelect,
+    }
+  }
+
+  handleNewEvent(item, idx){
+    // console.log('add event clicked for ' + this.props.personDetails.name + ' details: ' + item + ' and ' + idx)
+
+    //make utc date
+    const { currentViewProperties } = this.props
+    let yearSelect = currentViewProperties.yearSelect
+    let monthSelect = currentViewProperties.monthSelect
+
+    let dateSelected = Date.UTC(yearSelect, monthSelect, idx+1)
+    // console.log('current shift ' + this.props.currentViewProperties.shiftSelect)
+
+    let newEventDetails = {
+      'date': dateSelected,
+      'personId': this.props.personDetails.id,
+      'shiftName': this.props.currentViewProperties.shiftSelect,
+    }
+
+    this.props.addEvent(newEventDetails)
+    this.setState({'monthSelect': monthSelect})
+  }
+
   render(){
     const { currentViewProperties } = this.props
     let yearSelect = currentViewProperties.yearSelect
@@ -36,7 +65,7 @@ export default class ClassicPersonCol extends Component{
     return (
       <div className="classicGridPersonCol" role="column">
             <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-            {monthEventList.map((item, idx) => <div key={idx} className="classicGridCell" role="cell">{item}</div>)}
+            {monthEventList.map((item, idx) => <div key={idx} className="classicGridCell" role="cell" onClick={() => this.handleNewEvent(item, idx)}>{item}</div>)}
         </div>
     )
   }

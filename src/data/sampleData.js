@@ -373,7 +373,7 @@ export const events = [
 export const person = [
   {
     'id': 4,
-    'name': 'Person Obinobilobisobi',
+    'name': 'Person Obi',
     'jobRole': 'fullscope',
     'rules': [
       {
@@ -425,7 +425,7 @@ export const person = [
   },
   {
     'id': 3,
-    'name': 'ABCDE GOPnheenhhnhjdnhd',
+    'name': 'Thunder Magnussen',
     'jobRole': 'gyn',
     'rules': [
       {
