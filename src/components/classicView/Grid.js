@@ -44,12 +44,12 @@ export default class Grid extends Component {
     return (
       <section className="classicGridSection" role="application">
         <div className="classicGrid" role="grid">
-          <div class="classicGridDateCol" role="grid">
-            <div class="classicGridMonthName" role="columnheader">{getMonth(selectedMonth)}</div>
-            {monthDates.map(day => <div class="classicGridDate" role="rowheader" key={day}>{day}</div>)}
+          <div className="classicGridDateCol" role="grid">
+            <div className="classicGridMonthName" role="columnheader">{getMonth(selectedMonth)}</div>
+            {monthDates.map(day => <div className="classicGridDate" role="rowheader" key={day}>{day}</div>)}
           </div>
 
-          {person.map(item => <ClassicPersonCol monthDates={monthDates} personID={item.id} key={item.id} personDetails={item} />)}
+          {person.map(item => <ClassicPersonCol monthDates={monthDates} personID={item.id} key={item.id} personDetails={item} currentViewProperties={this.props.currentViewProperties} />)}
 
         </div>
       </section>

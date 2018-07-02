@@ -131,7 +131,7 @@ export const statsData = [
 export const events = [
   {
     'id':1,
-    'date': 1526169600000, //actually make this milliseconds
+    'date': 1523059200000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 2,
@@ -151,7 +151,7 @@ export const events = [
   },
   {
     'id':2,
-    'date': 1526169600000, //actually make this milliseconds
+    'date': 1523491200000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 3,
@@ -160,7 +160,7 @@ export const events = [
   },
   {
     'id':3,
-    'date': 1525392000000, //actually make this milliseconds
+    'date': 1523577600000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 3,
@@ -175,7 +175,7 @@ export const events = [
   },
   {
     'id':4,
-    'date': 1526342400000, //actually make this milliseconds
+    'date': 1523664000000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 1,
@@ -184,7 +184,7 @@ export const events = [
   },
   {
     'id':5,
-    'date': 1527206400000, //actually make this milliseconds
+    'date': 1523923200000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 1,
@@ -193,7 +193,7 @@ export const events = [
   },
   {
     'id':6,
-    'date': 1527292800000, //actually make this milliseconds
+    'date': 1524787200000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 3,
@@ -202,7 +202,160 @@ export const events = [
   },
   {
     'id':7,
-    'date': 1527292800000, //actually make this milliseconds
+    'date': 1524787200000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 4,
+    'shiftName': 'Processing',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+
+
+//may
+  {
+    'id':8,
+    'date': 1525132800000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 1,
+    'shiftName': 'Ward',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':9,
+    'date': 1525132800000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 2,
+    'shiftName': 'G',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':10,
+    'date': 1525132800000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 3,
+    'shiftName': 'OR',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':11,
+    'date': 1525305600000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 4,
+    'shiftName': 'Clinic 1',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':12,
+    'date':  1525651200000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 4,
+    'shiftName': 'LDD',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':13,
+    'date': 1526256000000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 2,
+    'shiftName': 'LDN',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':14,
+    'date': 1526342400000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 1,
+    'shiftName': 'Clinic 1',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':15,
+    'date': 1526342400000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 3,
+    'shiftName': 'OR',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':16,
+    'date': 1526688000000, //actually make this milliseconds
+    'dayType': 2,
+    'dayPortion': 'full',
+    'personId': 1,
+    'shiftName': 'Leave',
+    'notes': [
+      {
+        'id': 4,
+        'date': new Date(),
+        'detail': 'May the 4th note be with you'
+      },
+    ],
+  },
+  {
+    'id':17,
+    'date': 1526947200000, //actually make this milliseconds
     'dayType': 2,
     'dayPortion': 'full',
     'personId': 4,
