@@ -17,16 +17,11 @@ export default class ShiftSelect extends Component {
 
   render(){
     const { viewHeight, shifts, currentViewProperties, changeSelectedShft } = this.props
-    const defaultStyle = {
-      transition: 'height 125ms ease-in-out',
-      height: viewHeight, 
-      padding: 0.126 + 'rem'
-    }
 
     const viewActive = (isSelected) => this.state.activeShift === isSelected ? 'shiftBtnActive' : 'shiftBtn'
 
     return (
-      <div role="presentation" class="shiftComponent">
+      <div role="presentation" className={viewHeight}>
         <ul role="listbox">
           {
             shifts.map(shift => <li key={shift.id}><button type="button" className="shiftBtn" onClick={() => this.handleShiftChange(shift.shiftName)}>{shift.shiftName}</button></li>)

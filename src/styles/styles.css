@@ -355,7 +355,7 @@ aside .supportingInfo .switchBtn:hover {
   color: #b2001d;
 }
 aside .supportingInfo .shiftComponent {
-  height: 4.9rem;
+  height: 8rem;
   transition: height 0.35s ease-in-out;
   overflow: hidden;
 }
@@ -417,8 +417,9 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   color: #b2001d;
 }
 .classicSupportingInfo .shiftComponent {
-  height: 4.9rem;
+  height: 7.5rem;
   transition: height 0.35s ease-in-out;
+  overflow: hidden;
 }
 .classicSupportingInfo .shiftComponent.closed {
   height: 0;
@@ -448,6 +449,22 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 .classicSupportingInfo .shiftComponent ul li .shiftBtn.none {
   display: none;
+}
+.classicSupportingInfo .conflictsComponent {
+  height: 7.5rem;
+  transition: height 0.35s ease-in-out;
+  overflow: hidden;
+}
+.classicSupportingInfo .conflictsComponent.closed {
+  height: 0;
+}
+.classicSupportingInfo .statsComponent {
+  height: 7.5rem;
+  transition: height 0.35s ease-in-out;
+  overflow: hidden;
+}
+.classicSupportingInfo .statsComponent.closed {
+  height: 0;
 }
 
 /*# sourceMappingURL=styles/styles.css.map */

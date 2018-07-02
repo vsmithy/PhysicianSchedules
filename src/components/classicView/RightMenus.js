@@ -11,22 +11,22 @@ export default class RightMenus extends Component {
     super(props)
 
     this.state = {
-      shiftViewHeight: 0,
-      conflictViewHeight: 0,
-      statsViewHeight: 0,
-      notesViewHeight: 0,
+      shiftViewToggle: "shiftComponent closed",
+      conflictViewToggle: "conflictsComponent closed",
+      statsViewToggle: "statsComponent closed",
     }
   }
 
   //toggle the right menus
   handleShiftToggle(){
-    this.state.shiftViewHeight === 0 ? this.setState({shiftViewHeight: '10rem'}) : this.setState({shiftViewHeight: 0})
+    // console.log('currently: ' + this.state.shiftViewToggle)
+    this.state.shiftViewToggle === "shiftComponent closed" ? this.setState({shiftViewToggle: "shiftComponent"}) : this.setState({shiftViewToggle: "shiftComponent closed"})
   }//handle shift toggle
   handleConflictToggle(){
-    this.state.conflictViewHeight === 0 ? this.setState({conflictViewHeight: '10rem'}) : this.setState({conflictViewHeight: 0})
+    this.state.conflictViewToggle === "conflictsComponent closed" ? this.setState({conflictViewToggle: 'conflictsComponent'}) : this.setState({conflictViewToggle: "conflictsComponent closed"})
   }//handle conflict toggle
   handleStatsToggle(){
-    this.state.statsViewHeight === 0 ? this.setState({statsViewHeight: '10rem'}) : this.setState({statsViewHeight: 0})
+    this.state.statsViewToggle === "statsComponent closed" ? this.setState({statsViewToggle: "statsComponent"}) : this.setState({statsViewToggle: "statsComponent closed"})
   }//handle stats toggle
 
   render(){
@@ -35,12 +35,12 @@ export default class RightMenus extends Component {
       <aside className="classicAside">
         <div className="classicSupportingInfo">
           <button role="switch" type="button" className="switchBtn" onClick={() => this.handleShiftToggle()}>Assign Shifts <i className="fas fa-chevron-down"></i></button>
-          <ShiftSelect viewHeight={this.state.shiftViewHeight} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
+          <ShiftSelect viewHeight={this.state.shiftViewToggle} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
           <button role="switch" type="button" className="switchBtn" onClick={() => this.handleConflictToggle()}>Assignment Conflicts <i className="fas fa-chevron-down"></i></button>
-          <Conflicts viewHeight={this.state.conflictViewHeight} {...this.props} />
+          <Conflicts viewHeight={this.state.conflictViewToggle} {...this.props} />
           <button role="switch" type="button" className="switchBtn" onClick={() => this.handleStatsToggle()}>Stats <i className="fas fa-chevron-down"></i></button>
-          <Stats viewHeight={this.state.statsViewHeight} {...this.props} />
-          <NotesComponent viewHeight={this.state.notesViewHeight}/>
+          <Stats viewHeight={this.state.statsViewToggle} {...this.props} />
+          <NotesComponent {...this.props}/>
         </div>
       </aside>
     )//return
