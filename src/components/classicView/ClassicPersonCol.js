@@ -59,12 +59,20 @@ export default class ClassicPersonCol extends Component{
       let tmpList = eventList[i]['events'].filter(item => item.personId === personID)
       theirEvents.push(tmpList)
     }
-    console.log(theirEvents)
-
-
-
-    // theirEvents.map(evnt => console.log(this.props.personDetails.name + " all events:  " + (new Date(evnt.date)).getUTCDate()))
-    // console.log(this.props.personDetails.name + " all events:  " + theirEvents)
+    // console.log(theirEvents)
+    
+    
+    
+    
+    //grab info from props (events reducer) and filter out WEEKENDS for each person
+    let weekendList = []
+    for(let i=1;i<monthDates.length+1;i++){
+      let tmpDay = eventList[i]['dayType']
+      if(tmpDay === 'weekend'){
+        weekendList.push(i)
+      }
+    }//for
+    // console.log('weekendList:  ' + weekendList)
 
 
     //add events to array that considers monthdates
@@ -87,10 +95,11 @@ export default class ClassicPersonCol extends Component{
     return (
       <div className="classicGridPersonCol" role="column">
             <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-            {monthEventList.map((item, idx) => <div key={idx} className="classicGridCell" role="cell" onClick={() => this.handleNewEvent(item, idx, monthEventList)}>{item}</div>)}
+            {monthEventList.map((item, idx) => <div key={idx} className={weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={() => this.handleNewEvent(item, idx, monthEventList)}>{item}</div>)}
         </div>
     )
   }
 }
 
-// if getUTCDay() is 0 or 6
+//make a data structure that includes all of the weekend days wor each month.
+//then when mapping over the monthEventList if weekendList.includes(idx) className = classicGridCell weekend else classicGridCell

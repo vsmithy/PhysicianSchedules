@@ -4,6 +4,7 @@ $white: #fff
 $dark-grey: #333
 $medium-grey: #898989
 $light-grey: #eeeeee
+$weekend-blue: #eaf7ff
 
 .gridSection
   flex-basis: 75rem
@@ -131,6 +132,14 @@ $light-grey: #eeeeee
   background-color: $light-grey
 
 .classicGridCell
+  &.weekend
+    background-color: $weekend-blue
   &:hover
     background-color: $medium-grey
     color: $white
+
+.classicGridDate
+  &.weekend
+    background-color: $weekend-blue
+// .weekend
+//   background-color: $weekend-blue

@@ -287,9 +287,16 @@ header .viewSelectBtn.active {
   background-color: #eeeeee;
 }
 
+.classicGridCell.weekend {
+  background-color: #eaf7ff;
+}
 .classicGridCell:hover {
   background-color: #898989;
   color: #fff;
+}
+
+.classicGridDate.weekend {
+  background-color: #eaf7ff;
 }
 
 aside {

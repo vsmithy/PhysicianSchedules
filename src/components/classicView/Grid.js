@@ -63,12 +63,23 @@ export default class Grid extends Component {
     }
 
 
+    //grab info from props (events reducer) and filter out WEEKENDS for each person
+    let filteredEventList = calendarData[selectedYear][selectedMonthName]
+    let weekendList = []
+    for(let i=1;i<monthDates.length+1;i++){
+      let tmpDay = filteredEventList[i]['dayType']
+      if(tmpDay === 'weekend'){
+        weekendList.push(i)
+      }
+    }//for
+    console.log('wkend list grid:  ' + weekendList)
+
     return (
       <section className="classicGridSection" role="application">
         <div className="classicGrid" role="grid">
           <div className="classicGridDateCol" role="grid">
             <div className="classicGridMonthName" role="columnheader">{getMonth(selectedMonth)}</div>
-            {monthDates.map(day => <div className="classicGridDate" role="rowheader" key={day}>{day}</div>)}
+            {monthDates.map(day => <div className={weekendList.includes(day) ? "classicGridDate weekend" : "classicGridDate"}  role="rowheader" key={day}>{day}</div>)}
           </div>
 
           {person.map(item => <ClassicPersonCol 
