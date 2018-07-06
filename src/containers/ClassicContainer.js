@@ -10,6 +10,26 @@ import RightMenus from '../components/classicView/RightMenus'
 
 
 class ClassicContainer extends Component {
+
+  /*********************************************************/
+  //lifecycleMethods
+  //mounting
+  //static getDerivedStateFromProps(nextProps, prevState)
+  // componentDidMount(){console.log('classic container did mount')}
+
+  //updating
+  //static getDerivedStateFromProps(nextProps, prevState)
+  //shouldComponentUpdate(nextProps, nextState)
+  //getSnapshotBeforeUpdate(prevProps, prevState)
+  // componentDidUpdate(prevProps, prevState, snapshot){console.log('classic container did update')}
+
+  //unmounting
+  // componentWillUnmount(){console.log('classic container will unmount')}
+
+  //errorHandling
+  // componentDidCatch(error, info){'classic container caught an error'}
+  /*******************************************************************/
+
   render(){
     return (
       <div>

@@ -1,6 +1,25 @@
 import React, {Component}  from 'react'
 
 export default class Conflicts extends Component {
+  /*********************************************************/
+  //lifecycleMethods
+  //mounting
+  //static getDerivedStateFromProps(nextProps, prevState)
+  // componentDidMount(){console.log('conflicts component did mount')}
+
+  // //updating
+  // //static getDerivedStateFromProps(nextProps, prevState)
+  // //shouldComponentUpdate(nextProps, nextState)
+  // //getSnapshotBeforeUpdate(prevProps, prevState)
+  // componentDidUpdate(prevProps, prevState, snapshot){console.log('conflicts component did update')}
+
+  // //unmounting
+  // componentWillUnmount(){console.log('conflicts component will unmount')}
+
+  // //errorHandling
+  // componentDidCatch(error, info){'conflicts component caught an error'}
+  /*******************************************************************/
+
   render(){
     const { viewHeight, conflicts } = this.props
 

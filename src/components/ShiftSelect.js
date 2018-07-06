@@ -9,6 +9,25 @@ export default class ShiftSelect extends Component {
     }
   }//constructor
 
+  /*********************************************************/
+  //lifecycleMethods
+  //mounting
+  //static getDerivedStateFromProps(nextProps, prevState)
+  // componentDidMount(){console.log('shiftSelect component did mount')}
+
+  // //updating
+  // //static getDerivedStateFromProps(nextProps, prevState)
+  // //shouldComponentUpdate(nextProps, nextState)
+  // //getSnapshotBeforeUpdate(prevProps, prevState)
+  // componentDidUpdate(prevProps, prevState, snapshot){console.log('shiftSelect component did update')}
+
+  // //unmounting
+  // componentWillUnmount(){console.log('shiftSelect component will unmount')}
+
+  // //errorHandling
+  // componentDidCatch(error, info){'shiftSelect component caught an error'}
+  /*******************************************************************/
+
   //change the shift that is used for event modification
   handleShiftChange(selected){
     this.props.changeSelectedShft(selected)
@@ -16,7 +35,7 @@ export default class ShiftSelect extends Component {
   }//handle shift change
 
   render(){
-    const { viewHeight, shifts, currentViewProperties, changeSelectedShft } = this.props
+    const { viewHeight, shifts } = this.props
 
     return (
       <div role="presentation" className={viewHeight}>

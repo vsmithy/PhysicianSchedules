@@ -1,6 +1,29 @@
 import React, {Component}  from 'react'
 import ClassicNavCal from './ClassicNavCal'
+
+// import { makeWeekends } from '../../helpfulFiles/dateStuff'
+// import { calendarData } from '../../data/calendarData'
+
 export default class Header extends Component {
+  /*********************************************************/
+  //lifecycleMethods
+  //mounting
+  //static getDerivedStateFromProps(nextProps, prevState)
+  // componentDidMount(){console.log('header component did mount')}
+
+  // //updating
+  // //static getDerivedStateFromProps(nextProps, prevState)
+  // //shouldComponentUpdate(nextProps, nextState)
+  // //getSnapshotBeforeUpdate(prevProps, prevState)
+  // componentDidUpdate(prevProps, prevState, snapshot){console.log('header component did update')}
+
+  // //unmounting
+  // componentWillUnmount(){console.log('header component will unmount')}
+
+  // //errorHandling
+  // componentDidCatch(error, info){'header component caught an error'}
+  /*******************************************************************/
+  
   render(){
     return (
       <header>
@@ -18,4 +41,4 @@ export default class Header extends Component {
       </header>
     )//return
   }//render
-}//header
+}//header      

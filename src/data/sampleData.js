@@ -49,6 +49,38 @@ export const shiftList = [
     'id':11,
     'shiftName':'IN/OUT'
   },
+  {
+    'id':12,
+    'shiftName':'G/WARD'
+  },
+  {
+    'id':13,
+    'shiftName':'Clinic'
+  },
+  {
+    'id':14,
+    'shiftName':'Training'
+  },
+  {
+    'id':15,
+    'shiftName':'Day'
+  },
+  {
+    'id':16,
+    'shiftName':'Night'
+  },
+  {
+    'id':17,
+    'shiftName':'Proc'
+  },
+  {
+    'id':18,
+    'shiftName':'Well'
+  },
+  {
+    'id':19,
+    'shiftName':'G/Admin'
+  },
 ]
 
 export const people = [

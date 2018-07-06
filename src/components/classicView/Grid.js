@@ -3,6 +3,7 @@ import { getMonth } from '../../helpfulFiles/dateStuff'
 import { person } from '../../data/sampleData'
 
 import ClassicPersonCol from './ClassicPersonCol'
+import { calendarData } from '../../data/calendarData'
 
 export default class Grid extends Component {
   constructor(props){
@@ -13,8 +14,29 @@ export default class Grid extends Component {
     }
   }
 
+
+  /*********************************************************/
+  //lifecycleMethods
+  //mounting
+  //static getDerivedStateFromProps(nextProps, prevState)
+  componentDidMount(){console.log('grid component did mount')}
+
+  //updating
+  //static getDerivedStateFromProps(nextProps, prevState)
+  //shouldComponentUpdate(nextProps, nextState)
+  //getSnapshotBeforeUpdate(prevProps, prevState)
+  componentDidUpdate(prevProps, prevState, snapshot){console.log('grid component did update')}
+
+  //unmounting
+  componentWillUnmount(){console.log('grid component will unmount')}
+
+  //errorHandling
+  componentDidCatch(error, info){'grid component caught an error'}
+  /*******************************************************************/
+
   render(){
     let selectedMonth = this.props.currentViewProperties.monthSelect
+    let selectedMonthName = getMonth(selectedMonth)
     let selectedYear = this.props.currentViewProperties.yearSelect
 
     //for the days in a month (through 2021)
@@ -56,6 +78,7 @@ export default class Grid extends Component {
             personDetails={item} 
             currentViewProperties={this.props.currentViewProperties}
             addEvent={this.props.addEvent} 
+            eventList={calendarData[selectedYear][selectedMonthName]}
             />)}
 
         </div>

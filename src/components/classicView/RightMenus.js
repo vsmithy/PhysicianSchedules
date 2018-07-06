@@ -17,6 +17,25 @@ export default class RightMenus extends Component {
     }
   }
 
+  /*********************************************************/
+  //lifecycleMethods
+  //mounting
+  //static getDerivedStateFromProps(nextProps, prevState)
+  // componentDidMount(){console.log('grightMenus  component did mount')}
+
+  // //updating
+  // //static getDerivedStateFromProps(nextProps, prevState)
+  // //shouldComponentUpdate(nextProps, nextState)
+  // //getSnapshotBeforeUpdate(prevProps, prevState)
+  // componentDidUpdate(prevProps, prevState, snapshot){console.log('grightMenus  component did update')}
+
+  // //unmounting
+  // componentWillUnmount(){console.log('rightMenus   component will unmount')}
+
+  // //errorHandling
+  // componentDidCatch(error, info){'grightMenus  component caught an error'}
+  /*******************************************************************/
+
   //toggle the right menus
   handleShiftToggle(){
     // console.log('currently: ' + this.state.shiftViewToggle)

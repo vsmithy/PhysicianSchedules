@@ -48,3 +48,32 @@ let monthName = {
 export const getMonth = function(moNum){
   return monthName[moNum]
 }
+
+export const makeWeekends = function (calendarData) {
+  let dataCopy = {}
+  Object.assign(dataCopy, calendarData)
+  const years = [2018,2019,2020,2021]
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+  
+  for(let i=0;i < years.length;i++){
+    for(let j=0;j<12;j++){
+      for(let k=1;k<32;k++){
+        if(dataCopy[years[i]][months[j]][k]){
+          //make a date
+          let milliUTC = Date.UTC(years[i],j,k)
+          let d = new Date(milliUTC)
+          
+          //calc which day of week
+          let dayOfWeek = d.getUTCDay()
+          
+          //if day of week is 0 or 6, make dayType = 'weekend'
+          if(dayOfWeek === 0 || dayOfWeek === 6){
+            dataCopy[years[i]][months[j]][k].dayType = 'weekend'
+          }
+        }
+      }
+    }
+  }
+
+  return dataCopy
+}//makeWeends
