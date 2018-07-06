@@ -72,7 +72,7 @@ export default class Grid extends Component {
         weekendList.push(i)
       }
     }//for
-    console.log('wkend list grid:  ' + weekendList)
+    // console.log('wkend list grid:  ' + weekendList)
 
     return (
       <section className="classicGridSection" role="application">

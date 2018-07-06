@@ -279,14 +279,6 @@ header .viewSelectBtn.active {
   flex: 2;
 }
 
-.classicGridCell:nth-child(odd) {
-  background-color: #eeeeee;
-}
-
-.classicGridDate:nth-child(odd) {
-  background-color: #eeeeee;
-}
-
 .classicGridCell.weekend {
   background-color: #eaf7ff;
 }
