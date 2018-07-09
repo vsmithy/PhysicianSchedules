@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  height: 60rem;
+  height: 90rem;
   width: 94rem;
   background-color: #fff;
 }
@@ -26,7 +26,7 @@ section, aside {
 }
 
 main {
-  height: 55.6rem;
+  height: 85.6rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -266,19 +266,25 @@ header .viewSelectBtn.active {
   flex: 1;
   width: 100%;
   text-align: center;
+  font-size: 0.9rem;
 }
 
 .classicGridPersonName {
   border-bottom: 0.0625rem solid #eeeeee;
-  flex: 2;
+  flex: 1.6;
   overflow: hidden;
+  font-size: 1.1rem;
 }
 
 .classicGridMonthName {
   border-bottom: 0.0625rem solid #eeeeee;
-  flex: 2;
+  flex: 1.6;
+  font-size: 1.1rem;
 }
 
+.classicGridCell {
+  border-bottom: 0.0625rem solid #eeeeee;
+}
 .classicGridCell.weekend {
   background-color: #eaf7ff;
 }
@@ -287,6 +293,9 @@ header .viewSelectBtn.active {
   color: #fff;
 }
 
+.classicGridDate {
+  border-bottom: 0.0625rem solid #eeeeee;
+}
 .classicGridDate.weekend {
   background-color: #eaf7ff;
 }

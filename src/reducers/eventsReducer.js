@@ -6,11 +6,13 @@ const initialState = calendarData
 export default function eventsReducer(state = initialState, action){
   switch(action.type){
     case ADD_EVENT:
-      console.log('making event ' + action.eventDetails.shiftName)
+      console.log('making event ' + action.eventDetails.shiftName + '  person: ' + action.eventDetails.personId + '  day: ' + action.eventDetails.day)
 
       //if it exists, update
       //if it doesn't exist, create it
 
+      //test
+      
 
       return state
     default:

@@ -116,15 +116,18 @@ $weekend-blue: #eaf7ff
   // flex-basis: 56rem
   width: 100%
   text-align: center
+  font-size: 0.9rem
 
 .classicGridPersonName
   border-bottom: 0.0625rem solid $light-grey
-  flex: 2
+  flex: 1.6
   overflow: hidden
+  font-size: 1.1rem
 
 .classicGridMonthName
   border-bottom: 0.0625rem solid $light-grey
-  flex: 2
+  flex: 1.6
+  font-size: 1.1rem
 
 // .classicGridCell:nth-child(odd)
 //   background-color: $light-grey
@@ -133,6 +136,7 @@ $weekend-blue: #eaf7ff
 //   background-color: $light-grey
 
 .classicGridCell
+  border-bottom: 0.0625rem solid $light-grey
   &.weekend
     background-color: $weekend-blue
   &:hover
@@ -140,7 +144,6 @@ $weekend-blue: #eaf7ff
     color: $white
 
 .classicGridDate
+  border-bottom: 0.0625rem solid $light-grey
   &.weekend
     background-color: $weekend-blue
-// .weekend
-//   background-color: $weekend-blue

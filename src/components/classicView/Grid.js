@@ -74,6 +74,12 @@ export default class Grid extends Component {
     }//for
     // console.log('wkend list grid:  ' + weekendList)
 
+    //the goal is to send classicpersoncol a list of either blanks or data
+    //you can filter the event lis tfo r eavh person id
+    //for person.map, i want to make a prop that is monthEventList
+    //how many people are active?
+    //for the numActivePeople.length
+
     return (
       <section className="classicGridSection" role="application">
         <div className="classicGrid" role="grid">
@@ -86,10 +92,11 @@ export default class Grid extends Component {
             key={item.id} 
             monthDates={monthDates} 
             personID={item.id} 
+            weekendList={weekendList}
             personDetails={item} 
             currentViewProperties={this.props.currentViewProperties}
             addEvent={this.props.addEvent} 
-            eventList={calendarData[selectedYear][selectedMonthName]}
+            eventList={monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))}
             />)}
 
         </div>
