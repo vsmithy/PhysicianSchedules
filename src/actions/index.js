@@ -21,7 +21,8 @@ export const addStats = () => ({ type: types.ADD_STAT })
 //events
 export const addEvent = eventDetails => ({ type: types.ADD_EVENT, eventDetails })
 
-
+//currentViewProperties
+export const updateMaxId = () => ({ type: types.UPDATE_MAX_ID })
 
 
 

@@ -14,11 +14,9 @@ export default function eventsReducer(state = initialState, action){
         /*
         FIND THE MAX EVENT ID:
           normally i would use something like id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1, but since
-          each day has its own arry of events, i will use a loop.
+          each day has its own arry of events, i keep track of the maxId in settings, and pass it to this reducer when needed
         */
-      //  for item in etetetetet (loop over each day) if maxid is higher, record it
-      //  save the highest id i find
-        const highestId = 'nsetnesntenesnt'
+        const highestId = action.eventDetails.maxEventId
 
 
         const newItemToAdd = {
@@ -29,8 +27,9 @@ export default function eventsReducer(state = initialState, action){
         }//newItemToAdd
 
         //push a new item on to the specific eventsarray which can be located via action.eventDetails
+        newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].push(newItemToAdd)
+        return newState
 
-        console.log(' i would create an event ' + action.eventDetails.shiftName + ' here ')
       } else {
         //if it exists, update
         // const oldItem = state[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]

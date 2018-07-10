@@ -17,7 +17,7 @@ export default class ClassicPersonCol extends Component{
   constructor(props){
     super(props)
     
-    this.handleNewEvent = this.handleNewEvent.bind(this)
+    this.handleClickEvent = this.handleClickEvent.bind(this)
 
     this.state = {
       monthEventList: [],
@@ -43,27 +43,36 @@ export default class ClassicPersonCol extends Component{
   //componentDidCatch(error, info){'classicPersonCol component caught an error'}
   /*******************************************************************/
   
-  handleNewEvent(item, idx){
+  handleClickEvent(item, idx){
     console.log('add event clicked for ' + this.props.personDetails.name + ' details: ' + (item.length === 0 ? 'nothing' : item[0].id) + ' and ' + idx)
-    
-    //create the object that will be sent to reducer
-    let newEventDetails = {
-        'personId': this.props.personDetails.id,
-        'shiftName': this.props.currentViewProperties.shiftSelect,
-        'day': idx+1,
-        'eventId': (item.length === 0 ? 'none' : item[0].id),
-        'selectedYear': this.props.currentViewProperties.yearSelect,
-        'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect)
-      }
-      
-      //send the details to the reducer
-      this.props.addEvent(newEventDetails)
 
-      //update the local component
-      // monthEventList[idx] = this.props.currentViewProperties.shiftSelect
+    //if empty, add the event. else, show a modal with more options
+    if(item.length > 0){ 
+      //do stuff
+      console.log(' popping up... ')
+     } else {
+      //create the object that will be sent to reducer
+      let newEventDetails = {
+          'personId': this.props.personDetails.id,
+          'shiftName': this.props.currentViewProperties.shiftSelect,
+          'day': idx+1,
+          'eventId': (item.length === 0 ? 'none' : item[0].id),
+          'selectedYear': this.props.currentViewProperties.yearSelect,
+          'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect),
+          'maxEventId': this.props.currentViewProperties.maxEventId
+        }//newEventDetails
+        
+        //send the details to the reducer
+        this.props.addEvent(newEventDetails)
 
-      // this.setState({ monthEventList })
-    }//end of handleNewEvent
+        if(item.length === 0){ this.props.updateMaxId() }
+
+        //update the local component
+        // monthEventList[idx] = this.props.currentViewProperties.shiftSelect
+
+        // this.setState({ monthEventList })
+      }//else
+    }//end of handleClickEvent
     
   render(){
     //in the render function we create the event list that is rendered out
@@ -90,7 +99,7 @@ export default class ClassicPersonCol extends Component{
     // //THIRD  make the list that will be rendered, and set it to local state
     // //add theirEvents to the list that, once rendered, will be the vertical column of items
     // let monthEventList = []
-    const theBlank = ' '
+    const theBlank = ''
     // for(let j=0; j<theirEvents.length; j++){
     //   if(theirEvents[j].length > 1){
     //     // monthEventList[j] = [theirEvents[j][0].shiftName]   //add something for multiple shifts per day
@@ -111,7 +120,7 @@ export default class ClassicPersonCol extends Component{
     return (
       <div className="classicGridPersonCol" role="column">
           <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={() => this.handleNewEvent(item, idx)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }</div>)}
+          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={() => this.handleClickEvent(item, idx)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }</div>)}
       </div>
     )
   }

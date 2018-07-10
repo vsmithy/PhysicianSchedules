@@ -433,7 +433,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   color: #b2001d;
 }
 .classicSupportingInfo .shiftComponent {
-  height: 7.5rem;
+  height: 11.5rem;
   transition: height 0.35s ease-in-out;
   overflow: hidden;
 }

@@ -30,8 +30,13 @@ export default class ShiftSelect extends Component {
 
   //change the shift that is used for event modification
   handleShiftChange(selected){
-    this.props.changeSelectedShft(selected)
-    this.setState({ activeShift: selected })
+    if(this.state.activeShift === selected){
+      this.setState({ activeShift: "" })
+      this.props.changeSelectedShft("")
+    } else {
+      this.props.changeSelectedShft(selected)
+      this.setState({ activeShift: selected })
+    }
   }//handle shift change
 
   render(){

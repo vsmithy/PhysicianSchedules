@@ -95,7 +95,8 @@ export default class Grid extends Component {
             weekendList={weekendList}
             personDetails={item} 
             currentViewProperties={this.props.currentViewProperties}
-            addEvent={this.props.addEvent} 
+            addEvent={this.props.addEvent}
+            updateMaxId={this.props.updateMaxId} 
             eventList={monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))}
             />)}
 
