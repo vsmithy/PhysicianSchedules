@@ -11,7 +11,7 @@
 
 
 import React, { Component } from 'react'
-
+import { getMonth } from '../../helpfulFiles/dateStuff'
 
 export default class ClassicPersonCol extends Component{
   constructor(props){
@@ -51,7 +51,9 @@ export default class ClassicPersonCol extends Component{
         'personId': this.props.personDetails.id,
         'shiftName': this.props.currentViewProperties.shiftSelect,
         'day': idx+1,
-        'eventId': if more that one, then just do zero for now cause we will actually have a popup for that.
+        'eventId': (item.length === 0 ? 'none' : item[0].id),
+        'selectedYear': this.props.currentViewProperties.yearSelect,
+        'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect)
       }
       
       //send the details to the reducer
