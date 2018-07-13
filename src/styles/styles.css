@@ -300,6 +300,39 @@ header .viewSelectBtn.active {
   background-color: #eaf7ff;
 }
 
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  color: red;
+  width: 10rem;
+  height: 7.5rem;
+  background-color: #0101ff;
+  border-radius: 5px;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+}
+.modal-content.hidden {
+  display: none;
+}
+
 aside {
   flex-basis: 19rem;
   background-color: #fff;
@@ -434,7 +467,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 .classicSupportingInfo .shiftComponent {
   height: 11.5rem;
-  transition: height 0.35s ease-in-out;
+  transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
 .classicSupportingInfo .shiftComponent.closed {
@@ -468,7 +501,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 .classicSupportingInfo .conflictsComponent {
   height: 7.5rem;
-  transition: height 0.35s ease-in-out;
+  transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
 .classicSupportingInfo .conflictsComponent.closed {
@@ -476,7 +509,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 .classicSupportingInfo .statsComponent {
   height: 7.5rem;
-  transition: height 0.35s ease-in-out;
+  transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
 .classicSupportingInfo .statsComponent.closed {

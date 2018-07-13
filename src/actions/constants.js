@@ -23,3 +23,4 @@ export const ADD_EVENT = 'ADD_EVENT'
 
 //currentViewProperties
 export const UPDATE_MAX_ID = 'UPDATE_MAX_ID'
+export const TOGGLE_MODAL = 'TOGGLE_MODAL'

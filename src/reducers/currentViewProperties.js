@@ -1,4 +1,4 @@
-import { CHANGE_YEAR, CHANGE_MONTH, CHANGE_SELECTED_SHFT, UPDATE_MAX_ID } from '../actions/constants'
+import { CHANGE_YEAR, CHANGE_MONTH, CHANGE_SELECTED_SHFT, UPDATE_MAX_ID, TOGGLE_MODAL } from '../actions/constants'
 
 let d = new Date()
 
@@ -8,7 +8,8 @@ const initialState = {
   monthSelect: d.getMonth(),
   viewSelect: 'classicView',
   shiftSelect: '',
-  maxEventId: 103
+  maxEventId: 103,
+  modal: "hide"
 }
 
 export default function currentViewProperties(state = initialState, action){
@@ -21,7 +22,8 @@ export default function currentViewProperties(state = initialState, action){
         currentMonth: state.currentMonth,
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
-        maxEventId: state.maxEventId
+        maxEventId: state.maxEventId,
+        modal: state.modal
       }
     case CHANGE_MONTH:
       return {
@@ -30,7 +32,8 @@ export default function currentViewProperties(state = initialState, action){
         currentMonth: state.currentMonth,
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
-        maxEventId: state.maxEventId
+        maxEventId: state.maxEventId,
+        modal: state.modal
       }
     case CHANGE_SELECTED_SHFT:
       return {
@@ -48,7 +51,18 @@ export default function currentViewProperties(state = initialState, action){
         currentMonth: state.currentMonth,
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
-        maxEventId: state.maxEventId + 1
+        maxEventId: state.maxEventId + 1,
+        modal: state.modal
+      }
+    case TOGGLE_MODAL:
+      return {
+        yearSelect: state.yearSelect,
+        monthSelect: state.monthSelect,
+        currentMonth: state.currentMonth,
+        viewSelect: state.viewSelect,
+        shiftSelect: state.shiftSelect,
+        maxEventId: state.maxEventId,
+        modal: state.modal === "show" ? "hide" : "show"
       }
     default:
       return state

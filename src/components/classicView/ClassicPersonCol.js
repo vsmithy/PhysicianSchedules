@@ -43,13 +43,17 @@ export default class ClassicPersonCol extends Component{
   //componentDidCatch(error, info){'classicPersonCol component caught an error'}
   /*******************************************************************/
   
-  handleClickEvent(item, idx){
+  handleClickEvent(item, idx, event){
     console.log('add event clicked for ' + this.props.personDetails.name + ' details: ' + (item.length === 0 ? 'nothing' : item[0].id) + ' and ' + idx)
+    console.log('top spacing is ' + event.clientY + ' left spacing is ' + event.clientX)
+    console.log('top screen is ' + event.screenY + ' left screen is ' + event.screenX)
 
     //if empty, add the event. else, show a modal with more options
     if(item.length > 0){ 
       //do stuff
       console.log(' popping up... ')
+      this.props.toggleModal()
+      this.props.modalContentSpacing(event.clientX, event.clientY)
      } else {
       //create the object that will be sent to reducer
       let newEventDetails = {
@@ -64,64 +68,21 @@ export default class ClassicPersonCol extends Component{
         
         //send the details to the reducer
         this.props.addEvent(newEventDetails)
-
         if(item.length === 0){ this.props.updateMaxId() }
-
-        //update the local component
-        // monthEventList[idx] = this.props.currentViewProperties.shiftSelect
-
-        // this.setState({ monthEventList })
       }//else
     }//end of handleClickEvent
     
   render(){
     //in the render function we create the event list that is rendered out
-
-
     //FIRST setup variables and some date stuff
     const { currentViewProperties, eventList, personID, monthDates, weekendList } = this.props
-    
-    //make a blank list that will render if no events
-    // for(let i=0;i<monthDates.length;i++){
-      // monthEventList[i] = ' '
-    // }////for
-    // console.log('monthEventList  ' + monthEventList)
-    
-    //SECOND grab and format the data for this particular person
-    //grab info from props (eventsReducer) and filter out events for each person
-    // let theirEvents = []
-    // for(let i=1;i<monthDates.length+1;i++){
-    //   let tmpList = eventList[i]['events'].filter(item => item.personId === personID)
-    //   theirEvents.push(tmpList)
-    // }//// for
-    // console.log('theirEvents  ' + JSON.stringify(theirEvents[5]))
-    
-    // //THIRD  make the list that will be rendered, and set it to local state
-    // //add theirEvents to the list that, once rendered, will be the vertical column of items
-    // let monthEventList = []
     const theBlank = ''
-    // for(let j=0; j<theirEvents.length; j++){
-    //   if(theirEvents[j].length > 1){
-    //     // monthEventList[j] = [theirEvents[j][0].shiftName]   //add something for multiple shifts per day
-    //     monthEventList[j] = [<div key={0}>{theirEvents[j][0].shiftName}</div>, <div key={1}>{theirEvents[j][1].shiftName}</div>]   //add something for multiple shifts per day
-    //   }////if
-    //   else if(theirEvents[j].length > 0){
-    //     monthEventList[j] = theirEvents[j][0].shiftName   //add something for multiple shifts per day
-    //   }//// else if
-    // }//// for
-    // // console.log(monthEventList)
-    // // this.setState({ monthEventList })
-    // // console.log('weekend List:  ' + weekendList)
-    
-    // let dayList = sssssss > 1 ? yyyy : zzzzzz
-    //set local state with filtered list
-    //make the render function read ffrom state
-    //onClick of a grid cell, if there is a change, update local state, then call action this.props.addEvent
+
     return (
       <div className="classicGridPersonCol" role="column">
           <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={() => this.handleClickEvent(item, idx)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }</div>)}
+          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={(event) => this.handleClickEvent(item, idx, event)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }</div>)}
       </div>
     )
-  }
+  }//render
 }// end ClassicPersonCol component
