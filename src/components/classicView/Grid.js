@@ -9,11 +9,8 @@ export default class Grid extends Component {
   constructor(props){
     super(props)
 
-    this.modalContentLocation = this.modalContentLocation.bind(this)
-
     this.state = {
       activeMonthSelection: this.props.currentViewProperties.monthSelect,
-      modalContentSpacing: [0,0],
     }//state
   }//constructor
 
@@ -36,11 +33,6 @@ export default class Grid extends Component {
   //errorHandling
   componentDidCatch(error, info){'grid component caught an error'}
   /*******************************************************************/
-
-
-  modalContentLocation(a, b){
-    this.setState({ modalContentSpacing: [a+20, b-120] })
-  }//modalContentLocation
 
   render(){
     let selectedMonth = this.props.currentViewProperties.monthSelect
@@ -88,8 +80,7 @@ export default class Grid extends Component {
     //how many people are active?
     //for the numActivePeople.length
     let modalView = this.props.currentViewProperties.modal === "show" ? "modal" : "modal hidden"
-    let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
-    let modalContentSpacing = [0,0]
+    // let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
 
     return (
       <section className="classicGridSection" role="application">
@@ -110,12 +101,10 @@ export default class Grid extends Component {
             updateMaxId={this.props.updateMaxId} 
             eventList={monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))}
             toggleModal={this.props.toggleModal}
-            modalContentSpacing={this.modalContentLocation}
             />)}
 
         </div>
         <div className={modalView} onClick={() => this.props.toggleModal()}></div>
-        <div className={modalContentView} onClick={() => console.log('i am the modal content bro')} style={{top: this.state.modalContentSpacing[1], left: this.state.modalContentSpacing[0]}}>i am the modal content</div>
       </section>
     )//return
   }//render

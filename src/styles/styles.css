@@ -318,10 +318,10 @@ header .viewSelectBtn.active {
 
 .modal-content {
   display: block;
-  position: absolute;
+  position: relative;
   z-index: 2;
-  left: 0;
-  top: 0;
+  left: 20px;
+  top: 20px;
   color: red;
   width: 10rem;
   height: 7.5rem;
