@@ -1,4 +1,4 @@
-import { CHANGE_YEAR, CHANGE_MONTH, CHANGE_SELECTED_SHFT, UPDATE_MAX_ID, TOGGLE_MODAL } from '../actions/constants'
+import { CHANGE_YEAR, CHANGE_MONTH, CHANGE_SELECTED_SHFT, UPDATE_MAX_ID, TOGGLE_MODAL, CHANGE_MODAL_CONTENT_ID } from '../actions/constants'
 
 let d = new Date()
 
@@ -9,7 +9,8 @@ const initialState = {
   viewSelect: 'classicView',
   shiftSelect: '',
   maxEventId: 103,
-  modal: "hide"
+  modal: "hide",
+  modalId: "none0"
 }
 
 export default function currentViewProperties(state = initialState, action){
@@ -23,7 +24,8 @@ export default function currentViewProperties(state = initialState, action){
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
         maxEventId: state.maxEventId,
-        modal: state.modal
+        modal: state.modal,
+        modalId: state.modalId
       }
     case CHANGE_MONTH:
       return {
@@ -33,7 +35,8 @@ export default function currentViewProperties(state = initialState, action){
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
         maxEventId: state.maxEventId,
-        modal: state.modal
+        modal: state.modal,
+        modalId: state.modalId
       }
     case CHANGE_SELECTED_SHFT:
       return {
@@ -42,7 +45,8 @@ export default function currentViewProperties(state = initialState, action){
         currentMonth: state.currentMonth,
         viewSelect: state.viewSelect,
         shiftSelect: action.shift,
-        maxEventId: state.maxEventId
+        maxEventId: state.maxEventId,
+        modalId: state.modalId
       }
     case UPDATE_MAX_ID:
       return {
@@ -52,7 +56,8 @@ export default function currentViewProperties(state = initialState, action){
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
         maxEventId: state.maxEventId + 1,
-        modal: state.modal
+        modal: state.modal,
+        modalId: state.modalId
       }
     case TOGGLE_MODAL:
       return {
@@ -62,7 +67,19 @@ export default function currentViewProperties(state = initialState, action){
         viewSelect: state.viewSelect,
         shiftSelect: state.shiftSelect,
         maxEventId: state.maxEventId,
-        modal: state.modal === "show" ? "hide" : "show"
+        modal: state.modal === "show" ? "hide" : "show",
+        modalId: state.modalId
+      }
+    case CHANGE_MODAL_CONTENT_ID:
+      return {
+        yearSelect: state.yearSelect,
+        monthSelect: state.monthSelect,
+        currentMonth: state.currentMonth,
+        viewSelect: state.viewSelect,
+        shiftSelect: state.shiftSelect,
+        maxEventId: state.maxEventId,
+        modal: state.modal,
+        modalId: action.id
       }
     default:
       return state

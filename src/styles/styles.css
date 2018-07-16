@@ -284,6 +284,7 @@ header .viewSelectBtn.active {
 
 .classicGridCell {
   border-bottom: 0.0625rem solid #eeeeee;
+  position: relative;
 }
 .classicGridCell.weekend {
   background-color: #eaf7ff;
@@ -317,17 +318,18 @@ header .viewSelectBtn.active {
 }
 
 .modal-content {
-  display: block;
-  position: relative;
-  z-index: 2;
-  left: 20px;
-  top: 20px;
-  color: red;
+  display: inline-block;
+  position: absolute;
+  z-index: 3;
+  left: 3.75rem;
+  bottom: 1.25rem;
+  color: #000000;
   width: 10rem;
   height: 7.5rem;
-  background-color: #0101ff;
-  border-radius: 5px;
-  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 0.1875rem;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
 }
 .modal-content.hidden {
   display: none;

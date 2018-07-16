@@ -24,6 +24,7 @@ export const addEvent = eventDetails => ({ type: types.ADD_EVENT, eventDetails }
 //currentViewProperties
 export const updateMaxId = () => ({ type: types.UPDATE_MAX_ID })
 export const toggleModal = () => ({ type: types.TOGGLE_MODAL })
+export const changeModalContentId = (id) => ({ type: types.CHANGE_MODAL_CONTENT_ID, id })
 
 
 

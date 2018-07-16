@@ -101,6 +101,7 @@ export default class Grid extends Component {
             updateMaxId={this.props.updateMaxId} 
             eventList={monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))}
             toggleModal={this.props.toggleModal}
+            changeModalContentId={this.props.changeModalContentId}
             />)}
 
         </div>

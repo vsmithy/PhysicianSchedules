@@ -12,6 +12,7 @@
 
 import React, { Component } from 'react'
 import { getMonth } from '../../helpfulFiles/dateStuff'
+import ModalContent from './ModalContent';
 
 export default class ClassicPersonCol extends Component{
   constructor(props){
@@ -21,7 +22,6 @@ export default class ClassicPersonCol extends Component{
 
     this.state = {
       monthEventList: [],
-      modalContentView: this.props.currentViewProperties.modal
     }//state
   }//constructor
 
@@ -52,13 +52,12 @@ export default class ClassicPersonCol extends Component{
     // let modalContent = event.target.children[0] ? event.target.children[0] : ''
     // modalContent.className = this.state.modalContentView
     //if empty, add the event. else, show a modal with more options
+    const modalSelected = this.props.personDetails.name + idx
     if(item.length > 0){ 
       //do stuff
       console.log(' popping up... ')
       this.props.toggleModal()
-      this.setState({ modalContentView: this.props.currentViewProperties.modal })
-      console.log('modal content state was: ' + this.state.modalContentView)
-      console.log('the ref is: ' + this.refs)
+      this.props.changeModalContentId(modalSelected)
 
      } else {
       //create the object that will be sent to reducer
@@ -87,9 +86,8 @@ export default class ClassicPersonCol extends Component{
     return (
       <div className="classicGridPersonCol" role="column">
           <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={(event) => this.handleClickEvent(item, idx, event)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }<div className="modal-content hidden" id={idx} ref={"idx"} onClick={() => console.log('i am the modal content bro')}>i am the modal content</div></div>)}
+          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={(event) => this.handleClickEvent(item, idx, event)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }<ModalContent shifts={item} currentViewProperties={this.props.currentViewProperties} modalId={this.props.personDetails.name + idx} /></div>)}
       </div>
     )
   }//render
 }// end ClassicPersonCol component
-        {/* <div className={modalContentView} onClick={() => console.log('i am the modal content bro')} style={{top: this.state.modalContentSpacing[1], left: this.state.modalContentSpacing[0]}}>i am the modal content</div> */}
