@@ -33,42 +33,51 @@ export default class ModalContent extends Component{
   //componentDidCatch(error, info){'ModalContent component caught an error'}
   /*******************************************************************/
   
-  render(){
-    //in the render function we create the event list that is rendered out
-    //FIRST setup variables and some date stuff
-    const { shifts } = this.props
-    const theBlank = ''
+  renderChoice(){
+    const { shifts, listOfShifts } = this.props
 
     if(shifts.length === 2){
-      <div key={0} className="modalShift">
-        <div>{shifts[0].shiftName}</div> 
-        <button type="button"  className="exitBtn" onClick={() => this.props.excelExport()}><i className="fas fa-times"></i></button>
-      </div>
-      <div key={1}>
-        {shifts[1].shiftName}
-        <button type="button"  className="exitBtn" onClick={() => this.props.excelExport()}><i className="fas fa-times"></i></button>
-      </div>
+      return (
+        <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
+          <div key={0} className="modalContentShift">
+            <select className="modalContentShiftName">
+              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem ? <option value={shiftItem} selected >shiftItem</option> : <option value={shiftItem}>shiftItem</option>   ) }
+            </select>
+            <button type="button"  className="shiftExitBtn" onClick={() => console.log('shift exit btn clicked')}><i className="fas fa-times"></i></button>
+          </div>
+          <div key={1} className="modalContentShift">
+            <div className="modalContentShiftName">{shifts[1].shiftName}</div>
+            <button type="button"  className="shiftExitBtn" onClick={() => console.log('shift exit btn clicked')}><i className="fas fa-times"></i></button>
+          </div>
+        </div>
+      )
     } else if(shifts.length === 1){
-      <div>
-        {shifts[0].shiftName}
-        <button type="button"  className="exitBtn" onClick={() => this.props.excelExport()}><i className="fas fa-times"></i></button>
-      </div>
-      <div className="addBtn" role="button" onClick={() => this.props.excelExport()}>
-        <div className="left"><i className="fas fa-plus"></i></div>
-        <div className="right">add</div>
-      </div>
+      return (
+        <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
+          <div key={0} className="modalContentShift">
+            <div className="modalContentShiftName">{shifts[0].shiftName}</div> 
+            <button type="button"  className="shiftExitBtn" onClick={() => console.log('shift exit btn clicked')}><i className="fas fa-times"></i></button>
+          </div>
+          <div className="addBtn" role="button" onClick={() => console.log('shift ADD btn clicked')}>
+            <div className="left"><i className="fas fa-plus"></i></div>
+            <div className="right">add</div>
+          </div>
+        </div>
+      )
     } else{
-      <div className="addBtn" role="button" onClick={() => this.props.excelExport()}>
-        <div className="left"><i className="fas fa-plus"></i></div>
-        <div className="right">add</div>
-      </div>
+      return (
+        <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
+          <div className="addBtn" role="button" onClick={() => console.log('shift ADD btn clicked')}>
+            <div className="left"><i className="fas fa-plus"></i></div>
+            <div className="right">add</div>
+          </div>
+        </div>
+      )
     }
+  }//renderChoice
 
-    return (
-      <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
-        {stuff}
-      </div>
-    )
+  render(){
+    return this.renderChoice()
   }//render
 }// end ModalContent component
 // {shifts.length > 0 ? (shifts.length > 1 ? [ <div key={0}>{shifts[0].shiftName}</div>, <div key={1}>{shifts[1].shiftName}</div> ] : shifts[0].shiftName)  : theBlank}

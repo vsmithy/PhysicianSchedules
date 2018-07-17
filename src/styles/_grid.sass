@@ -168,7 +168,10 @@ $weekend-blue: #eaf7ff
     display: none
 
 .modal-content
-  display: inline-block
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
   position: absolute
   z-index: 3
   left: 3.75rem
@@ -182,3 +185,11 @@ $weekend-blue: #eaf7ff
   box-shadow: 0 0 0.3rem rgba(0,0,0,0.3)
   &.hidden
     display: none
+
+.modalContentShift
+  background-color: $weekend-blue
+  width: 100%
+
+.modalContentShiftName
+  display: inline
+  margin-right: 0.2rem

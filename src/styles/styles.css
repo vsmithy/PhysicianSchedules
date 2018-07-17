@@ -318,7 +318,10 @@ header .viewSelectBtn.active {
 }
 
 .modal-content {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   position: absolute;
   z-index: 3;
   left: 3.75rem;
@@ -333,6 +336,16 @@ header .viewSelectBtn.active {
 }
 .modal-content.hidden {
   display: none;
+}
+
+.modalContentShift {
+  background-color: #eaf7ff;
+  width: 100%;
+}
+
+.modalContentShiftName {
+  display: inline;
+  margin-right: 0.2rem;
 }
 
 aside {
