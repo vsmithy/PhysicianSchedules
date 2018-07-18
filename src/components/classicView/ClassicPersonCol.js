@@ -88,7 +88,18 @@ export default class ClassicPersonCol extends Component{
     return (
       <div className="classicGridPersonCol" role="column">
           <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={(event) => this.handleClickEvent(item, idx, event)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }<ModalContent shifts={item} theDay={idx} listOfShifts={this.props.shifts} currentViewProperties={this.props.currentViewProperties} updateEvent={this.props.updateEvent}  modalId={this.props.personDetails.name + idx} /></div>)}
+          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={(event) => this.handleClickEvent(item, idx, event)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }<ModalContent 
+            shifts={item} 
+            theDay={idx} 
+            listOfShifts={this.props.shifts} 
+            currentViewProperties={this.props.currentViewProperties} 
+            updateEvent={this.props.updateEvent}  
+            addEvent={this.props.addEvent}
+            removeEvent={this.props.removeEvent}
+            updateMaxId={this.props.updateMaxId}
+            personId={this.props.personDetails.id} 
+            modalId={this.props.personDetails.name + idx} />
+          </div>)}
       </div>
     )
   }//render

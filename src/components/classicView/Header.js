@@ -33,12 +33,23 @@ export default class Header extends Component {
         </div>
         <div role="presentation" className="headerDateSelector">
           <ClassicNavCal {...this.props} />
-          <div role="presentation" className="headerExportBtns">
-            <button type="button"  className="headerExportBtn" onClick={() => this.props.excelExport()}><i className="far fa-file-excel fa-2x"></i></button>
-            <button type="button"  className="headerExportBtn" onClick={() => this.props.pdfExport()}><i className="far fa-file-pdf fa-2x"></i></button>
+          <div role="presentation" className="dropdown">
+            <div type="button" role="button" className="dropbtn">
+              <i className="fas fa-bars fa-2x"></i>
+              <div class="dropdownContent">
+                <a href="#">Edit People</a>
+                <a href="#" onClick={() => this.props.toggleModal()}>Edit Shifts</a>
+                <a href="#">Export to Excel</a>
+              </div>
+            </div>
           </div>
         </div>
       </header>
     )//return
   }//render
 }//header      
+
+//change modalContentId: none0
+//toggleModal
+//show the shift settings component
+

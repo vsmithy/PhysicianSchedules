@@ -99,6 +99,7 @@ export default class Grid extends Component {
             currentViewProperties={this.props.currentViewProperties}
             addEvent={this.props.addEvent}
             updateMaxId={this.props.updateMaxId} 
+            removeEvent={this.props.removeEvent}
             eventList={monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))}
             toggleModal={this.props.toggleModal}
             changeModalContentId={this.props.changeModalContentId}

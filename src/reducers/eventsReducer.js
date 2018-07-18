@@ -1,4 +1,4 @@
-import { ADD_EVENT, UPDATE_EVENT } from '../actions/constants'
+import { ADD_EVENT, UPDATE_EVENT, REMOVE_EVENT } from '../actions/constants'
 import { calendarData } from '../data/calendarData'
 
 const initialState = calendarData
@@ -7,9 +7,11 @@ export default function eventsReducer(state = initialState, action){
   switch(action.type){
     case ADD_EVENT:
       //if it doesn't exist, create it
+      console.log('i am in the events reducer')
       if(action.eventDetails.eventId === 'none'){
         let newState = {}
         Object.assign(newState,state)
+        console.log('creating new event...')
 
         /*
         FIND THE MAX EVENT ID:
@@ -43,6 +45,17 @@ export default function eventsReducer(state = initialState, action){
         Object.assign(newState, state)
         newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]['shiftName'] = action.eventDetails.shiftName
         return newState
+      case REMOVE_EVENT:
+        console.log('i am now in the reducer for removal')
+        console.log(JSON.stringify(state))
+        let blankState = {}
+        Object.assign(blankState, state)
+        const cc = blankState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events']
+        const dd = blankState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id !== action.eventDetails.eventId)
+        blankState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'] = dd
+        console.log(cc)
+        console.log(dd)
+        return blankState
     default:
       return state
   }//switch
