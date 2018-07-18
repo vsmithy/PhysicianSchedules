@@ -103,6 +103,7 @@ export default class Grid extends Component {
             toggleModal={this.props.toggleModal}
             changeModalContentId={this.props.changeModalContentId}
             shifts={this.props.shifts}
+            updateEvent={this.props.updateEvent}
             />)}
 
         </div>

@@ -20,6 +20,7 @@ export const ADD_STAT = 'ADD_STAT'
 
 //events
 export const ADD_EVENT = 'ADD_EVENT'
+export const UPDATE_EVENT = 'UPDATE_EVENT'
 
 //currentViewProperties
 export const UPDATE_MAX_ID = 'UPDATE_MAX_ID'

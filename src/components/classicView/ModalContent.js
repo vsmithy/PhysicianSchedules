@@ -11,7 +11,7 @@
 
 
 import React, { Component } from 'react'
-// import { getMonth } from '../../helpfulFiles/dateStuff'
+import { getMonth } from '../../helpfulFiles/dateStuff'
 
 export default class ModalContent extends Component{
   /*********************************************************/
@@ -32,30 +32,58 @@ export default class ModalContent extends Component{
   //errorHandling
   //componentDidCatch(error, info){'ModalContent component caught an error'}
   /*******************************************************************/
-  
+  updateValue(event, evt1){
+    console.log(event.target.value)
+    console.log('evt 1 ' + evt1)
+    let theDay = this.props.theDay+1
+    console.log('the day ' + theDay)
+    //create the object that will be sent to reducer
+    let newEventDetails = {
+      'selectedYear': this.props.currentViewProperties.yearSelect,
+      'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect),
+      'day': theDay,
+      'eventId': evt1,
+      'shiftName': event.target.value,
+    }//newEventDetails
+    
+    this.props.updateEvent(newEventDetails)
+
+    // this.setState({
+    //   selectValue: newValue
+    //   //call props
+    // })
+  }
+
   renderChoice(){
     const { shifts, listOfShifts } = this.props
 
     if(shifts.length === 2){
+      const evt1 = shifts[0].id
+      const evt2 = shifts[1].id
       return (
         <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
           <div key={0} className="modalContentShift">
-            <select className="modalContentShiftName">
-              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem ? <option value={shiftItem} selected >shiftItem</option> : <option value={shiftItem}>shiftItem</option>   ) }
+            <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt1)}>
+              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
             </select>
             <button type="button"  className="shiftExitBtn" onClick={() => console.log('shift exit btn clicked')}><i className="fas fa-times"></i></button>
           </div>
           <div key={1} className="modalContentShift">
-            <div className="modalContentShiftName">{shifts[1].shiftName}</div>
+            <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt2)}>
+              { listOfShifts.map(shiftItem => shifts[1].shiftName === shiftItem.shiftName ? <option value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
+            </select>
             <button type="button"  className="shiftExitBtn" onClick={() => console.log('shift exit btn clicked')}><i className="fas fa-times"></i></button>
           </div>
         </div>
       )
     } else if(shifts.length === 1){
+      const evt1 = shifts[0].id
       return (
         <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
           <div key={0} className="modalContentShift">
-            <div className="modalContentShiftName">{shifts[0].shiftName}</div> 
+            <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt1)}>
+              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
+            </select>
             <button type="button"  className="shiftExitBtn" onClick={() => console.log('shift exit btn clicked')}><i className="fas fa-times"></i></button>
           </div>
           <div className="addBtn" role="button" onClick={() => console.log('shift ADD btn clicked')}>

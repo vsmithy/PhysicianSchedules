@@ -348,6 +348,16 @@ header .viewSelectBtn.active {
   margin-right: 0.2rem;
 }
 
+.addBtn {
+  width: 100%;
+}
+.addBtn .left {
+  display: inline;
+}
+.addBtn .right {
+  display: inline;
+}
+
 aside {
   flex-basis: 19rem;
   background-color: #fff;

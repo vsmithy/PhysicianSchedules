@@ -1,4 +1,4 @@
-import { ADD_EVENT } from '../actions/constants'
+import { ADD_EVENT, UPDATE_EVENT } from '../actions/constants'
 import { calendarData } from '../data/calendarData'
 
 const initialState = calendarData
@@ -38,6 +38,11 @@ export default function eventsReducer(state = initialState, action){
         newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]['shiftName'] = action.eventDetails.shiftName
         return newState
       }//else
+      case UPDATE_EVENT:
+        let newState = {}
+        Object.assign(newState, state)
+        newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]['shiftName'] = action.eventDetails.shiftName
+        return newState
     default:
       return state
   }//switch
