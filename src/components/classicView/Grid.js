@@ -3,6 +3,7 @@ import { getMonth } from '../../helpfulFiles/dateStuff'
 import { person } from '../../data/sampleData'
 
 import ClassicPersonCol from './ClassicPersonCol'
+import ShiftSettings from './ShiftSettings'
 import { calendarData } from '../../data/calendarData'
 
 export default class Grid extends Component {
@@ -80,6 +81,7 @@ export default class Grid extends Component {
     //how many people are active?
     //for the numActivePeople.length
     let modalView = this.props.currentViewProperties.modal === "show" ? "modal" : "modal hidden"
+    let shiftSettingsView = this.props.currentViewProperties.shiftSettingsWindow === "show" ? "shiftSettings" : "shiftSettings hidden"
     // let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
 
     return (
@@ -108,7 +110,15 @@ export default class Grid extends Component {
             />)}
 
         </div>
-        <div className={modalView} onClick={() => this.props.toggleModal()}></div>
+        <div className={modalView} onClick={this.props.currentViewProperties.shiftSettingsWindow === "show" ? console.log('cant hide from the light') : () => this.props.toggleModal()}></div>
+        <ShiftSettings 
+          viewChoice={shiftSettingsView} 
+          shifts={this.props.shifts} 
+          addShift={this.props.addShift} 
+          removeShift={this.props.removeShift} 
+          toggleModal={this.props.toggleModal}
+          toggleShiftSettingsWindow={this.props.toggleShiftSettingsWindow}
+        />
       </section>
     )//return
   }//render

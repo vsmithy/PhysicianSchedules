@@ -384,6 +384,60 @@ header .viewSelectBtn.active {
   display: inline;
 }
 
+.shiftSettings {
+  display: block;
+  position: absolute;
+  top: 200px;
+  left: 400px;
+  width: 250px;
+  height: 800px;
+  padding: 50px;
+  z-index: 8;
+  background-color: #fff;
+  border-radius: 2%;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+}
+.shiftSettings.hidden {
+  display: none;
+}
+
+.exitIcon {
+  display: none;
+}
+
+.editShiftListItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.editShiftListItem:hover {
+  background-color: #eeeeee;
+}
+.editShiftListItem:hover .exitIcon {
+  display: inline;
+  color: #898989;
+}
+.editShiftListItem:hover .exitIcon:hover {
+  color: #b2001d;
+}
+
+.editShiftInputArea {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.editShiftInputArea input {
+  flex: 5;
+}
+.editShiftInputArea button {
+  flex: 1;
+}
+
 aside {
   flex-basis: 19rem;
   background-color: #fff;

@@ -3,8 +3,15 @@ import ClassicNavCal from './ClassicNavCal'
 
 // import { makeWeekends } from '../../helpfulFiles/dateStuff'
 // import { calendarData } from '../../data/calendarData'
+import ShiftSettings from './ShiftSettings'
 
 export default class Header extends Component {
+  constructor(props){
+    super(props)
+
+    this.shiftSettingsToggle = this.shiftSettingsToggle.bind(this)
+
+  }
   /*********************************************************/
   //lifecycleMethods
   //mounting
@@ -23,7 +30,17 @@ export default class Header extends Component {
   // //errorHandling
   // componentDidCatch(error, info){'header component caught an error'}
   /*******************************************************************/
-  
+  shiftSettingsToggle(){
+    //change modalContentId: none0
+    this.props.changeModalContentId('none0')
+
+    //toggleModal
+    this.props.toggleModal()
+
+    //show shiftSettings component
+    this.props.toggleShiftSettingsWindow()
+  }
+
   render(){
     return (
       <header>
@@ -38,7 +55,7 @@ export default class Header extends Component {
               <i className="fas fa-bars fa-2x"></i>
               <div class="dropdownContent">
                 <a href="#">Edit People</a>
-                <a href="#" onClick={() => this.props.toggleModal()}>Edit Shifts</a>
+                <a href="#" onClick={() => this.shiftSettingsToggle()}>Edit Shifts</a>
                 <a href="#">Export to Excel</a>
               </div>
             </div>
@@ -49,7 +66,7 @@ export default class Header extends Component {
   }//render
 }//header      
 
-//change modalContentId: none0
+
 //toggleModal
 //show the shift settings component
 

@@ -200,3 +200,47 @@ $weekend-blue: #eaf7ff
     display: inline
   .right
     display: inline
+
+.shiftSettings
+  display: block
+  position: absolute
+  top: 200px
+  left: 400px
+  width: 250px
+  height: 800px
+  padding: 50px
+  z-index: 8
+  background-color: $white
+  border-radius: 2%
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
+  &.hidden
+    display: none
+
+.exitIcon
+  display: none
+
+.editShiftListItem
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  &:hover
+    background-color: $light-grey
+    .exitIcon
+      display: inline
+      color: $medium-grey
+      &:hover
+        color: $red
+
+.editShiftInputArea
+  width: 100%
+  margin-top: 15px
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  input
+    flex: 5
+  button
+    flex: 1
