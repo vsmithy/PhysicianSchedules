@@ -83,34 +83,6 @@ export const shiftList = [
   },
 ]
 
-export const people = [
-  {
-    'name':'janeDoe',
-    'role':'GYN',
-    'id':1,
-  },
-  {
-    'name':'johnDoe',
-    'role':'FULLSCOPE',
-    'id':2,
-  },
-  {
-    'name':'person3',
-    'role':'FULLSCOPE',
-    'id':3,
-  },
-  {
-    'name':'person4',
-    'role':'MFM',
-    'id':4,
-  },
-  {
-    'name':'person5',
-    'role':'FULLSCOPE',
-    'id':5,
-  }
-]
-
 export const conflictsData = [
   {
     'id': 'tup63e_',

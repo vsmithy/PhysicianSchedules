@@ -49,6 +49,7 @@ const mapStateToProps = state => ({
   conflicts: state.conflicts,
   stats: state.stats,
   eventsReducer: state.eventsReducer,
+  people: state.people, 
  })
  
  const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))

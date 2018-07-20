@@ -1,9 +1,10 @@
 import React, {Component}  from 'react'
 import { getMonth } from '../../helpfulFiles/dateStuff'
-import { person } from '../../data/sampleData'
+// import { person } from '../../data/sampleData'
 
 import ClassicPersonCol from './ClassicPersonCol'
 import ShiftSettings from './ShiftSettings'
+import PeopleSettings from './PeopleSettings'
 import { calendarData } from '../../data/calendarData'
 
 export default class Grid extends Component {
@@ -39,6 +40,7 @@ export default class Grid extends Component {
     let selectedMonth = this.props.currentViewProperties.monthSelect
     let selectedMonthName = getMonth(selectedMonth)
     let selectedYear = this.props.currentViewProperties.yearSelect
+    const person = this.props.people.filter(item => item.isActive === true)
 
     //for the days in a month (through 2021)
     let monthDates = []
@@ -82,6 +84,7 @@ export default class Grid extends Component {
     //for the numActivePeople.length
     let modalView = this.props.currentViewProperties.modal === "show" ? "modal" : "modal hidden"
     let shiftSettingsView = this.props.currentViewProperties.shiftSettingsWindow === "show" ? "shiftSettings" : "shiftSettings hidden"
+    let peopleSettingsView = this.props.currentViewProperties.peopleSettingsWindow === "show" ? "peopleSettings" : "peopleSettings hidden"
     // let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
 
     return (
@@ -110,7 +113,7 @@ export default class Grid extends Component {
             />)}
 
         </div>
-        <div className={modalView} onClick={this.props.currentViewProperties.shiftSettingsWindow === "show" ? console.log('cant hide from the light') : () => this.props.toggleModal()}></div>
+        <div className={modalView} onClick={(this.props.currentViewProperties.shiftSettingsWindow === "show" || this.props.currentViewProperties.peopleSettingsWindow === "show" ) ? console.log('cant hide from the light') : () => this.props.toggleModal()}></div>
         <ShiftSettings 
           viewChoice={shiftSettingsView} 
           shifts={this.props.shifts} 
@@ -118,6 +121,12 @@ export default class Grid extends Component {
           removeShift={this.props.removeShift} 
           toggleModal={this.props.toggleModal}
           toggleShiftSettingsWindow={this.props.toggleShiftSettingsWindow}
+        />
+        <PeopleSettings 
+          toggleModal={this.props.toggleModal}
+          togglePeopleSettingsWindow={this.props.togglePeopleSettingsWindow}
+          viewChoice={peopleSettingsView}
+          people={this.props.people}
         />
       </section>
     )//return

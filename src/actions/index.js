@@ -26,11 +26,18 @@ export const removeEvent = eventDetails => ({ type: types.REMOVE_EVENT, eventDet
 export const updateMaxId = () => ({ type: types.UPDATE_MAX_ID })
 export const toggleModal = () => ({ type: types.TOGGLE_MODAL })
 export const toggleShiftSettingsWindow = () => ({ type: types.TOGGLE_SHIFT_SETTINGS })
+export const togglePeopleSettingsWindow = () => ({ type: types.TOGGLE_PEOPLE_SETTINGS })
 export const changeModalContentId = (id) => ({ type: types.CHANGE_MODAL_CONTENT_ID, id })
 
 
-
-
+//people
+export const addPerson = (name, jobRole) => ({ type: types.ADD_PERSON, name, jobRole })
+export const activatePerson = (id) => ({ type: types.ACTIVATE_PERSON, id })
+export const deactivatePerson = (id) => ({ type: types.DEACTIVATE_PERSON, id })
+export const changeRole = (id, jobRole) => ({ type: types.CHANGE_ROLE, id, jobRole })
+export const addRule = () => ({ type: types.ADD_RULE })
+export const editRule = () => ({ type: types.EDIT_RULE })
+export const removeRule = () => ({ type: types.REMOVE_RULE })
 
 
 

@@ -1,4 +1,13 @@
-import { CHANGE_YEAR, CHANGE_MONTH, CHANGE_SELECTED_SHFT, UPDATE_MAX_ID, TOGGLE_MODAL, CHANGE_MODAL_CONTENT_ID, TOGGLE_SHIFT_SETTINGS } from '../actions/constants'
+import { 
+  CHANGE_YEAR, 
+  CHANGE_MONTH, 
+  CHANGE_SELECTED_SHFT, 
+  UPDATE_MAX_ID, 
+  TOGGLE_MODAL, 
+  CHANGE_MODAL_CONTENT_ID, 
+  TOGGLE_SHIFT_SETTINGS,
+  TOGGLE_PEOPLE_SETTINGS,
+} from '../actions/constants'
 
 let d = new Date()
 
@@ -12,6 +21,7 @@ const initialState = {
   modal: "hide",
   modalId: "none0",
   shiftSettingsWindow: "hide",
+  peopleSettingsWindow: "hide",
 }
 
 export default function currentViewProperties(state = initialState, action){
@@ -27,7 +37,8 @@ export default function currentViewProperties(state = initialState, action){
         maxEventId: state.maxEventId,
         modal: state.modal,
         modalId: state.modalId,
-        shiftSettingsWindow: state.shiftSettingsWindow
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow
       }
     case CHANGE_MONTH:
       return {
@@ -39,7 +50,8 @@ export default function currentViewProperties(state = initialState, action){
         maxEventId: state.maxEventId,
         modal: state.modal,
         modalId: state.modalId,
-        shiftSettingsWindow: state.shiftSettingsWindow
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow
       }
     case CHANGE_SELECTED_SHFT:
       return {
@@ -50,7 +62,8 @@ export default function currentViewProperties(state = initialState, action){
         shiftSelect: action.shift,
         maxEventId: state.maxEventId,
         modalId: state.modalId,
-        shiftSettingsWindow: state.shiftSettingsWindow
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow
       }
     case UPDATE_MAX_ID:
       return {
@@ -62,7 +75,8 @@ export default function currentViewProperties(state = initialState, action){
         maxEventId: state.maxEventId + 1,
         modal: state.modal,
         modalId: state.modalId,
-        shiftSettingsWindow: state.shiftSettingsWindow
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow
       }
     case TOGGLE_MODAL:
       return {
@@ -74,7 +88,8 @@ export default function currentViewProperties(state = initialState, action){
         maxEventId: state.maxEventId,
         modal: state.modal === "show" ? "hide" : "show",
         modalId: state.modalId,
-        shiftSettingsWindow: state.shiftSettingsWindow
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow
       }
     case TOGGLE_SHIFT_SETTINGS:
       return {
@@ -87,6 +102,20 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal,
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow === "hide" ? "show" : "hide",
+        peopleSettingsWindow: state.peopleSettingsWindow
+      }
+    case TOGGLE_PEOPLE_SETTINGS:
+      return {
+        yearSelect: state.yearSelect,
+        monthSelect: state.monthSelect,
+        currentMonth: state.currentMonth,
+        viewSelect: state.viewSelect,
+        shiftSelect: state.shiftSelect,
+        maxEventId: state.maxEventId,
+        modal: state.modal,
+        modalId: state.modalId,
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow === "hide" ? "show" : "hide",
       }
     case CHANGE_MODAL_CONTENT_ID:
       return {
@@ -98,7 +127,8 @@ export default function currentViewProperties(state = initialState, action){
         maxEventId: state.maxEventId,
         modal: state.modal,
         modalId: action.id,
-        shiftSettingsWindow: state.shiftSettingsWindow
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow
       }
     default:
       return state

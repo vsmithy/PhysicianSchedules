@@ -205,13 +205,13 @@ $weekend-blue: #eaf7ff
   display: block
   position: absolute
   top: 200px
-  left: 400px
+  left: 40%
   width: 250px
-  height: 800px
+  // height: 800px
   padding: 50px
   z-index: 8
   background-color: $white
-  border-radius: 2%
+  // border-radius: 2%
   box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
   &.hidden
     display: none
@@ -244,3 +244,46 @@ $weekend-blue: #eaf7ff
     flex: 5
   button
     flex: 1
+
+.peopleSettings
+  position: absolute
+  top: 200px
+  left: 25%
+  width: 650px
+  padding: 50px
+  z-index: 8
+  background-color: $white
+  // border-radius: 12.5%
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+  &.hidden
+    display: none
+
+.peopleLeft
+  height: 100%
+  background-color: $light-grey
+  flex: 1
+  .active
+    background-color: teal
+
+.peopleRight
+  flex: 3
+  height: 100%
+  background-color: teal
+  h1
+    display: inline
+    margin-left: 30%
+
+.addNewPersonBtn
+  display: inline
+  float: right
+
+.addPeopleCloseBtn
+  margin-top: 30px
+
+.personTab
+  &:hover
+    background-color: $medium-grey 

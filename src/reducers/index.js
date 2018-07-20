@@ -6,6 +6,7 @@ import shifts from './shifts'
 import conflicts from './conflicts'
 import stats from './stats'
 import eventsReducer from './eventsReducer'
+import people from './people'
 
 const rootReducer = combineReducers({
   currentViewProperties,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   conflicts,
   stats,
   eventsReducer,
+  people,
 }) //combineReducers
 
 export default rootReducer

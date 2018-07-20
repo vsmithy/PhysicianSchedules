@@ -10,6 +10,7 @@ export default class Header extends Component {
     super(props)
 
     this.shiftSettingsToggle = this.shiftSettingsToggle.bind(this)
+    this.peopleSettingsToggle = this.peopleSettingsToggle.bind(this)
 
   }
   /*********************************************************/
@@ -41,6 +42,17 @@ export default class Header extends Component {
     this.props.toggleShiftSettingsWindow()
   }
 
+  peopleSettingsToggle(){
+    //change modalContentId: none0
+    this.props.changeModalContentId('none0')
+
+    //toggleModal
+    this.props.toggleModal()
+
+    //show shiftSettings component
+    this.props.togglePeopleSettingsWindow()
+  }
+
   render(){
     return (
       <header>
@@ -54,7 +66,7 @@ export default class Header extends Component {
             <div type="button" role="button" className="dropbtn">
               <i className="fas fa-bars fa-2x"></i>
               <div class="dropdownContent">
-                <a href="#">Edit People</a>
+                <a href="#" onClick={() => this.peopleSettingsToggle()}>Edit People</a>
                 <a href="#" onClick={() => this.shiftSettingsToggle()}>Edit Shifts</a>
                 <a href="#">Export to Excel</a>
               </div>
