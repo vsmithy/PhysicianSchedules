@@ -6,6 +6,8 @@ This app has a very specific use-case: rapid doctor's schedule creation. Source 
 * React
 * Redux
 * SASS
+* xlsx-populate
+* Firebase
 * FontAwesome Icons
 * Google Fonts
 * Balsamiq for the initial mockup

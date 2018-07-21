@@ -128,7 +128,7 @@ export default class ModalContent extends Component{
           </div>
           <button className="addBtn" type="button" onClick={() => this.addAnotherEvent()}>
             <div className="left"><i className="fas fa-plus"></i></div>
-            <div className="right">add</div>
+            <div className="right">Add</div>
           </button>
         </div>
       )

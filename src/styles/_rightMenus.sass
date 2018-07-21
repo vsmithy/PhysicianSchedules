@@ -1,3 +1,21 @@
+//variables
+////colors
+$red: #b2001d
+$white: #fff
+$dark-grey: #333
+$medium-grey: #898989
+$light-grey: #dddddd
+$olive-black: #19200E
+$dark-olive: #33401C
+$olive: #556B2F
+$light-olive: #88976D
+$olive-grey: #EEF0EA
+$beans: #3d0000
+$dark-ruby: #8f0000
+$ruby: #CD0000
+$light-ruby: #dc4c4c
+$vashti: #fae5e5
+$weekend-blue: #eaf7ff
 
 aside 
   flex-basis: 19rem
@@ -87,18 +105,21 @@ aside
               display: none
 
 .classicAside
-  height: 55.6rem
-  border: none
+  height: 75rem
+  border-right: 1px solid $light-grey
+  border-bottom: 1px solid $light-grey
+  border-left: 1px solid $light-grey
+  border-top: none
 
 .classicSupportingInfo
-  background-color: #ddd
+  background-color: $white
   height: 55.6rem
   .switchBtn 
     width: 100%
     height: 3rem
-    border: 0.0625rem solid #000
-    background-color: #333
-    color: #fff
+    border: 0.0625rem solid $olive
+    background-color: $light-olive
+    color: $white
     text-align: left
     font-size: 1.2em
     i
@@ -111,7 +132,7 @@ aside
       &.rotated
         transform: rotate(0deg)
     &:hover 
-      color: #b2001d
+      color: $light-ruby
 
   .shiftComponent
     height: 11.5rem
@@ -127,17 +148,17 @@ aside
         display: inline
         .shiftBtn
           height: 2rem
-          background-color: #f2f2f2
-          border: 0.125rem solid #f2f2f2
+          background-color: $olive-grey
+          border: none
           margin: 0.12rem 0.12rem 0.12rem
           // color: #000000
           &.active 
             width: 5rem
-            background-color: #fff
-            border-color: #b2001d
+            background-color: $light-ruby
+            // border-color: #b2001d
             font-size: 1.1rem
           &:hover
-            border-color: #b2001d
+            background-color: $light-ruby
           &.none 
             display: none
 

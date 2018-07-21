@@ -37,7 +37,7 @@ main {
 header {
   height: 4.4rem;
   width: 100%;
-  background-color: #333;
+  background-color: #EEF0EA;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -48,27 +48,27 @@ header .viewSelectBtns {
 }
 header .viewSelectBtn {
   display: inline;
-  color: #fff;
-  background-color: #333;
+  color: #88976D;
+  background-color: #EEF0EA;
   border: none;
 }
 header .viewSelectBtn:hover {
-  color: #b2001d;
+  color: #dc4c4c;
 }
 header .viewSelectBtn.active {
-  color: #b2001d;
+  color: #dc4c4c;
 }
 
 .headerDateSelector {
   flex: 10;
   margin-left: 3.125rem;
-  color: #fff;
+  color: #88976D;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #EEF0EA;
 }
 
 .headerFlexContainer {
@@ -88,14 +88,14 @@ header .viewSelectBtn.active {
 }
 .headerCalNavYear button {
   text-decoration: none;
-  color: #fff;
-  background-color: #333;
+  color: #88976D;
+  background-color: #EEF0EA;
   border: none;
   margin-right: 0.3125rem;
   margin-left: 0.3125rem;
 }
 .headerCalNavYear button:hover {
-  color: #b2001d;
+  color: #dc4c4c;
 }
 
 .headerCalNavMonth {
@@ -123,23 +123,23 @@ header .viewSelectBtn.active {
   border-radius: 50%;
 }
 .headerCalNavMonth li a:hover {
-  color: #b2001d;
-  border-color: #b2001d;
+  color: #dc4c4c;
+  border-color: #dc4c4c;
 }
 
 .headerCalCircleColor {
-  color: #fff;
-  border-color: #fff;
+  color: #88976D;
+  border-color: #88976D;
 }
 
 .headerCalCircleColorActive {
-  color: #b2001d;
-  border-color: #b2001d;
+  color: #dc4c4c;
+  border-color: #dc4c4c;
 }
 
 .headerCalCircleColorPast {
-  color: #898989;
-  border-color: #898989;
+  color: #dddddd;
+  border-color: #dddddd;
 }
 
 .dropdown {
@@ -152,13 +152,13 @@ header .viewSelectBtn.active {
 .dropbtn {
   display: inline;
   float: right;
-  color: #fff;
-  background-color: #333;
+  color: #88976D;
+  background-color: #EEF0EA;
   border: none;
   margin-top: 1.4rem;
 }
 .dropbtn:hover {
-  color: #b2001d;
+  color: #dc4c4c;
 }
 .dropbtn:hover .dropdownContent {
   display: block;
@@ -170,19 +170,19 @@ header .viewSelectBtn.active {
   float: right;
   right: 1.25rem;
   top: 3.025rem;
-  background-color: #f1f1f1;
+  background-color: #EEF0EA;
   min-width: 10rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 .dropdownContent a {
-  color: black;
+  color: #000000;
   padding: 0.75rem 1rem;
   text-decoration: none;
   display: block;
 }
 .dropdownContent a:hover {
-  background-color: #ddd;
+  background-color: #88976D;
 }
 
 .gridSection {
@@ -206,7 +206,7 @@ header .viewSelectBtn.active {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-left: 0.0625rem solid #eeeeee;
+  border-left: 0.0625rem solid #dddddd;
 }
 
 .gridRow {
@@ -216,14 +216,14 @@ header .viewSelectBtn.active {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  border-bottom: 0.0625rem solid #eeeeee;
-  border-left: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #dddddd;
+  border-left: 0.0625rem solid #dddddd;
 }
 
 .gridHeaderCell {
   flex: 1;
   text-align: left;
-  border-right: 0.0625rem solid #eeeeee;
+  border-right: 0.0625rem solid #dddddd;
   height: 100%;
 }
 
@@ -234,7 +234,7 @@ header .viewSelectBtn.active {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  border-right: 0.0625rem solid #eeeeee;
+  border-right: 0.0625rem solid #dddddd;
 }
 
 .gridNum {
@@ -255,8 +255,8 @@ header .viewSelectBtn.active {
   flex-basis: 75rem;
   height: 100%;
   display: inline-block;
-  border-bottom: 0.0625rem solid #eeeeee;
-  border-left: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #dddddd;
+  border-left: 0.0625rem solid #dddddd;
 }
 
 .classicGrid {
@@ -275,7 +275,7 @@ header .viewSelectBtn.active {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border-right: 0.0625rem solid #eeeeee;
+  border-right: 0.0625rem solid #dddddd;
 }
 
 .classicGridPersonCol {
@@ -285,7 +285,7 @@ header .viewSelectBtn.active {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border-right: 0.0625rem solid #eeeeee;
+  border-right: 0.0625rem solid #dddddd;
 }
 
 .classicGridCell, .classicGridPersonName, .classicGridDate, .classicGridMonthName {
@@ -296,24 +296,24 @@ header .viewSelectBtn.active {
 }
 
 .classicGridPersonName {
-  border-bottom: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #dddddd;
   flex: 1.6;
   overflow: hidden;
   font-size: 1.1rem;
 }
 
 .classicGridMonthName {
-  border-bottom: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #dddddd;
   flex: 1.6;
   font-size: 1.1rem;
 }
 
 .classicGridCell {
-  border-bottom: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #dddddd;
   position: relative;
 }
 .classicGridCell.weekend {
-  background-color: #eaf7ff;
+  background-color: #EEF0EA;
 }
 .classicGridCell:hover {
   background-color: #898989;
@@ -321,10 +321,10 @@ header .viewSelectBtn.active {
 }
 
 .classicGridDate {
-  border-bottom: 0.0625rem solid #eeeeee;
+  border-bottom: 0.0625rem solid #dddddd;
 }
 .classicGridDate.weekend {
-  background-color: #eaf7ff;
+  background-color: #EEF0EA;
 }
 
 .modal {
@@ -364,24 +364,79 @@ header .viewSelectBtn.active {
   display: none;
 }
 
+.shiftExitBtn {
+  background-color: #fff;
+  color: #dddddd;
+  border: none;
+  float: right;
+  margin-top: 7%;
+}
+.shiftExitBtn:hover {
+  color: #CD0000;
+}
+
 .modalContentShift {
-  background-color: #eaf7ff;
+  background-color: #fff;
+  height: 2rem;
   width: 100%;
 }
 
 .modalContentShiftName {
   display: inline;
   margin-right: 0.2rem;
+  height: 100%;
+  float: left;
+  border-radius: 3px;
+  width: 70%;
 }
 
 .addBtn {
   width: 100%;
+  height: 2rem;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.addBtn:hover .left {
+  background-color: #EEF0EA;
+}
+.addBtn:hover .right {
+  background-color: #88976D;
+  color: #fff;
 }
 .addBtn .left {
-  display: inline;
+  border: 1px solid #EEF0EA;
+  border-right-width: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  flex: 1;
+  margin: 0;
+  padding: 5% 0 0 0;
+  color: #556B2F;
+  height: 2rem;
+  text-align: center;
+}
+.addBtn .left i {
+  margin: 5px 0 0 0;
 }
 .addBtn .right {
-  display: inline;
+  border: 1px solid #EEF0EA;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  flex: 5;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  padding: 5% 0 0 0;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: #EEF0EA;
+  color: #556B2F;
 }
 
 .shiftSettings {
@@ -411,7 +466,7 @@ header .viewSelectBtn.active {
   align-items: center;
 }
 .editShiftListItem:hover {
-  background-color: #eeeeee;
+  background-color: #dddddd;
 }
 .editShiftListItem:hover .exitIcon {
   display: inline;
@@ -456,7 +511,7 @@ header .viewSelectBtn.active {
 
 .peopleLeft {
   height: 100%;
-  background-color: #eeeeee;
+  background-color: #dddddd;
   flex: 1;
 }
 .peopleLeft .active {
@@ -587,19 +642,22 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 
 .classicAside {
-  height: 55.6rem;
-  border: none;
+  height: 75rem;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-top: none;
 }
 
 .classicSupportingInfo {
-  background-color: #ddd;
+  background-color: #fff;
   height: 55.6rem;
 }
 .classicSupportingInfo .switchBtn {
   width: 100%;
   height: 3rem;
-  border: 0.0625rem solid #000;
-  background-color: #333;
+  border: 0.0625rem solid #556B2F;
+  background-color: #88976D;
   color: #fff;
   text-align: left;
   font-size: 1.2em;
@@ -616,7 +674,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   transform: rotate(0deg);
 }
 .classicSupportingInfo .switchBtn:hover {
-  color: #b2001d;
+  color: #dc4c4c;
 }
 .classicSupportingInfo .shiftComponent {
   height: 11.5rem;
@@ -636,18 +694,17 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 .classicSupportingInfo .shiftComponent ul li .shiftBtn {
   height: 2rem;
-  background-color: #f2f2f2;
-  border: 0.125rem solid #f2f2f2;
+  background-color: #EEF0EA;
+  border: none;
   margin: 0.12rem 0.12rem 0.12rem;
 }
 .classicSupportingInfo .shiftComponent ul li .shiftBtn.active {
   width: 5rem;
-  background-color: #fff;
-  border-color: #b2001d;
+  background-color: #dc4c4c;
   font-size: 1.1rem;
 }
 .classicSupportingInfo .shiftComponent ul li .shiftBtn:hover {
-  border-color: #b2001d;
+  background-color: #dc4c4c;
 }
 .classicSupportingInfo .shiftComponent ul li .shiftBtn.none {
   display: none;

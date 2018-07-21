@@ -1,9 +1,21 @@
+
 //variables
+////colors
 $red: #b2001d
 $white: #fff
 $dark-grey: #333
 $medium-grey: #898989
-$light-grey: #eeeeee
+$light-grey: #dddddd
+$olive-black: #19200E
+$dark-olive: #33401C
+$olive: #556B2F
+$light-olive: #88976D
+$olive-grey: #EEF0EA
+$beans: #3d0000
+$dark-ruby: #8f0000
+$ruby: #CD0000
+$light-ruby: #dc4c4c
+$vashti: #fae5e5
 $weekend-blue: #eaf7ff
 
 .gridSection
@@ -139,7 +151,7 @@ $weekend-blue: #eaf7ff
   border-bottom: 0.0625rem solid $light-grey
   position: relative
   &.weekend
-    background-color: $weekend-blue
+    background-color: $olive-grey
   &:hover
     background-color: $medium-grey
     color: $white
@@ -147,7 +159,7 @@ $weekend-blue: #eaf7ff
 .classicGridDate
   border-bottom: 0.0625rem solid $light-grey
   &.weekend
-    background-color: $weekend-blue
+    background-color: $olive-grey
 
 
 
@@ -186,20 +198,71 @@ $weekend-blue: #eaf7ff
   &.hidden
     display: none
 
+.shiftExitBtn
+  background-color: $white
+  color: $light-grey
+  border: none
+  float: right
+  margin-top: 7%
+  &:hover
+    color: $ruby
+  
 .modalContentShift
-  background-color: $weekend-blue
+  background-color: $white
+  height: 2rem
   width: 100%
 
 .modalContentShiftName
   display: inline
   margin-right: 0.2rem
+  height: 100%
+  float: left
+  border-radius: 3px
+  width: 70%
 
 .addBtn
   width: 100%
+  height: 2rem
+  border: none
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  margin: 0
+  padding: 0
+  background-color: $white
+  &:hover
+    .left
+      background-color: $olive-grey
+    .right
+      background-color: $light-olive
+      color: $white
   .left
-    display: inline
+    border: 1px solid $olive-grey
+    border-right-width: 0
+    border-bottom-left-radius: 5px 
+    border-top-left-radius: 5px 
+    flex: 1
+    margin: 0
+    padding: 5% 0 0 0
+    color: $olive
+    height: 2rem
+    text-align: center
+    i
+      margin: 5px 0 0 0
   .right
-    display: inline
+    border: 1px solid $olive-grey
+    border-bottom-right-radius: 5px 
+    border-top-right-radius: 5px 
+    flex: 5
+    height: 2rem
+    margin: 0
+    padding: 0
+    padding: 5% 0 0 0
+    font-size: 1.4rem
+    text-align: center
+    background-color: $olive-grey
+    color: $olive
 
 .shiftSettings
   display: block

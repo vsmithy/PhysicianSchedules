@@ -47,11 +47,12 @@ export default class ClassicNavCal extends Component {
     const { currentViewProperties } = this.props
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
     const whichClass = (idx) => currentViewProperties.currentMonth > idx ? 'headerCalCircleColorPast' : 'headerCalCircleColor'
+    let showBackArrow = currentViewProperties.yearSelect === 2018 ? '' : <button type="button" onClick={() => this.props.changeYear(-1)}><i className="fas fa-chevron-left"></i></button>
 
     return (
       <div className="headerFlexContainer" role="presentation">
         <div role="presentation" className="headerCalNavYear">
-          <button type="button" onClick={() => this.props.changeYear(-1)}><i className="fas fa-chevron-left"></i></button>
+          {showBackArrow}
           <span>{this.props.currentViewProperties.yearSelect}</span>
           <button type="button" onClick={() => this.props.changeYear(1)}><i className="fas fa-chevron-right"></i></button>
         </div>

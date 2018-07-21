@@ -4,33 +4,56 @@
 // the export buttons
 
 //variables
+////colors
 $red: #b2001d
-$white: #fff
+$white: #ffffff
+$black: #000000
 $dark-grey: #333
 $medium-grey: #898989
+$light-grey: #dddddd
+$olive-black: #19200E
+$dark-olive: #33401C
+$olive: #556B2F
+$light-olive: #88976D
+$olive-grey: #EEF0EA
+$beans: #3d0000
+$dark-ruby: #8f0000
+$ruby: #CD0000
+$light-ruby: #dc4c4c
+$vashti: #fae5e5
+$weekend-blue: #eaf7ff
+
+//palettes
+$header-bkg: $olive-grey
+$header-dropdown-bkg: $olive-grey
+$header-icons: $light-olive
+$header-circle-future: $light-olive
+$header-dropdown-hover: $light-olive
+$header-circle-active: $light-ruby
+$header-icons-active: $light-ruby
+$header-circle-past: $light-grey
+
 
 //header
 header
   height: 4.4rem
   width: 100%
-  background-color: $dark-grey
+  background-color: $header-bkg
   display: flex
   flex-direction: row
   justify-content: flex-start
   align-items: center
-  
   .viewSelectBtns
     margin-left: 0.5rem
-  
   .viewSelectBtn 
     display: inline
-    color: $white
-    background-color: $dark-grey
+    color: $header-icons
+    background-color: $header-bkg
     border: none
     &:hover
-      color: $red
+      color: $header-icons-active
     &.active
-      color: $red
+      color: $header-icons-active
 
 
   
@@ -38,13 +61,13 @@ header
 .headerDateSelector
   flex: 10
   margin-left: 3.125rem
-  color: $white
+  color: $header-circle-future
   height: 100%
   display: flex
   flex-direction: row
   justify-content: space-between
   align-items: center
-  background-color: $dark-grey
+  background-color: $header-bkg
 
 .headerFlexContainer
   width: 28.125rem
@@ -61,13 +84,13 @@ header
   font-size: 1.2rem
   button
     text-decoration: none
-    color: $white
-    background-color: $dark-grey
+    color: $header-circle-future
+    background-color: $header-bkg
     border: none
     margin-right: 0.3125rem
     margin-left: 0.3125rem
     &:hover 
-      color: $red
+      color: $header-circle-active
 
 .headerCalNavMonth 
   flex: 3
@@ -92,20 +115,20 @@ header
     border-style: solid
     border-radius: 50%
     &:hover 
-      color: $red
-      border-color: $red
+      color: $header-circle-active
+      border-color: $header-circle-active
 
 .headerCalCircleColor 
-  color: $white
-  border-color: $white
+  color: $header-circle-future
+  border-color: $header-circle-future
 
 .headerCalCircleColorActive 
-  color: $red
-  border-color: $red
+  color: $header-circle-active
+  border-color: $header-circle-active
 
 .headerCalCircleColorPast 
-  color: $medium-grey
-  border-color: $medium-grey
+  color: $header-circle-past
+  border-color: $header-circle-past
   
   
   
@@ -120,12 +143,12 @@ header
 .dropbtn
   display: inline
   float: right
-  color: $white
-  background-color: $dark-grey
+  color: $header-icons
+  background-color: $header-dropdown-bkg
   border: none
   margin-top: 1.4rem
   &:hover 
-    color: $red
+    color: $header-icons-active
     .dropdownContent
       display: block
 
@@ -135,20 +158,14 @@ header
   float: right
   right: 1.25rem
   top: 3.025rem
-  background-color: #f1f1f1
+  background-color: $header-dropdown-bkg
   min-width: 10rem
   box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
   z-index: 1
   a
-    color: black
+    color: $black
     padding: 0.75rem 1rem
     text-decoration: none
     display: block
     &:hover
-      background-color: #ddd
-
-// .dropdown
-//   &:hover
-//     .dropdown-content
-//       display: block
-
+      background-color: $header-dropdown-hover
