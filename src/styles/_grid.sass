@@ -265,22 +265,34 @@ $weekend-blue: #eaf7ff
     color: $olive
 
 .shiftSettings
-  display: block
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
   position: absolute
   top: 200px
   left: 40%
   width: 250px
   // height: 800px
-  padding: 50px
+  padding: 25px
   z-index: 8
   background-color: $white
-  // border-radius: 2%
+  border-radius: 0.1875rem
   box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
   &.hidden
     display: none
+  h1
+    flex: 1
+    color: $olive-black
 
 .exitIcon
+  margin-right: 3px
   display: none
+
+.editShiftList
+  flex: 8
+  margin-top: 10px
+  width: 80%
 
 .editShiftListItem
   width: 100%
@@ -288,25 +300,64 @@ $weekend-blue: #eaf7ff
   flex-direction: row
   justify-content: space-between
   align-items: center
+  height: 1.5rem
+  padding: 2px
   &:hover
-    background-color: $light-grey
+    background-color: $olive-grey
     .exitIcon
       display: inline
-      color: $medium-grey
+      color: $light-olive
       &:hover
         color: $red
 
 .editShiftInputArea
+  flex: 1
   width: 100%
-  margin-top: 15px
+  // margin-top: 15px
   display: flex
+  height: 2rem
   flex-direction: row
   justify-content: space-between
   align-items: center
   input
     flex: 5
+    height: 86%
+    border-top-left-radius: 3px
+    border-bottom-left-radius: 3px
+    padding-left: 5px
+    // border-radius: 3px
+    // border-radius: 3px
+    // margin-right: 5px
+    border: 1px solid $light-olive
   button
     flex: 1
+    height: 100%
+    border-top-right-radius: 3px
+    border-bottom-right-radius: 3px
+    background-color: $light-olive
+    color: $olive-grey
+    font-size: 1.4rem
+    border: 1px solid $light-olive
+    // margin: 0
+    // padding: 0
+    &:hover
+      color: $white
+      background-color: $olive
+
+
+.closeEditShiftsBtn
+  flex: 1
+  flex-basis: 2rem
+  margin-top: 10px
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width:35%
+  color: $olive-grey
+  font-size: 1.4rem
+  &:hover
+    background-color: $olive
+    color: $white
 
 .peopleSettings
   position: absolute

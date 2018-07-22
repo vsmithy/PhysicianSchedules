@@ -36,8 +36,10 @@ class ShiftSettings extends Component {
           />
           <button role="button" onClick={() => this.makeNewShift()}>Add</button>
         </div>
+        <div role="presentation" className="editShiftList">
         {this.props.shifts.map(shiftItem => <div key={shiftItem.id} className="editShiftListItem">{shiftItem.shiftName}<i className="fas fa-times exitIcon" onClick={() => this.props.removeShift(shiftItem.id)}></i></div>)}
-        <button onClick={() => this.hideSettings()}>Close</button>
+        </div>
+        <button onClick={() => this.hideSettings()} className="closeEditShiftsBtn">Close</button>
       </div>
     )
   }//render
