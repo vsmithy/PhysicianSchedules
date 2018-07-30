@@ -175,14 +175,17 @@ header .viewSelectBtn.active {
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-.dropdownContent a {
-  color: #000000;
+.dropdownContent button {
+  color: #556B2F;
   padding: 0.75rem 1rem;
-  text-decoration: none;
+  border: none;
+  width: 100%;
   display: block;
+  font-size: 1.2rem;
 }
-.dropdownContent a:hover {
+.dropdownContent button:hover {
   background-color: #88976D;
+  color: #ffffff;
 }
 
 .gridSection {
