@@ -389,6 +389,7 @@ header .viewSelectBtn.active {
   margin-right: 0.2rem;
   height: 100%;
   float: left;
+  border: 1px solid #EEF0EA;
   border-radius: 3px;
   width: 70%;
 }
