@@ -6,6 +6,7 @@ import ClassicNavCal from './ClassicNavCal'
 // import { calendarData } from '../../data/calendarData'
 import ShiftSettings from './ShiftSettings'
 import { getMonth } from '../../helpfulFiles/dateStuff'
+import { calendarData } from '../../data/calendarData'
 
 export default class Header extends Component {
   constructor(props){
@@ -39,7 +40,7 @@ export default class Header extends Component {
   // componentDidCatch(error, info){'header component caught an error'}
   /*******************************************************************/
   
-  //this is the export to excel zone
+  //this is the export to excel zone bro bro
 
   getWorkbook(){
     return XlsxPopulate.fromBlankAsync()
@@ -49,6 +50,7 @@ export default class Header extends Component {
     let selectedMonth = this.props.currentViewProperties.monthSelect
     let selectedMonthName = getMonth(selectedMonth)
     let selectedYear = this.props.currentViewProperties.yearSelect
+    let theBlank = ''
     const person = this.props.people.filter(item => item.isActive === true)
 
     //for the excel column letters
@@ -80,27 +82,27 @@ export default class Header extends Component {
 
     return this.getWorkbook()
       .then(function (workbook) {
-        //make the first column which is monthname and days of the month
+        //make the first column: monthname and days of the month
         workbook.sheet(0).cell("A1").value(selectedMonthName)
         {monthDates.map(day => workbook.sheet(0).cell("A"+(day+1)).value(day))}
         
         //next for the people listed as active on the schedule
-        {person.map(function(item, idx){
-            //get the column letter
-            let theColLetter = cols[idx]
-            
-            //create event list
-            let eventList={monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))}
+        //make an array of arrays, each sub-array will belong to a different person
+        let personShiftData = person.map(function(item){
+            let personEvents = monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))
 
-            //return this stuff - show name in the first cell of the column
-            workbook.sheet(0).cell(theColLetter + "1").value(item.name)
-            
-            //for the rest of the cells, map over the event list
-                    //use this - workbook.sheet(0).cell("B2").value("Clinic\n Training")
-            {eventList.map(item => { item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank })}
-          }  
-        )}
-          return workbook.outputAsync({ type: type })
+            let eventCellData = personEvents.map(evt => evt.length > 0 ? (evt.length > 1 ? evt[0].shiftName + " \n" + evt[1].shiftName : evt[0].shiftName) : theBlank)
+
+            return eventCellData
+          })
+
+        //map over the people, and print name in first cell of column
+        {person.map( (item, idx) => workbook.sheet(0).cell(cols[idx] + "1").value(item.name) )}
+
+        //map down the events of each person
+        {personShiftData.map( (evt, idx) => evt.map( (evtItem, i) => workbook.sheet(0).cell(cols[idx] + (i+2) ).value(evtItem) ))}
+
+        return workbook.outputAsync({ type: type })
       })
   }//generate
   
