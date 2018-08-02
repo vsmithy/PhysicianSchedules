@@ -5,6 +5,7 @@ import { getMonth } from '../../helpfulFiles/dateStuff'
 import ClassicPersonCol from './ClassicPersonCol'
 import ShiftSettings from './ShiftSettings'
 import PeopleSettings from './PeopleSettings'
+import MeetingSettings from './MeetingSettings'
 import { calendarData } from '../../data/calendarData'
 
 export default class Grid extends Component {
@@ -85,6 +86,7 @@ export default class Grid extends Component {
     let modalView = this.props.currentViewProperties.modal === "show" ? "modal" : "modal hidden"
     let shiftSettingsView = this.props.currentViewProperties.shiftSettingsWindow === "show" ? "shiftSettings" : "shiftSettings hidden"
     let peopleSettingsView = this.props.currentViewProperties.peopleSettingsWindow === "show" ? "peopleSettings" : "peopleSettings hidden"
+    let meetingSettingsView = this.props.currentViewProperties.meetingSettingsWindow === "show" ? "meetingSettings" : "meetingSettings hidden"
     // let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
 
     return (
@@ -127,6 +129,12 @@ export default class Grid extends Component {
           togglePeopleSettingsWindow={this.props.togglePeopleSettingsWindow}
           viewChoice={peopleSettingsView}
           people={this.props.people}
+        />
+        <MeetingSettings 
+          toggleModal={this.props.toggleModal}
+          toggleMeetingSettingsWindow={this.props.toggleMeetingSettingsWindow}
+          viewChoice={meetingSettingsView}
+          meetings={this.props.meetings}
         />
       </section>
     )//return

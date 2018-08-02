@@ -27,7 +27,7 @@ class PeopleSettings extends Component {
     return (
       <div className={this.props.viewChoice}>
         <div className="peopleLeft">
-          {this.props.people.map(item => <div className="personTab">{item.name}</div>)}
+          {this.props.people.map(item => <div key={item.id} className="personTab">{item.name}</div>)}
         </div>
         <div className="peopleRight">
           <h1>Edit People</h1>

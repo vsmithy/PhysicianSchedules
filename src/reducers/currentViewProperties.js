@@ -7,6 +7,7 @@ import {
   CHANGE_MODAL_CONTENT_ID, 
   TOGGLE_SHIFT_SETTINGS,
   TOGGLE_PEOPLE_SETTINGS,
+  TOGGLE_MEETING_SETTINGS,
 } from '../actions/constants'
 
 let d = new Date()
@@ -38,7 +39,8 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal,
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow,
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     case CHANGE_MONTH:
       return {
@@ -51,7 +53,8 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal,
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow,
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     case CHANGE_SELECTED_SHFT:
       return {
@@ -63,7 +66,8 @@ export default function currentViewProperties(state = initialState, action){
         maxEventId: state.maxEventId,
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow,
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     case UPDATE_MAX_ID:
       return {
@@ -76,7 +80,8 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal,
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow,
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     case TOGGLE_MODAL:
       return {
@@ -89,7 +94,8 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal === "show" ? "hide" : "show",
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow,
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     case TOGGLE_SHIFT_SETTINGS:
       return {
@@ -102,7 +108,8 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal,
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow === "hide" ? "show" : "hide",
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     case TOGGLE_PEOPLE_SETTINGS:
       return {
@@ -116,6 +123,21 @@ export default function currentViewProperties(state = initialState, action){
         modalId: state.modalId,
         shiftSettingsWindow: state.shiftSettingsWindow,
         peopleSettingsWindow: state.peopleSettingsWindow === "hide" ? "show" : "hide",
+        meetingSettingsWindow: state.meetingSettingsWindow
+      }
+    case TOGGLE_MEETING_SETTINGS:
+      return {
+        yearSelect: state.yearSelect,
+        monthSelect: state.monthSelect,
+        currentMonth: state.currentMonth,
+        viewSelect: state.viewSelect,
+        shiftSelect: state.shiftSelect,
+        maxEventId: state.maxEventId,
+        modal: state.modal,
+        modalId: state.modalId,
+        shiftSettingsWindow: state.shiftSettingsWindow,
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow === "hide" ? "show" : "hide",
       }
     case CHANGE_MODAL_CONTENT_ID:
       return {
@@ -128,7 +150,8 @@ export default function currentViewProperties(state = initialState, action){
         modal: state.modal,
         modalId: action.id,
         shiftSettingsWindow: state.shiftSettingsWindow,
-        peopleSettingsWindow: state.peopleSettingsWindow
+        peopleSettingsWindow: state.peopleSettingsWindow,
+        meetingSettingsWindow: state.meetingSettingsWindow
       }
     default:
       return state

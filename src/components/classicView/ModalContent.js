@@ -104,13 +104,13 @@ export default class ModalContent extends Component{
         <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
           <div key={0} className="modalContentShift">
             <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt1)}>
-              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
+              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option key={shiftItem.shiftName} value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option key={shiftItem.shiftName} value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
             </select>
             <button type="button"  className="shiftExitBtn" onClick={() => this.removeEvent(evt1)}><i className="fas fa-times"></i></button>
           </div>
           <div key={1} className="modalContentShift">
             <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt2)}>
-              { listOfShifts.map(shiftItem => shifts[1].shiftName === shiftItem.shiftName ? <option value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
+              { listOfShifts.map(shiftItem => shifts[1].shiftName === shiftItem.shiftName ? <option key={shiftItem.shiftName} value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option key={shiftItem.shiftName} value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
             </select>
             <button type="button"  className="shiftExitBtn" onClick={() => this.removeEvent(evt2)}><i className="fas fa-times"></i></button>
           </div>
@@ -122,7 +122,7 @@ export default class ModalContent extends Component{
         <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
           <div key={0} className="modalContentShift">
             <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt1)}>
-              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
+              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option key={shiftItem.shiftName} value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option key={shiftItem.shiftName} value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
             </select>
             <button type="button"  className="shiftExitBtn" onClick={() => this.removeEvent(evt1)}><i className="fas fa-times"></i></button>
           </div>

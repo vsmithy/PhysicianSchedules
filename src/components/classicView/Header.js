@@ -14,6 +14,7 @@ export default class Header extends Component {
 
     this.shiftSettingsToggle = this.shiftSettingsToggle.bind(this)
     this.peopleSettingsToggle = this.peopleSettingsToggle.bind(this)
+    this.meetingsToggle = this.meetingsToggle.bind(this)
     this.generateBlob = this.generateBlob.bind(this)
     this.getWorkbook = this.getWorkbook.bind(this)
     this.generate = this.generate.bind(this)
@@ -52,6 +53,7 @@ export default class Header extends Component {
     let selectedYear = this.props.currentViewProperties.yearSelect
     let theBlank = ''
     const person = this.props.people.filter(item => item.isActive === true)
+    const meetings = this.props.meetings
 
     //for the excel column letters
     const cols = ["B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","BB","CC","DD","EE","FF","GG","HH","II","JJ","KK","LL","MM","NN","OO","PP","QQ","RR","SS","TT","UU","VV","WW","XX","YY","ZZ"]
@@ -96,11 +98,25 @@ export default class Header extends Component {
             return eventCellData
           })
 
+        let cellStyles = {
+          "OR-4":"d62613",
+          "OR-6":"d62613",
+          "OR-8":"d62613",
+          "LDD":"ffdbfc",
+          "LDN":"ffffba",
+          "Inprocessing":"ffd99e",
+          "CMD":"bcd8ff",
+          "Ward":"9aedb7",
+        }//cellStyles
+
         //map over the people, and print name in first cell of column
         {person.map( (item, idx) => workbook.sheet(0).cell(cols[idx] + "1").value(item.name) )}
 
         //map down the events of each person
-        {personShiftData.map( (evt, idx) => evt.map( (evtItem, i) => workbook.sheet(0).cell(cols[idx] + (i+2) ).value(evtItem) ))}
+        {personShiftData.map( (evt, idx) => evt.map( (evtItem, i) => workbook.sheet(0).cell(cols[idx] + (i+2) ).value(evtItem).style("fill",cellStyles[evtItem]) ))}
+
+        //next, list the meetings
+        {meetings.map( (mtg, idx) => workbook.sheet(0).cell("A" + (idx+34)).value(mtg.id + " - " + mtg.data) )}
 
         return workbook.outputAsync({ type: type })
       })
@@ -145,6 +161,17 @@ export default class Header extends Component {
     this.props.togglePeopleSettingsWindow()
   }//peopleSettingsToggle
 
+  meetingsToggle(){
+    //change modalContentId: none0
+    this.props.changeModalContentId('none0')
+
+    //toggleModal
+    this.props.toggleModal()
+
+    //show meetings component
+    this.props.toggleMeetingSettingsWindow()
+  }//meetingsToggle
+
   render(){
     return (
       <header>
@@ -157,9 +184,10 @@ export default class Header extends Component {
           <div role="presentation" className="dropdown">
             <div type="button" role="button" className="dropbtn">
               <i className="fas fa-bars fa-2x"></i>
-              <div class="dropdownContent">
+              <div className="dropdownContent">
                 <button onClick={() => this.peopleSettingsToggle()}>Edit People</button>
                 <button onClick={() => this.shiftSettingsToggle()}>Edit Shifts</button>
+                <button onClick={() => this.meetingsToggle()}>Edit Meetings</button>
                 <button onClick={() => this.generateBlob()}>Export to Excel</button>
               </div>
             </div>

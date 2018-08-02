@@ -441,5 +441,88 @@ export const person = [
   },
 ]
 
+export const meetingList = [
+  {
+    "id": 1,
+    "data":"Surv, Prev & Control of Infection Committee: 1st Thursday every odd month at 1230 (DiazPerez)"
+  },
+  {
+    "id": 2,
+    "data":"Credentials Meeting, 1st and 3rd Thurs @1400  (Devore)"
+  },
+  {
+    "id": 3,
+    "data":"MSEC:  1st Thursday @ 1430 (Devore)"
+  },
+  {
+    "id": 4,
+    "data":"Medication Use and Evaluation/Pharmacy & therapeutics:  1st Friday @1400 (Bhavsar)"
+  },
+  {
+    "id": 5,
+    "data":"Tumor Board:  Second Thursday @ 1300 (Barron)"
+  },
+  {
+    "id": 6,
+    "data":"Medical Records Review:  Quarterly 3rd Fri @ 1500  DCCS Conference Room (Diazperez)"
+  },
+  {
+    "id": 7,
+    "data":"Ethics Committee Aug, Nov, Feb, May first Thursday at noon (Diazperez)"
+  },
+  {
+    "id": 8,
+    "data":"General Suregry Staff Meeting  SECOND thur @ 1430 (Barron)"
+  },
+  {
+    "id": 9,
+    "data":"QMC- 4th Thurs 0800  (Devore)"
+  },
+  {
+    "id": 10,
+    "data":" Education Committee 3rd Wed @ 1300"
+  },
+  {
+    "id": 11,
+    "data":" Risk Mgmt Meeting 3rd Thurs @ 0930 Dr. Smith	"
+  },
+  {
+    "id": 12,
+    "data":" Blood Utilization Committee: 4th Thurs @ 1200 (Bhavsar)"
+  },
+  {
+    "id": 13,
+    "data":" Medication Mgmt Committee:  4th Tues @ 0800 (Chiles)"
+  },
+  {
+    "id": 14,
+    "data":" Patient Flow -1st Mon Feb, May, Aug, Nov at 0900 DCCS Conf rm- (Devore)"
+  },
+  {
+    "id": 15,
+    "data":" OB quality, safety, and satisfaction group - 4th Wednesday of every month @ 1100 (Teneyuque/Devore)"
+  },
+  {
+    "id": 16,
+    "data":" DCSS meeting 2nd Thurs 1430 (Devore)"
+  },
+  {
+    "id": 17,
+    "data":" Chiefs meeting every Thurs 0800 (Devore)"
+  },
+  {
+    "id": 18,
+    "data":" WHSL commander brief odd months, 2nd fri, 0830 (Devore)"
+  },
+  {
+    "id": 19,
+    "data":" Stork - (Hendrix, Teneyuque, Devore)"
+  },
+  {
+    "id": 20,
+    "data":" Patient experience: 4th Thurs 1330 (Bhavsar)"
+  }
+]
+
 export const rules = {}
 export const notes = {}

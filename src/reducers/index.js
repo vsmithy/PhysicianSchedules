@@ -7,6 +7,7 @@ import conflicts from './conflicts'
 import stats from './stats'
 import eventsReducer from './eventsReducer'
 import people from './people'
+import meetings from './meetings'
 
 const rootReducer = combineReducers({
   currentViewProperties,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   stats,
   eventsReducer,
   people,
+  meetings,
 }) //combineReducers
 
 export default rootReducer

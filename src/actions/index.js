@@ -27,6 +27,7 @@ export const updateMaxId = () => ({ type: types.UPDATE_MAX_ID })
 export const toggleModal = () => ({ type: types.TOGGLE_MODAL })
 export const toggleShiftSettingsWindow = () => ({ type: types.TOGGLE_SHIFT_SETTINGS })
 export const togglePeopleSettingsWindow = () => ({ type: types.TOGGLE_PEOPLE_SETTINGS })
+export const toggleMeetingSettingsWindow = () => ({ type: types.TOGGLE_MEETING_SETTINGS })
 export const changeModalContentId = (id) => ({ type: types.CHANGE_MODAL_CONTENT_ID, id })
 
 
@@ -39,6 +40,10 @@ export const addRule = () => ({ type: types.ADD_RULE })
 export const editRule = () => ({ type: types.EDIT_RULE })
 export const removeRule = () => ({ type: types.REMOVE_RULE })
 
+//meetings
+export const addMeeting = (data) => ({ type: types.ADD_MEETING, data })
+export const removeMeeting = (id) => ({ type: types.REMOVE_MEETING, id })
+export const editMeeting = (id, data) => ({ type: types.EDIT_MEETING, id, data })
 
 
 

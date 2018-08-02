@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ShiftSettings extends Component {
+class MeetingSettings extends Component {
   constructor(props){
     super(props)
 
@@ -20,15 +20,13 @@ class ShiftSettings extends Component {
   hideSettings(){
     //hides the modal and the settings window
     this.props.toggleModal()
-    this.props.toggleShiftSettingsWindow()
+    this.props.toggleMeetingSettingsWindow()
   }
 
   render() {
-    
-
     return (
       <div className={this.props.viewChoice}>
-        <h1>Edit Shifts</h1>
+        <h1>Edit Meetings</h1>
         <div className="editShiftInputArea">
           <input 
             type="text" 
@@ -39,12 +37,12 @@ class ShiftSettings extends Component {
           <button role="button" onClick={() => this.makeNewShift()}>Add</button>
         </div>
         <div role="presentation" className="editShiftList">
-        {this.props.shifts.sort( (a, b) => a.shiftName < b.shiftName ? -1 : 1).map(shiftItem => <div key={shiftItem.id} className="editShiftListItem">{shiftItem.shiftName}<i className="fas fa-times exitIcon" onClick={() => this.props.removeShift(shiftItem.id)}></i></div>)}
+          {this.props.meetings.map(mtg => <div>{mtg.id} - {mtg.data}<i className="fas fa-times exitIcon"></i></div>)}
         </div>
         <button onClick={() => this.hideSettings()} className="closeEditShiftsBtn">Close</button>
       </div>
     )
   }//render
-}//shiftSettings
+}//MeetingSettings
 
-export default ShiftSettings
+export default MeetingSettings

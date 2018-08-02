@@ -37,7 +37,7 @@ main {
 header {
   height: 4.4rem;
   width: 100%;
-  background-color: #EEF0EA;
+  background-color: #dddddd;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -48,8 +48,8 @@ header .viewSelectBtns {
 }
 header .viewSelectBtn {
   display: inline;
-  color: #88976D;
-  background-color: #EEF0EA;
+  color: #33401C;
+  background-color: #dddddd;
   border: none;
 }
 header .viewSelectBtn:hover {
@@ -62,13 +62,13 @@ header .viewSelectBtn.active {
 .headerDateSelector {
   flex: 10;
   margin-left: 3.125rem;
-  color: #88976D;
+  color: #33401C;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #EEF0EA;
+  background-color: #dddddd;
 }
 
 .headerFlexContainer {
@@ -88,8 +88,8 @@ header .viewSelectBtn.active {
 }
 .headerCalNavYear button {
   text-decoration: none;
-  color: #88976D;
-  background-color: #EEF0EA;
+  color: #33401C;
+  background-color: #dddddd;
   border: none;
   margin-right: 0.3125rem;
   margin-left: 0.3125rem;
@@ -128,8 +128,8 @@ header .viewSelectBtn.active {
 }
 
 .headerCalCircleColor {
-  color: #88976D;
-  border-color: #88976D;
+  color: #33401C;
+  border-color: #33401C;
 }
 
 .headerCalCircleColorActive {
@@ -138,8 +138,8 @@ header .viewSelectBtn.active {
 }
 
 .headerCalCircleColorPast {
-  color: #dddddd;
-  border-color: #dddddd;
+  color: #EEF0EA;
+  border-color: #EEF0EA;
 }
 
 .dropdown {
@@ -152,8 +152,8 @@ header .viewSelectBtn.active {
 .dropbtn {
   display: inline;
   float: right;
-  color: #88976D;
-  background-color: #EEF0EA;
+  color: #33401C;
+  background-color: #dddddd;
   border: none;
   margin-top: 1.4rem;
 }
@@ -170,13 +170,13 @@ header .viewSelectBtn.active {
   float: right;
   right: 1.25rem;
   top: 3.025rem;
-  background-color: #EEF0EA;
+  background-color: #dddddd;
   min-width: 10rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 .dropdownContent button {
-  color: #556B2F;
+  color: #33401C;
   padding: 0.75rem 1rem;
   border: none;
   width: 100%;
@@ -184,7 +184,7 @@ header .viewSelectBtn.active {
   font-size: 1.2rem;
 }
 .dropdownContent button:hover {
-  background-color: #88976D;
+  background-color: #898989;
   color: #ffffff;
 }
 
@@ -595,6 +595,24 @@ header .viewSelectBtn.active {
   background-color: #898989;
 }
 
+.meetingSettings {
+  position: absolute;
+  top: 200px;
+  left: 25%;
+  width: 650px;
+  padding: 50px;
+  z-index: 8;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.meetingSettings.hidden {
+  display: none;
+}
+
 aside {
   flex-basis: 19rem;
   background-color: #fff;
@@ -710,9 +728,9 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 .classicSupportingInfo .switchBtn {
   width: 100%;
   height: 3rem;
-  border: 0.0625rem solid #556B2F;
-  background-color: #88976D;
-  color: #fff;
+  border: 0.0625rem solid #898989;
+  background-color: #dddddd;
+  color: #33401C;
   text-align: left;
   font-size: 1.2em;
 }
