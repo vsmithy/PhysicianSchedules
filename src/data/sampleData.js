@@ -378,7 +378,7 @@ export const person = [
   {
     'id': 4,
     'name': 'Person Obi',
-    'jobRole': 'fullscope',
+    'jobRole': 'Full Scope',
     'rules': [
       {
         'id': 334,
@@ -398,7 +398,7 @@ export const person = [
   {
     'id': 1,
     'name': 'Mary Wan',
-    'jobRole': 'fullscope',
+    'jobRole': 'Full Scope',
     'rules': [
       {
         'id': 337,
@@ -418,7 +418,7 @@ export const person = [
   {
     'id': 2,
     'name': 'Cartey Beeswax',
-    'jobRole': 'mfm',
+    'jobRole': 'MFM',
     'rules': [
       {
         'id': 340,
@@ -430,7 +430,7 @@ export const person = [
   {
     'id': 3,
     'name': 'Thunder Magnussen',
-    'jobRole': 'gyn',
+    'jobRole': 'GYN',
     'rules': [
       {
         'id': 341,

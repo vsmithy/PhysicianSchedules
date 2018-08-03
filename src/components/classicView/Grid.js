@@ -129,6 +129,10 @@ export default class Grid extends Component {
           togglePeopleSettingsWindow={this.props.togglePeopleSettingsWindow}
           viewChoice={peopleSettingsView}
           people={this.props.people}
+          activatePerson={this.props.activatePerson}
+          deactivatePerson={this.props.deactivatePerson}
+          addPerson={this.props.addPerson}
+          changeRole={this.props.changeRole}
         />
         <MeetingSettings 
           toggleModal={this.props.toggleModal}

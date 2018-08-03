@@ -365,10 +365,11 @@ $weekend-blue: #eaf7ff
   top: 200px
   left: 25%
   width: 650px
-  padding: 50px
+  padding: 0
   z-index: 8
-  background-color: $white
-  // border-radius: 12.5%
+  background-color: $olive-grey
+  border-radius: 5px
+  // background-clip: padding-box
   box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
   display: flex
   flex-direction: row
@@ -379,29 +380,109 @@ $weekend-blue: #eaf7ff
 
 .peopleLeft
   height: 100%
-  background-color: $light-grey
-  flex: 1
+  background-color: $olive-grey
+  flex: 2
   .active
-    background-color: teal
+    background-color: $white
 
 .peopleRight
-  flex: 3
-  height: 100%
-  background-color: teal
+  flex: 4
+  height: 500px
+  background-color: $white
+  padding: 10px
   h1
     display: inline
-    margin-left: 30%
+    margin-left: 25%
+
+.personToggleButtons
+  margin-left: 5px
+  button
+    border-radius: 2px
+    margin-right: 5px
+    border: none
+    background-color: $light-grey
+    color: $medium-grey
+    &.active
+      &.yes
+        background-color: $light-olive
+        color: $white
+      &.no
+        background-color: $light-ruby
+        color: $white
+.jobRoleChooser
+  margin-left: 5px
+  border-radius: 2px
+  border: 1px solid $olive-grey
 
 .addNewPersonBtn
-  display: inline
-  float: right
+  display: block
+  margin: 15px 0 5px 25%
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width:45%
+  color: $olive-grey
+  font-size: 1.2rem
+  &:hover
+    background-color: $olive
+    color: $white
+  &.disabled
+    color: $medium-grey
+    background-color: $light-grey
+
+.addNewPersonInput
+  margin-left: 5px
+  border: 1px solid $olive-grey
+  border-radius: 2px
+
+.addPeopleChoiceBtns
+  position: relative
+  margin: 350px 0 0 30%
+  
+
+.addPeopleSubmitBtn
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width: 30%
+  font-size: 1.2rem
+  color: $white
+  &:hover
+    background-color: $olive
+    color: $white
+
+.addPeopleCancelBtn
+  margin-left: 15px
+  background-color: $white
+  color: $light-grey
+  border-radius: 5px
+  border: none
+  font-size: 1.2rem
+  &:hover
+    color: $ruby
+    background-color: $light-grey
 
 .addPeopleCloseBtn
   margin-top: 30px
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width:25%
+  color: $olive-grey
+  font-size: 1.4rem
+  margin-left: 34%
+  &:hover
+    background-color: $olive
+    color: $white
 
 .personTab
+  padding: 7px 0 0 7px
   &:hover
     background-color: $medium-grey 
+    color: $white
+
+.managePeopleItem
+  margin-top: 10px
 
 .meetingSettings
   position: absolute

@@ -23,7 +23,7 @@ export default function people(state = initialState, action){
         jobRole: item.jobRole,
         name: item.name,
         rules: item.rules
-      }  : item)      
+      }  : item)
     case DEACTIVATE_PERSON:
       return state.map(item => item.id === action.id ? {
         id: item.id,

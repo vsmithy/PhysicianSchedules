@@ -550,9 +550,10 @@ header .viewSelectBtn.active {
   top: 200px;
   left: 25%;
   width: 650px;
-  padding: 50px;
+  padding: 0;
   z-index: 8;
-  background-color: #fff;
+  background-color: #EEF0EA;
+  border-radius: 5px;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: row;
@@ -565,34 +566,130 @@ header .viewSelectBtn.active {
 
 .peopleLeft {
   height: 100%;
-  background-color: #dddddd;
-  flex: 1;
+  background-color: #EEF0EA;
+  flex: 2;
 }
 .peopleLeft .active {
-  background-color: teal;
+  background-color: #fff;
 }
 
 .peopleRight {
-  flex: 3;
-  height: 100%;
-  background-color: teal;
+  flex: 4;
+  height: 500px;
+  background-color: #fff;
+  padding: 10px;
 }
 .peopleRight h1 {
   display: inline;
-  margin-left: 30%;
+  margin-left: 25%;
+}
+
+.personToggleButtons {
+  margin-left: 5px;
+}
+.personToggleButtons button {
+  border-radius: 2px;
+  margin-right: 5px;
+  border: none;
+  background-color: #dddddd;
+  color: #898989;
+}
+.personToggleButtons button.active.yes {
+  background-color: #88976D;
+  color: #fff;
+}
+.personToggleButtons button.active.no {
+  background-color: #dc4c4c;
+  color: #fff;
+}
+
+.jobRoleChooser {
+  margin-left: 5px;
+  border-radius: 2px;
+  border: 1px solid #EEF0EA;
 }
 
 .addNewPersonBtn {
-  display: inline;
-  float: right;
+  display: block;
+  margin: 15px 0 5px 25%;
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 45%;
+  color: #EEF0EA;
+  font-size: 1.2rem;
+}
+.addNewPersonBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+.addNewPersonBtn.disabled {
+  color: #898989;
+  background-color: #dddddd;
+}
+
+.addNewPersonInput {
+  margin-left: 5px;
+  border: 1px solid #EEF0EA;
+  border-radius: 2px;
+}
+
+.addPeopleChoiceBtns {
+  position: relative;
+  margin: 350px 0 0 30%;
+}
+
+.addPeopleSubmitBtn {
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 30%;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.addPeopleSubmitBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+
+.addPeopleCancelBtn {
+  margin-left: 15px;
+  background-color: #fff;
+  color: #dddddd;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+}
+.addPeopleCancelBtn:hover {
+  color: #CD0000;
+  background-color: #dddddd;
 }
 
 .addPeopleCloseBtn {
   margin-top: 30px;
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 25%;
+  color: #EEF0EA;
+  font-size: 1.4rem;
+  margin-left: 34%;
+}
+.addPeopleCloseBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
 }
 
+.personTab {
+  padding: 7px 0 0 7px;
+}
 .personTab:hover {
   background-color: #898989;
+  color: #fff;
+}
+
+.managePeopleItem {
+  margin-top: 10px;
 }
 
 .meetingSettings {
