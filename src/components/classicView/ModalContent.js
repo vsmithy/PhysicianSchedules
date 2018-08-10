@@ -97,26 +97,7 @@ export default class ModalContent extends Component{
   renderChoice(){
     const { shifts, listOfShifts } = this.props
 
-    if(shifts.length === 2){
-      const evt1 = shifts[0].id
-      const evt2 = shifts[1].id
-      return (
-        <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
-          <div key={0} className="modalContentShift">
-            <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt1)}>
-              { listOfShifts.map(shiftItem => shifts[0].shiftName === shiftItem.shiftName ? <option key={shiftItem.shiftName} value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option key={shiftItem.shiftName} value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
-            </select>
-            <button type="button"  className="shiftExitBtn" onClick={() => this.removeEvent(evt1)}><i className="fas fa-times"></i></button>
-          </div>
-          <div key={1} className="modalContentShift">
-            <select className="modalContentShiftName" onChange={(event) => this.updateValue(event, evt2)}>
-              { listOfShifts.map(shiftItem => shifts[1].shiftName === shiftItem.shiftName ? <option key={shiftItem.shiftName} value={shiftItem.shiftName} selected >{shiftItem.shiftName}</option> : <option key={shiftItem.shiftName} value={shiftItem.shiftName}>{shiftItem.shiftName}</option>   ) }
-            </select>
-            <button type="button"  className="shiftExitBtn" onClick={() => this.removeEvent(evt2)}><i className="fas fa-times"></i></button>
-          </div>
-        </div>
-      )
-    } else if(shifts.length === 1){
+    if(shifts.length === 1){
       const evt1 = shifts[0].id
       return (
         <div className={this.props.currentViewProperties.modal === "show" && this.props.currentViewProperties.modalId === this.props.modalId ? "modal-content" : "modal-content hidden"}>
@@ -126,10 +107,6 @@ export default class ModalContent extends Component{
             </select>
             <button type="button"  className="shiftExitBtn" onClick={() => this.removeEvent(evt1)}><i className="fas fa-times"></i></button>
           </div>
-          <button className="addBtn" type="button" onClick={() => this.addAnotherEvent()}>
-            <div className="left"><i className="fas fa-plus"></i></div>
-            <div className="right">Add</div>
-          </button>
         </div>
       )
     } else{

@@ -6,56 +6,37 @@ const initialState = calendarData
 export default function eventsReducer(state = initialState, action){
   switch(action.type){
     case ADD_EVENT:
-      //if it doesn't exist, create it
-      console.log('i am in the events reducer')
-      if(action.eventDetails.eventId === 'none'){
-        let newState = {}
-        Object.assign(newState,state)
-        console.log('creating new event...')
+      // const newItemToAdd = {
+      //   id: action.eventDetails.maxEventId + 1,  //id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1
+      //   personId: action.eventDetails.personId,
+      //   shiftName: action.eventDetails.shiftName,
+      //   year:action.eventDetails.selectedYear,
+      //   month:action.eventDetails.selectedMonthName,
+      //   day:action.eventDetails.day,
+      //   dayType:action.eventDetails.dayType,
+      //   shiftTime: action.eventDetails.shiftTime
+      // }//newItemToAdd
 
-        /*
-        FIND THE MAX EVENT ID:
-          normally i would use something like id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1, but since
-          each day has its own arry of events, i keep track of the maxId in settings, and pass it to this reducer when needed
-        */
-        const highestId = action.eventDetails.maxEventId
+      // console.log(newItemToAdd)
 
-
-        const newItemToAdd = {
-          id: highestId + 1,  //id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1
+      //push a new item on to the specific eventsarray which can be located via action.eventDetails
+      return [
+          {
+          id: action.eventDetails.maxEventId + 1,  //id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1
           personId: action.eventDetails.personId,
           shiftName: action.eventDetails.shiftName,
-          eventDetails: ""
-        }//newItemToAdd
-
-        //push a new item on to the specific eventsarray which can be located via action.eventDetails
-        newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].push(newItemToAdd)
-        return newState
-
-      } else {
-        //if it exists, update
-        // const oldItem = state[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]
-        let newState = {}
-        Object.assign(newState, state)
-        newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]['shiftName'] = action.eventDetails.shiftName
-        return newState
-      }//else
-      case UPDATE_EVENT:
-        let newState = {}
-        Object.assign(newState, state)
-        newState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id === action.eventDetails.eventId)[0]['shiftName'] = action.eventDetails.shiftName
-        return newState
-      case REMOVE_EVENT:
-        console.log('i am now in the reducer for removal')
-        console.log(JSON.stringify(state))
-        let blankState = {}
-        Object.assign(blankState, state)
-        const cc = blankState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events']
-        const dd = blankState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'].filter(evt => evt.id !== action.eventDetails.eventId)
-        blankState[action.eventDetails.selectedYear][action.eventDetails.selectedMonthName][action.eventDetails.day]['events'] = dd
-        console.log(cc)
-        console.log(dd)
-        return blankState
+          year:action.eventDetails.selectedYear,
+          month:action.eventDetails.selectedMonthName,
+          day:action.eventDetails.day,
+          dayType:action.eventDetails.dayType,
+          shiftTime: action.eventDetails.shiftTime
+        },
+        ...state
+      ]
+    case UPDATE_EVENT:
+      return state
+    case REMOVE_EVENT:
+      return state
     default:
       return state
   }//switch

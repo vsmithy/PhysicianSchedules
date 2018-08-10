@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  height: 90rem;
+  height: 60rem;
   width: 94rem;
   background-color: #fff;
 }
@@ -26,7 +26,7 @@ section, aside {
 }
 
 main {
-  height: 85.6rem;
+  height: 55.6rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -260,12 +260,15 @@ header .viewSelectBtn.active {
   display: inline-block;
   border-bottom: 0.0625rem solid #dddddd;
   border-left: 0.0625rem solid #dddddd;
+  overflow: auto;
 }
 
 .classicGrid {
   width: 100%;
   height: 100%;
   display: flex;
+  min-width: min-content;
+  min-height: min-content;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -274,40 +277,30 @@ header .viewSelectBtn.active {
 .classicGridDateCol {
   width: 6rem;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   border-right: 0.0625rem solid #dddddd;
 }
 
 .classicGridPersonCol {
-  width: 6rem;
+  width: 6.3rem;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  border-right: 0.0625rem solid #dddddd;
 }
 
-.classicGridCell, .classicGridPersonName, .classicGridDate, .classicGridMonthName {
-  flex: 1;
+.AM, .PM, .classicGridPersonName, .classicGridDayName, .classicGridMonthName, .classicGridDayNum {
+  height: 1.5rem;
   width: 100%;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  border-right: 0.0625rem solid #dddddd;
 }
 
 .classicGridPersonName {
   border-bottom: 0.0625rem solid #dddddd;
-  flex: 1.6;
   overflow: hidden;
   font-size: 1.1rem;
 }
 
 .classicGridMonthName {
   border-bottom: 0.0625rem solid #dddddd;
-  flex: 1.6;
   font-size: 1.1rem;
 }
 
@@ -318,16 +311,53 @@ header .viewSelectBtn.active {
 .classicGridCell.weekend {
   background-color: #EEF0EA;
 }
-.classicGridCell:hover {
-  background-color: #898989;
-  color: #fff;
-}
 
 .classicGridDate {
   border-bottom: 0.0625rem solid #dddddd;
 }
 .classicGridDate.weekend {
   background-color: #EEF0EA;
+}
+
+.classicGridDate:last-child {
+  border-bottom: none;
+}
+
+.AM {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0.0625rem solid #dddddd;
+}
+.AM:hover {
+  background-color: #898989;
+  color: #fff;
+}
+
+.PM {
+  margin: 0;
+  padding: 0;
+}
+.PM:hover {
+  background-color: #898989;
+  color: #fff;
+}
+
+.classicGridCell:last-child {
+  border-bottom: none;
+}
+
+.classicGridDayNum {
+  border-bottom: 0.0625rem solid #fff;
+  margin: 0;
+  padding: 0;
+}
+.classicGridDayNum.weekend {
+  border-bottom-color: #EEF0EA;
+}
+
+.classicGridDayName {
+  margin: 0;
+  padding: 0;
 }
 
 .modal {
@@ -357,7 +387,7 @@ header .viewSelectBtn.active {
   bottom: 1.25rem;
   color: #000000;
   width: 10rem;
-  height: 7.5rem;
+  height: 4rem;
   padding: 0.5rem;
   background-color: #fff;
   border-radius: 0.1875rem;
@@ -811,7 +841,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 
 .classicAside {
-  height: 75rem;
+  height: 55.6rem;
   border-right: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
   border-left: 1px solid #dddddd;

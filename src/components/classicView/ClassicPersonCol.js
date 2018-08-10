@@ -44,16 +44,16 @@ export default class ClassicPersonCol extends Component{
   //componentDidCatch(error, info){'classicPersonCol component caught an error'}
   /*******************************************************************/
   
-  handleClickEvent(item, idx, event){
+  handleClickEvent(item, idx, event, shiftTime){
     console.log('add event clicked for ' + this.props.personDetails.name + ' details: ' + (item.length === 0 ? 'nothing' : item[0].id) + ' and ' + idx)
-    console.log('top spacing is ' + event.clientY + ' left spacing is ' + event.clientX)
+    // console.log('top spacing is ' + event.clientY + ' left spacing is ' + event.clientX)
     // console.log('target ' +  event.target.children[0].id)
     // let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
     // let modalContent = event.target.children[0] ? event.target.children[0] : ''
     // modalContent.className = this.state.modalContentView
     //if empty, add the event. else, show a modal with more options
     const modalSelected = this.props.personDetails.name + idx
-    if(item.length > 0){ 
+    if(item.length > 0){
       //do stuff
       // console.log(' popping up... ')
       if(this.props.currentViewProperties.modal !== "show"){
@@ -63,6 +63,7 @@ export default class ClassicPersonCol extends Component{
 
      } else {
       //create the object that will be sent to reducer
+      let dayType = this.props.weekendList.includes(idx+1) ? "weekend" : "standard"
       let newEventDetails = {
           'personId': this.props.personDetails.id,
           'shiftName': this.props.currentViewProperties.shiftSelect,
@@ -70,12 +71,17 @@ export default class ClassicPersonCol extends Component{
           'eventId': (item.length === 0 ? 'none' : item[0].id),
           'selectedYear': this.props.currentViewProperties.yearSelect,
           'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect),
-          'maxEventId': this.props.currentViewProperties.maxEventId
+          'maxEventId': this.props.currentViewProperties.maxEventId,
+          'shiftTime': shiftTime,
+          'dayType': dayType
         }//newEventDetails
         
+        console.log('new details:')
+        console.log(newEventDetails)
+
         //send the details to the reducer
         this.props.addEvent(newEventDetails)
-        if(item.length === 0){ this.props.updateMaxId() }
+        this.props.updateMaxId()
       }//else
     }//end of handleClickEvent
     
@@ -88,7 +94,16 @@ export default class ClassicPersonCol extends Component{
     return (
       <div className="classicGridPersonCol" role="column">
           <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" onClick={(event) => this.handleClickEvent(item, idx, event)}>{ item.length > 0 ? (item.length > 1 ? [ <div key={0}>{item[0].shiftName}</div>, <div key={1}>{item[1].shiftName}</div> ] : item[0].shiftName)  : theBlank }<ModalContent 
+          {this.props.eventList.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" >{
+            <div>
+              <div className="AM" onClick={(event) => this.handleClickEvent(item, idx, event, "AM")}>
+                {item.length > 0 ? (item.filter(evt => evt.shiftTime === "AM")[0] ? item.filter(evt => evt.shiftTime === "AM")[0].shiftName : theBlank) : theBlank}
+              </div>
+              <div className="PM" onClick={(event) => this.handleClickEvent(item, idx, event, "PM")}>
+                {item.length > 0 ? (item.filter(evt => evt.shiftTime === "PM")[0] ? item.filter(evt => evt.shiftTime === "PM")[0].shiftName : theBlank) : theBlank}
+              </div>
+            </div>
+            }<ModalContent 
             shifts={item} 
             theDay={idx} 
             listOfShifts={this.props.shifts} 
