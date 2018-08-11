@@ -14,7 +14,7 @@ export default function shifts(state = initialState, action){
           'shiftName':action.data
         }
       ]
-    }
+    } else return state
     case REMOVE_SHIFT:
       return state.filter(item => item.id !== action.id)
     default:

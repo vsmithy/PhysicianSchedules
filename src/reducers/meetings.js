@@ -14,7 +14,7 @@ export default function meetings(state = initialState, action){
             data: action.data
           }
       ]
-    }
+    } else return state
     case REMOVE_MEETING:
       return state.filter(item => item.id !== action.id)
     case EDIT_MEETING:

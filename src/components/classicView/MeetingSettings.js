@@ -37,7 +37,7 @@ class MeetingSettings extends Component {
           <button role="button" onClick={() => this.makeNewShift()}>Add</button>
         </div>
         <div role="presentation" className="editShiftList">
-          {this.props.meetings.map(mtg => <div>{mtg.id} - {mtg.data}<i className="fas fa-times exitIcon"></i></div>)}
+          {this.props.meetings.map(mtg => <div key={mtg.id}>{mtg.id} - {mtg.data}<i className="fas fa-times exitIcon"></i></div>)}
         </div>
         <button onClick={() => this.hideSettings()} className="closeEditShiftsBtn">Close</button>
       </div>

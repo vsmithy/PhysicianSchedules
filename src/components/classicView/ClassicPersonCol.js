@@ -46,6 +46,7 @@ export default class ClassicPersonCol extends Component{
   
   handleClickEvent(item, idx, event, shiftTime){
     console.log('add event clicked for ' + this.props.personDetails.name + ' details: ' + (item.length === 0 ? 'nothing' : item[0].id) + ' and ' + idx)
+    console.log(this.props.currentViewProperties.shiftSelect)
     // console.log('top spacing is ' + event.clientY + ' left spacing is ' + event.clientX)
     // console.log('target ' +  event.target.children[0].id)
     // let modalContentView = this.props.currentViewProperties.modal === "show" ? "modal-content" : "modal-content hidden"
