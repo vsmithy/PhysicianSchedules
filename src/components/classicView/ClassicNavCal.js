@@ -19,25 +19,6 @@ export default class ClassicNavCal extends Component {
     }
   }
 
-  /*********************************************************/
-  //lifecycleMethods
-  //mounting
-  // //static getDerivedStateFromProps(nextProps, prevState)
-  // componentDidMount(){console.log('classicNavCal component did mount')}
-
-  // //updating
-  // //static getDerivedStateFromProps(nextProps, prevState)
-  // //shouldComponentUpdate(nextProps, nextState)
-  // //getSnapshotBeforeUpdate(prevProps, prevState)
-  // componentDidUpdate(prevProps, prevState, snapshot){console.log('classicNavCal component did update')}
-
-  // //unmounting
-  // componentWillUnmount(){console.log('classicNavCal component will unmount')}
-
-  // //errorHandling
-  // componentDidCatch(error, info){'classicNavCal component caught an error'}
-  /*******************************************************************/
-
   updateMonth(idx){
     this.props.changeMonth(idx)
     this.setState({activeMonthSelection: idx})

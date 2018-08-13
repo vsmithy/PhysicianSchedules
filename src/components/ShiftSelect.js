@@ -1,6 +1,12 @@
 import React, {Component}  from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-export default class ShiftSelect extends Component {
+//local files and components
+import * as actionCreators from '../actions'
+
+
+class ShiftSelect extends Component {
   constructor(props){
     super(props)
 
@@ -95,3 +101,14 @@ export default class ShiftSelect extends Component {
     )//return
   }//render
 }//Component
+
+
+//now to specify the areas of state to connect to
+const mapStateToProps = state => ({
+  currentViewProperties: state.currentViewProperties,
+  shifts: state.shifts, 
+ })//mapStateToProps
+ 
+ const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+ 
+ export default connect(mapStateToProps, mapDispatchToProps)(ShiftSelect)

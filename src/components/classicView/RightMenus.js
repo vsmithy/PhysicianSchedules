@@ -6,6 +6,7 @@ import Stats from '../Stats'
 import NotesComponent from '../NotesComponent'
 import Conflicts from '../Conflicts'
 
+
 export default class RightMenus extends Component {
   constructor(props){
     super(props)
@@ -14,52 +15,34 @@ export default class RightMenus extends Component {
       shiftViewToggle: "shiftComponent closed",
       conflictViewToggle: "conflictsComponent closed",
       statsViewToggle: "statsComponent closed",
-    }
-  }
+    }//state
+  }//constructor
 
-  /*********************************************************/
-  //lifecycleMethods
-  //mounting
-  //static getDerivedStateFromProps(nextProps, prevState)
-  // componentDidMount(){console.log('grightMenus  component did mount')}
-
-  // //updating
-  // //static getDerivedStateFromProps(nextProps, prevState)
-  // //shouldComponentUpdate(nextProps, nextState)
-  // //getSnapshotBeforeUpdate(prevProps, prevState)
-  // componentDidUpdate(prevProps, prevState, snapshot){console.log('grightMenus  component did update')}
-
-  // //unmounting
-  // componentWillUnmount(){console.log('rightMenus   component will unmount')}
-
-  // //errorHandling
-  // componentDidCatch(error, info){'grightMenus  component caught an error'}
-  /*******************************************************************/
-
-  //toggle the right menus
+  //toggle the various menus
   handleShiftToggle(){
     // console.log('currently: ' + this.state.shiftViewToggle)
     this.state.shiftViewToggle === "shiftComponent closed" ? this.setState({shiftViewToggle: "shiftComponent"}) : this.setState({shiftViewToggle: "shiftComponent closed"})
   }//handle shift toggle
+
   handleConflictToggle(){
     this.state.conflictViewToggle === "conflictsComponent closed" ? this.setState({conflictViewToggle: 'conflictsComponent'}) : this.setState({conflictViewToggle: "conflictsComponent closed"})
   }//handle conflict toggle
+
   handleStatsToggle(){
     this.state.statsViewToggle === "statsComponent closed" ? this.setState({statsViewToggle: "statsComponent"}) : this.setState({statsViewToggle: "statsComponent closed"})
   }//handle stats toggle
 
   render(){
-    const { shifts, currentViewProperties, changeSelectedShft } = this.props
     return (
       <aside className="classicAside">
         <div className="classicSupportingInfo">
           <button role="switch" type="button" className="switchBtn" onClick={() => this.handleShiftToggle()}>Assign Shifts <i className={this.state.shiftViewToggle === "shiftComponent closed" ? "fas fa-chevron-down" : "fas fa-chevron-down rotated"}></i></button>
-          <ShiftSelect viewHeight={this.state.shiftViewToggle} shifts={shifts} currentViewProperties={currentViewProperties} changeSelectedShft={changeSelectedShft} />
+          <ShiftSelect viewHeight={this.state.shiftViewToggle} />
           <button role="switch" type="button" className="switchBtn" onClick={() => this.handleConflictToggle()}>Assignment Conflicts <i className={this.state.conflictViewToggle === "conflictsComponent closed" ? "fas fa-chevron-down" : "fas fa-chevron-down rotated"}></i></button>
-          <Conflicts viewHeight={this.state.conflictViewToggle} {...this.props} />
+          <Conflicts viewHeight={this.state.conflictViewToggle}  />
           <button role="switch" type="button" className="switchBtn" onClick={() => this.handleStatsToggle()}>Stats <i className={this.state.statsViewToggle === "statsComponent closed" ? "fas fa-chevron-down" : "fas fa-chevron-down rotated"}></i></button>
-          <Stats viewHeight={this.state.statsViewToggle} {...this.props} />
-          <NotesComponent {...this.props}/>
+          <Stats viewHeight={this.state.statsViewToggle}  />
+          <NotesComponent />
         </div>
       </aside>
     )//return

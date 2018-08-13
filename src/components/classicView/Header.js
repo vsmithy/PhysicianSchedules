@@ -1,14 +1,15 @@
 import React, {Component}  from 'react'
 import XlsxPopulate from 'xlsx-populate'
 import ClassicNavCal from './ClassicNavCal'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-// import { makeWeekends } from '../../helpfulFiles/dateStuff'
-// import { calendarData } from '../../data/calendarData'
-import ShiftSettings from './ShiftSettings'
+//local files and components
+import * as actionCreators from '../../actions'
 import { getMonth } from '../../helpfulFiles/dateStuff'
 import { calendarData } from '../../data/calendarData'
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props){
     super(props)
 
@@ -18,10 +19,10 @@ export default class Header extends Component {
     this.generateBlob = this.generateBlob.bind(this)
     this.getWorkbook = this.getWorkbook.bind(this)
     this.generate = this.generate.bind(this)
-
     this.exlOutput = React.createRef()
 
-  }
+  }//constructor
+
   /*********************************************************/
   //lifecycleMethods
   //mounting
@@ -41,8 +42,10 @@ export default class Header extends Component {
   // componentDidCatch(error, info){'header component caught an error'}
   /*******************************************************************/
   
-  //this is the export to excel zone bro bro
-
+  /*********************************************************
+          this is the export to excel zone bro bro
+          generateBlob => calls genenrate => which calls getWorkbook
+  *********************************************************/
   getWorkbook(){
     return XlsxPopulate.fromBlankAsync()
   }//getWorkbook
@@ -79,7 +82,7 @@ export default class Header extends Component {
       for(let i=0;i<28;i++){
         monthDates.push(i+1)
       }
-    }
+    }//else
 
 
     return this.getWorkbook()
@@ -119,7 +122,7 @@ export default class Header extends Component {
         {meetings.map( (mtg, idx) => workbook.sheet(0).cell("A" + (idx+34)).value(mtg.id + " - " + mtg.data) )}
 
         return workbook.outputAsync({ type: type })
-      })
+      })//then
   }//generate
   
   generateBlob(){
@@ -132,7 +135,7 @@ export default class Header extends Component {
         .catch(function (err) {
             alert(err.message || err)
             throw err
-        })
+        })//catch
   }//generateBlob
   
   
@@ -180,7 +183,11 @@ export default class Header extends Component {
           <button type="button" className="viewSelectBtn"><i className="far fa-calendar-alt fa-2x"></i></button>
         </div>
         <div role="presentation" className="headerDateSelector">
-          <ClassicNavCal {...this.props} />
+          <ClassicNavCal 
+            currentViewProperties = {this.props.currentViewProperties}
+            changeMonth = {this.props.changeMonth}
+            changeYear = {this.props.changeYear}
+          />
           <div role="presentation" className="dropdown">
             <div type="button" role="button" className="dropbtn">
               <i className="fas fa-bars fa-2x"></i>
@@ -196,9 +203,15 @@ export default class Header extends Component {
       </header>
     )//return
   }//render
-}//header      
+}//header
 
-
-//toggleModal
-//show the shift settings component
-
+//now to specify the areas of state to connect to
+const mapStateToProps = state => ({
+  currentViewProperties: state.currentViewProperties,
+  people: state.people, 
+  meetings: state.meetings,
+ })
+ 
+ const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+ 
+ export default connect(mapStateToProps, mapDispatchToProps)(Header)
