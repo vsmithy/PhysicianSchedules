@@ -22,9 +22,19 @@ export default function eventsReducer(state = initialState, action){
         ...state
       ]
     case UPDATE_EVENT:
-      return state
+      return state.map(item => item.id === action.eventDetails.id ? {
+        id: item.id, 
+        year: item.year,
+        month:item.month,
+        day:item.day,
+        dayName:item.dayName,
+        dayType:item.dayType,
+        personId: item.personId,
+        shiftName: action.eventDetails.shiftName,
+        shiftTime: item.shiftTime
+      } : item)
     case REMOVE_EVENT:
-      return state
+      return state.filter(item => item.id !== action.id)
     default:
       return state
   }//switch
