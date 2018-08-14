@@ -6,8 +6,7 @@ import { bindActionCreators } from 'redux'
 
 //local files and components
 import * as actionCreators from '../../actions'
-import { getMonth } from '../../helpfulFiles/dateStuff'
-import { calendarData } from '../../data/calendarData'
+import { getMonth, getWeekends, getMonthDates, getDayName } from '../../helpfulFiles/dateStuff'
 
 class Header extends Component {
   constructor(props){
@@ -20,6 +19,7 @@ class Header extends Component {
     this.getWorkbook = this.getWorkbook.bind(this)
     this.generate = this.generate.bind(this)
     this.exlOutput = React.createRef()
+    this.eventsReducer = this.props.eventsReducer
 
   }//constructor
 
@@ -51,39 +51,18 @@ class Header extends Component {
   }//getWorkbook
   
   generate(type){
+    let selectedYear = this.props.currentViewProperties.yearSelect
     let selectedMonth = this.props.currentViewProperties.monthSelect
     let selectedMonthName = getMonth(selectedMonth)
-    let selectedYear = this.props.currentViewProperties.yearSelect
-    let theBlank = ''
     const person = this.props.people.filter(item => item.isActive === true)
     const meetings = this.props.meetings
+    let eventsReducer = this.props.eventsReducer
+
+    let monthDates = getMonthDates(selectedMonth, selectedYear) //for the days in a month (through 2021)
+    let weekendList = getWeekends(monthDates.length+1, selectedMonth, selectedYear) //get a list of weekend days for the selected month
 
     //for the excel column letters
     const cols = ["B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","BB","CC","DD","EE","FF","GG","HH","II","JJ","KK","LL","MM","NN","OO","PP","QQ","RR","SS","TT","UU","VV","WW","XX","YY","ZZ"]
-
-    //for the days in a month (through 2021)
-    let monthDates = []
-    if([0, 2, 4, 6, 7, 9, 11].includes(selectedMonth)){
-      for(let i=0;i<31;i++){
-        monthDates.push(i+1)
-      }
-    }
-    else if([3,5,8,10].includes(selectedMonth)){
-      for(let i=0;i<30;i++){
-        monthDates.push(i+1)
-      }
-    }
-    else if(selectedMonth === 1 &&  selectedYear === 2020){
-      for(let i=0;i<29;i++){
-        monthDates.push(i+1)
-      }
-    }
-    else{
-      for(let i=0;i<28;i++){
-        monthDates.push(i+1)
-      }
-    }//else
-
 
     return this.getWorkbook()
       .then(function (workbook) {
@@ -94,12 +73,31 @@ class Header extends Component {
         //next for the people listed as active on the schedule
         //make an array of arrays, each sub-array will belong to a different person
         let personShiftData = person.map(function(item){
-            let personEvents = monthDates.map(day => calendarData[selectedYear][selectedMonthName][day]['events'].filter(evt => evt.personId === item.id))
+            //grab the data for this person for the selected month and year
+            let personEvents = eventsReducer.filter(evt => evt.year === selectedYear && evt.month === selectedMonthName && item.id === evt.personId)
 
-            let eventCellData = personEvents.map(evt => evt.length > 0 ? (evt.length > 1 ? evt[0].shiftName + " \n" + evt[1].shiftName : evt[0].shiftName) : theBlank)
+            //since we have AM and PM shift, we should make the list of items equal
+            //twice the length of the selected month - one AM and PM shift per day
+            let doubleMonthLength = []
+            for(let i=0;i < 2*monthDates.length;i++){
+              doubleMonthLength[i]=i+1
+            }//for
+
+            //now we put it all together, one array with monthLength*2 entries in it
+            //we alternate between AM and PM using the index%2
+            //for each day, if an event exists print it, otherwise, print spaces
+            let eventCellData = doubleMonthLength.map(function(mDate, idx){
+              if(idx%2 === 0){
+                //this is the AM shift
+                return personEvents.filter(evt => evt.day === (Math.floor(idx/2)+1) && evt.shiftTime === 'AM').length > 0 ? personEvents.filter(evt => evt.day === (Math.floor(idx/2)+1) && evt.shiftTime === 'AM')[0].shiftName : ''
+              } else {
+                //this is the PM shift
+                return personEvents.filter(evt => evt.day === (Math.floor(idx/2)+1) && evt.shiftTime === 'PM').length > 0 ? personEvents.filter(evt => evt.day === (Math.floor(idx/2)+1) && evt.shiftTime === 'PM')[0].shiftName : ''
+              }//if
+            })//doubleMonthLength.map
 
             return eventCellData
-          })
+          })//personShiftData
 
         let cellStyles = {
           "OR-4":"d62613",
@@ -112,14 +110,15 @@ class Header extends Component {
           "Ward":"9aedb7",
         }//cellStyles
 
-        //map over the people, and print name in first cell of column
+        //column headers - map over the people, and print name in first cell of column
         {person.map( (item, idx) => workbook.sheet(0).cell(cols[idx] + "1").value(item.name) )}
-
+console.log('personshiftdata')
+console.log(personShiftData)
         //map down the events of each person
         {personShiftData.map( (evt, idx) => evt.map( (evtItem, i) => workbook.sheet(0).cell(cols[idx] + (i+2) ).value(evtItem).style("fill",cellStyles[evtItem]) ))}
 
         //next, list the meetings
-        {meetings.map( (mtg, idx) => workbook.sheet(0).cell("A" + (idx+34)).value(mtg.id + " - " + mtg.data) )}
+        {meetings.map( (mtg, idx) => workbook.sheet(0).cell("A" + (idx+65)).value(mtg.id + " - " + mtg.data) )}
 
         return workbook.outputAsync({ type: type })
       })//then
@@ -210,6 +209,7 @@ const mapStateToProps = state => ({
   currentViewProperties: state.currentViewProperties,
   people: state.people, 
   meetings: state.meetings,
+  eventsReducer: state.eventsReducer,
  })
  
  const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
