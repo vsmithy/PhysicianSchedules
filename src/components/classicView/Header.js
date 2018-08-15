@@ -66,22 +66,31 @@ class Header extends Component {
 
     return this.getWorkbook()
       .then(function (workbook) {
+        //since we have AM and PM shift, we should make the list of items equal
+        //twice the length of the selected month - one AM and PM shift per day
+        let doubleMonthLength = []
+        for(let i=0;i < 2*monthDates.length;i++){
+          doubleMonthLength[i]=i+1
+        }//for
+
         //make the first column: monthname and days of the month
         workbook.sheet(0).cell("A1").value(selectedMonthName)
-        {monthDates.map(day => workbook.sheet(0).cell("A"+(day+1)).value(day))}
-        
+        {
+          doubleMonthLength.map(function(day, idx) { 
+              if(weekendList.includes((Math.floor(idx/2)+1))){
+                return day%2 === 0 ? workbook.sheet(0).cell("A"+(day+1)).value(getDayName(selectedYear,selectedMonth,(Math.floor(idx/2)+1))).style("fill","eff8ff") : workbook.sheet(0).cell("A"+(day+1)).value((Math.floor(idx/2)+1)).style("fill","eff8ff")
+              } else {
+                return day%2 === 0 ? workbook.sheet(0).cell("A"+(day+1)).value(getDayName(selectedYear,selectedMonth,(Math.floor(idx/2)+1))) : workbook.sheet(0).cell("A"+(day+1)).value((Math.floor(idx/2)+1))
+              }// if-else
+            }//function
+          )//doublemonthlength.map
+        }
+
         //next for the people listed as active on the schedule
         //make an array of arrays, each sub-array will belong to a different person
         let personShiftData = person.map(function(item){
             //grab the data for this person for the selected month and year
             let personEvents = eventsReducer.filter(evt => evt.year === selectedYear && evt.month === selectedMonthName && item.id === evt.personId)
-
-            //since we have AM and PM shift, we should make the list of items equal
-            //twice the length of the selected month - one AM and PM shift per day
-            let doubleMonthLength = []
-            for(let i=0;i < 2*monthDates.length;i++){
-              doubleMonthLength[i]=i+1
-            }//for
 
             //now we put it all together, one array with monthLength*2 entries in it
             //we alternate between AM and PM using the index%2
@@ -110,15 +119,29 @@ class Header extends Component {
           "Ward":"9aedb7",
         }//cellStyles
 
+        const styleCalc = function(idx, evtItem){
+          if(cellStyles[evtItem]){
+            return cellStyles[evtItem]
+          } else if(weekendList.includes((Math.floor(idx/2)+1))){
+            console.log('idx is: ' + idx)
+            console.log('the day then is:  ' + (Math.floor(idx/2)+1))
+            return "eff8ff"
+          }
+        }//styleCalc
+
         //column headers - map over the people, and print name in first cell of column
         {person.map( (item, idx) => workbook.sheet(0).cell(cols[idx] + "1").value(item.name) )}
-console.log('personshiftdata')
-console.log(personShiftData)
-        //map down the events of each person
-        {personShiftData.map( (evt, idx) => evt.map( (evtItem, i) => workbook.sheet(0).cell(cols[idx] + (i+2) ).value(evtItem).style("fill",cellStyles[evtItem]) ))}
 
-        //next, list the meetings
-        {meetings.map( (mtg, idx) => workbook.sheet(0).cell("A" + (idx+65)).value(mtg.id + " - " + mtg.data) )}
+        //map down the events of each person
+        {personShiftData.map( (evt, idx) => evt.map( (evtItem, i) => workbook.sheet(0).cell(cols[idx] + (i+2) ).value(evtItem).style("fill",styleCalc(i,evtItem) )))}
+
+        //next, break the meetings up and then list them
+        const firstFew = meetings.filter((mtg, i) => i<8)
+        const secondFew = meetings.filter((mtg, i) => i>=8 && i<15)
+        const lastFew = meetings.filter((mtg, i) => i>=15)
+        {firstFew.map( (mtg, idx) => workbook.sheet(0).cell("A" + (idx+65)).value(mtg.id + " - " + mtg.data) )}
+        {secondFew.map( (mtg, idx) => workbook.sheet(0).cell("H" + (idx+65)).value(mtg.id + " - " + mtg.data) )}
+        {lastFew.map( (mtg, idx) => workbook.sheet(0).cell("P" + (idx+65)).value(mtg.id + " - " + mtg.data) )}
 
         return workbook.outputAsync({ type: type })
       })//then
@@ -136,7 +159,6 @@ console.log(personShiftData)
             throw err
         })//catch
   }//generateBlob
-  
   
   
   /*******************************************************************/
