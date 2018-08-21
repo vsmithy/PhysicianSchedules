@@ -525,4 +525,30 @@ export const meetingList = [
 ]
 
 export const rules = {}
-export const notes = {}
+
+export const notesSampleData = [
+  {
+    id: 1,
+    comments: 'the cat is ugly',
+    year: 2018,
+    month: 'August'
+  },
+  {
+    id: 2,
+    comments: 'the dog is ugly',
+    year: 2018,
+    month: 'August'
+  },
+  {
+    id: 3,
+    comments: 'the horse is ugly',
+    year: 2018,
+    month: 'August'
+  },
+  {
+    id: 4,
+    comments: 'the cow is ugly',
+    year: 2018,
+    month: 'September'
+  }
+]

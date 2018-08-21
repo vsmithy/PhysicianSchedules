@@ -359,24 +359,30 @@
     <aside class="classicAside">
       <div class="classicSupportingInfo">
         <button role="switch" type="button" class="switchBtn">Assign Shifts <i class="fas fa-chevron-down"></i></button>
-        <div role="presentation" class="shiftComponent">
-          <ul role="listbox">
-            <li><button type="button" class="shiftBtn">Admin</button></li>
-            <li><button type="button" class="shiftBtn">Clinic</button></li>
-            <li><button type="button" class="shiftBtn">G</button></li>
-            <li><button type="button" class="shiftBtn">Leave</button></li>
-            <li><button type="button" class="shiftBtn">LDD</button></li>
-            <li><button type="button" class="shiftBtn">LDN</button></li>
-            <li><button type="button" class="shiftBtn active">OR</button></li>
-            <li><button type="button" class="shiftBtn">Processing</button></li>
-            <li><button type="button" class="shiftBtn">Ward</button></li>
-          </ul>
-        </div>
         <button role="switch" type="button" class="switchBtn">Assignment Conflicts <i class="fas fa-chevron-down"></i></button>
         <div role="presentation" style="background-color: lightblue;"  class="conflictsComponent">In nostrud amet laborum mollit. Labore magna amet adipisicing exercitation sit. Enim et aliqua cupidatat pariatur irure et occaecat quis labore eu anim culpa Lorem. Eiusmod elit sint nulla ea. In qui aliqua in nostrud irure nulla ut ea dolore anim incididunt consectetur deserunt.</div>
         <button role="switch" type="button" class="switchBtn">Stats <i class="fas fa-chevron-down"></i></button>
         <div role="presentation"  class="statsComponent">Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</div>
-        <div role="presentation" style="background-color: lightblue;"  class="notesComponent">crud notes for this month Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</div>
+        <div role="presentation" class="notesComponent">
+          <h3 class="notesHeader">July Notes</h3>
+          <div class="noteListArea">
+            <div class="noteItem"><span class="noteLabel">1111</span><span class="noteBody">crud notes for this month Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</span></div>
+            <div class="noteItem"><span class="noteLabel">2222</span><span class="noteBody">crud notes for this month Voluptate ea commodt minim exercitation sunt laboris magna velit pariatur.</span></div>
+            <div class="noteItem"><span class="noteLabel">3333</span><span class="noteBody">cia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</span></div>
+            <div class="noteItem"><span class="noteLabel">4444</span><span class="noteBody">cia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</span></div>
+            <div class="noteItem"><span class="noteLabel">5555</span><span class="noteBody">cia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</span></div>
+            <div class="noteItem"><span class="noteLabel">6666</span><span class="noteBody">cia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</span></div>
+            <div class="noteItem"><span class="noteLabel">7777</span><span class="noteBody">cia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</span></div>
+          </div>
+          <div class="noteFormArea">
+            <form action="addNote" class="addNoteForm">
+              <textarea name="newNoteArea" id="newNoteArea" cols="25" rows="6" placeholder="Add Another Note..."></textarea>
+              <button class="noteSubmitButton" type=submit >
+                <i class="far fa-plus-circle"></i>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </aside>
   </main>

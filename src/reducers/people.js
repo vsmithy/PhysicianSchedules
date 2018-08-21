@@ -1,7 +1,9 @@
 import { ADD_PERSON, ACTIVATE_PERSON, DEACTIVATE_PERSON,  CHANGE_ROLE, ADD_RULE, EDIT_RULE, REMOVE_RULE } from '../actions/constants'
 import { person } from '../data/sampleData'
+import { docList } from '../data/docList'
 
-const initialState = person
+// const initialState = person
+const initialState = docList
 
 export default function people(state = initialState, action){
   switch(action.type){

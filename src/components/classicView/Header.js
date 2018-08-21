@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux'
 //local files and components
 import * as actionCreators from '../../actions'
 import { getMonth, getWeekends, getMonthDates, getDayName } from '../../helpfulFiles/dateStuff'
+import { meetingData } from '../../data/meetingData'
 
 class Header extends Component {
   constructor(props){
@@ -18,6 +19,7 @@ class Header extends Component {
     this.generateBlob = this.generateBlob.bind(this)
     this.getWorkbook = this.getWorkbook.bind(this)
     this.generate = this.generate.bind(this)
+    this.populateMeetingData = this.populateMeetingData.bind(this)
     this.exlOutput = React.createRef()
     this.eventsReducer = this.props.eventsReducer
 
@@ -196,6 +198,31 @@ class Header extends Component {
     this.props.toggleMeetingSettingsWindow()
   }//meetingsToggle
 
+  populateMeetingData(){
+    // grab meeting data (meetingData)
+    // call the reducer for each item in it where year = 2018
+    console.log('meetingData')
+    console.log(meetingData)
+
+    for(let i=0;i<meetingData.length;i++){
+      //create the new object that will be sent to reducer
+      let newEventDetails = {
+        'personId': meetingData[i].personId,
+        'shiftName': meetingData[i].shiftName,
+        'day': meetingData[i].day,
+        'selectedYear': meetingData[i].year,
+        'selectedMonthName': meetingData[i].month,
+        'shiftTime': meetingData[i].shiftTime,
+        'dayType': meetingData[i].dayType,
+        'dayName': meetingData[i].dayName
+      }//newEventDetails
+      
+      //send the details to the reducer
+      this.props.addEvent(newEventDetails)
+    }//for
+
+  }//populateMeetingData
+
   render(){
     return (
       <header>
@@ -220,6 +247,7 @@ class Header extends Component {
               </div>
             </div>
           </div>
+          <div type="button" role="button" className="dropbtn" onClick={() => this.populateMeetingData()}><i className="fas fa-birthday-cake fa-2x"></i></div>
         </div>
       </header>
     )//return

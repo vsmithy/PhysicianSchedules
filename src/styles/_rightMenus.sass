@@ -113,7 +113,10 @@ aside
 
 .classicSupportingInfo
   background-color: $white
+  position: relative
   height: 55.6rem
+  overflow: auto
+  min-height: min-content
   .switchBtn 
     width: 100%
     height: 3rem
@@ -175,51 +178,68 @@ aside
     overflow: hidden
     &.closed
       height: 0
-// /*   conflicts stuffs   
-// .conflicts {
-//   margin: 0;
-//   padding: 0.12rem;
-// }
 
-// .conflicts > ul {
-//   margin: 0 0 0 0.2rem;
-//   padding: 0;
-// }
+.notesComponent
+  border-top: 1px solid $light-grey
+  position: relative
 
-// .conflicts > ul li {
-//   list-style-type: none;
-// }
+.notesHeader
+  margin: none
+  padding: none
+  text-align: center
 
-// .conflictListNone {
-//   display: none;
-// }
+.noteListArea
+  height: 100%
+  min-height: min-content
 
-// .conflictsList {
-//   margin-left: 0.12rem;
-//   margin-bottom: 0.5rem;
-// }
+.noteItem
+  margin-left: 5px
+  margin-bottom: 8px
+  &:hover
+    background-color: $olive-grey
 
-// /*  stats stuff     
-// .stats {
-//   margin: 0;
-//   padding: 0.12rem;
-// }
+.noteLabel
+  color: $light-olive
+  font-style: italic
+  margin-right: 8px
 
-// .stats > ul {
-//   margin: 0 0 0 0.2rem;
-//   padding: 0;
-// }
+//.noteBody
 
-// .stats > ul li {
-//   list-style-type: none;
-// }
+.noteFormArea
+  height: 7rem
+  bottom: 3px
+  width: 100%
+  // background-color: $light-grey
 
-// .statsListNone {
-//   display: none;
-// }
-
-// .statsList {
-//   margin-left: 0.12rem;
-//   margin-bottom: 0.5rem;
-// }
-
+.addNoteForm
+  margin-left: 10px
+  text-align: center
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-content: center
+  align-items: center
+  textarea
+    margin: 0
+    padding: 0
+    border: 1px solid $light-grey
+    border-radius: 5px
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+    border-right: none
+  button
+    margin: 0
+    padding: 0 5px 0 0
+    height: 109px
+    background-color: $white
+    border: 1px solid $light-grey
+    border-radius: 5px
+    border-left: none
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    color: $light-grey
+    font-size: 1.4rem
+    &:hover
+      color: $light-olive
+    &.disabled
+      color: $light-grey

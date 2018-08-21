@@ -44,3 +44,8 @@ export const REMOVE_RULE = 'REMOVE_RULE'
 export const ADD_MEETING = 'ADD_MEETING'
 export const REMOVE_MEETING = 'REMOVE_MEETING'
 export const EDIT_MEETING = 'EDIT_MEETING'
+
+//notes
+export const ADD_NOTE = 'ADD_NOTE'
+export const REMOVE_NOTE = 'REMOVE_NOTE'
+export const EDIT_NOTE = 'EDIT_NOTE'

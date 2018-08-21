@@ -45,7 +45,10 @@ export const addMeeting = (data) => ({ type: types.ADD_MEETING, data })
 export const removeMeeting = (id) => ({ type: types.REMOVE_MEETING, id })
 export const editMeeting = (id, data) => ({ type: types.EDIT_MEETING, id, data })
 
-
+//notes
+export const addNote = (data) => ({ type: types.ADD_NOTE, data })
+export const removeNote = (id) => ({ type: types.REMOVE_NOTE, id })
+export const editNote = (id, data) => ({ type: types.EDIT_NOTE, id, data })
 
 
 

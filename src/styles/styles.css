@@ -850,7 +850,10 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 
 .classicSupportingInfo {
   background-color: #fff;
+  position: relative;
   height: 55.6rem;
+  overflow: auto;
+  min-height: min-content;
 }
 .classicSupportingInfo .switchBtn {
   width: 100%;
@@ -923,6 +926,80 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 .classicSupportingInfo .statsComponent.closed {
   height: 0;
+}
+
+.notesComponent {
+  border-top: 1px solid #dddddd;
+  position: relative;
+}
+
+.notesHeader {
+  margin: none;
+  padding: none;
+  text-align: center;
+}
+
+.noteListArea {
+  height: 100%;
+  min-height: min-content;
+}
+
+.noteItem {
+  margin-left: 5px;
+  margin-bottom: 8px;
+}
+.noteItem:hover {
+  background-color: #EEF0EA;
+}
+
+.noteLabel {
+  color: #88976D;
+  font-style: italic;
+  margin-right: 8px;
+}
+
+.noteFormArea {
+  height: 7rem;
+  bottom: 3px;
+  width: 100%;
+}
+
+.addNoteForm {
+  margin-left: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+.addNoteForm textarea {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+.addNoteForm button {
+  margin: 0;
+  padding: 0 5px 0 0;
+  height: 109px;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #dddddd;
+  font-size: 1.4rem;
+}
+.addNoteForm button:hover {
+  color: #88976D;
+}
+.addNoteForm button.disabled {
+  color: #dddddd;
 }
 
 /*# sourceMappingURL=styles/styles.css.map */

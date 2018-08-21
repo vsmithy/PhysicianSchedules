@@ -8,6 +8,7 @@ import stats from './stats'
 import eventsReducer from './eventsReducer'
 import people from './people'
 import meetings from './meetings'
+import notes from './notes'
 
 const rootReducer = combineReducers({
   currentViewProperties,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   eventsReducer,
   people,
   meetings,
+  notes
 }) //combineReducers
 
 export default rootReducer

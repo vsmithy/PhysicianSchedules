@@ -1,6 +1,21 @@
 import React, {Component}  from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-export default class NotesComponent extends Component {
+//local files and components
+import * as actionCreators from '../actions'
+import { getMonth } from '../helpfulFiles/dateStuff'
+
+
+class NotesComponent extends Component {
+  constructor(props){
+    super(props)
+
+    this.noteAreaRef = React.createRef()
+    this.state = {
+      currentNoteTxt: ''
+    }//state
+  }//constructor
   /*********************************************************/
   //lifecycleMethods
   //mounting
@@ -21,21 +36,43 @@ export default class NotesComponent extends Component {
   /*******************************************************************/
 
   render(){
-    const { viewHeight } = this.props
-
-    const defaultStyle = {
-      transition: 'height 125ms ease-in-out',
-      height: viewHeight, 
-    }
-
+    const monthName = getMonth(this.props.currentViewProperties.monthSelect)
+    const theYear = this.props.currentViewProperties.yearSelect
     return (
-      <section className='notesComponent' style={defaultStyle}>
-        I am the header text of notes componentn!!
+      <section className='notesComponent'>
+        <h3 className="notesHeader">{monthName} Notes</h3>
+        <div className="notesListArea">
+          {
+            this.props.notes.filter(item => item.year === theYear && item.month === monthName).map(noteItem => <div className="noteItem" key={noteItem.id}><span class="noteLabel">{noteItem.id}</span><span className="noteBody">{noteItem.comments}</span></div>)
+          }
+        </div>
+        <div className="noteFormArea">
+          <form action="addNote" className="addNoteForm">
+            <textarea 
+              name="newNoteArea" 
+              id="newNoteArea" 
+              cols="27" 
+              rows="6" 
+              placeholder="Add Another Note..."
+              ref={this.noteAreaRef}
+              onChange={() => this.setState({ currentNoteTxt: this.noteAreaRef.current.value})}
+            ></textarea>
+            <button className="noteSubmitButton" type="submit">
+              <i className={this.state.currentNoteTxt === '' ? "disabled far fa-plus-square fa-2x" : "far fa-plus-square fa-2x"}></i>
+            </button>
+          </form>
+        </div>
       </section>
     )//return
   }//render
 }//Component
 
-
-
-        {/* <div role="presentation" style="background-color: lightblue;"  class="notesComponent">crud notes for this month Voluptate ea commodo fugiat exercitation cupidatat sit veniam id ea duis officia in dolor. Ullamco irure ex mollit minim exercitation sunt laboris magna velit pariatur.</div> */}
+//now to specify the areas of state to connect to
+const mapStateToProps = state => ({
+  currentViewProperties: state.currentViewProperties,
+  notes: state.notes, 
+ })//mapStateToProps
+ 
+ const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+ 
+ export default connect(mapStateToProps, mapDispatchToProps)(NotesComponent)
