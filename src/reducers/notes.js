@@ -6,15 +6,24 @@ const initialState = notesSampleData
 export default function notes(state = initialState, action){
   switch(action.type){
     case ADD_NOTE:
-      return [
-        {
-          id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1,
-          comments: action.data,
-          year: action.year,
-          month: action.month
-        },
-        ...state
-      ]
+      //if empty just return state
+      if(action.data === ''){
+        return state
+      } else if(state.find(item => item.comments === action.data && item.year === action.year && item.month == action.month) !== undefined){
+        //if a duplicate just return state
+        return state
+      } else {
+        //else return new state
+        return [
+          {
+            id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1,
+            comments: action.data,
+            year: action.year,
+            month: action.month
+          },
+          ...state
+        ]
+      }//else
     case REMOVE_NOTE:
       return state.filter(item =>  item.id !== action.id)
     case EDIT_NOTE:

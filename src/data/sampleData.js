@@ -14,14 +14,6 @@ export const shiftList = [
     'shiftName':'Backup'
   },
   {
-    'id':3,
-    'shiftName':'Clinic-1'
-  },
-  {
-    'id':4,
-    'shiftName':'Clinic-2'
-  },
-  {
     'id':5,
     'shiftName':'OR'
   },
@@ -47,11 +39,7 @@ export const shiftList = [
   },
   {
     'id':11,
-    'shiftName':'IN/OUT'
-  },
-  {
-    'id':12,
-    'shiftName':'G/WARD'
+    'shiftName':'Inprocessing'
   },
   {
     'id':13,
@@ -76,10 +64,6 @@ export const shiftList = [
   {
     'id':18,
     'shiftName':'Well'
-  },
-  {
-    'id':19,
-    'shiftName':'G/Admin'
   },
 ]
 

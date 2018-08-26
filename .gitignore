@@ -22,3 +22,6 @@ rawMarkup.html
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#some of my unneeded stuffs
+/src/data/docList.js

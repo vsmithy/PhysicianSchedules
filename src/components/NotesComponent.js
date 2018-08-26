@@ -35,7 +35,18 @@ class NotesComponent extends Component {
   // componentDidCatch(error, info){'notes component caught an error'}
   /*******************************************************************/
 
-  render(){
+  handleAddNote(e){
+    // alert('A name was submitted: ' + this.state.currentNoteTxt)
+    // console.log('A name was submitted: ' + this.state.currentNoteTxt)
+    const monthName = getMonth(this.props.currentViewProperties.monthSelect)
+    const theYear = this.props.currentViewProperties.yearSelect
+
+    this.props.addNote(this.state.currentNoteTxt, theYear, monthName)
+    this.noteAreaRef.current.value = ''
+    e.preventDefault()
+  }//handleAddNote
+
+  render() {
     const monthName = getMonth(this.props.currentViewProperties.monthSelect)
     const theYear = this.props.currentViewProperties.yearSelect
     return (
@@ -43,11 +54,11 @@ class NotesComponent extends Component {
         <h3 className="notesHeader">{monthName} Notes</h3>
         <div className="notesListArea">
           {
-            this.props.notes.filter(item => item.year === theYear && item.month === monthName).map(noteItem => <div className="noteItem" key={noteItem.id}><span class="noteLabel">{noteItem.id}</span><span className="noteBody">{noteItem.comments}</span></div>)
+            this.props.notes.filter(item => item.year === theYear && item.month === monthName).map(noteItem => <div className="noteItem" key={noteItem.id}><span className="noteLabel">{noteItem.id}</span><span className="noteBody">{noteItem.comments}</span><i className="fas fa-times exitIcon noteCloseIcon" onClick={() => this.props.removeNote(noteItem.id)}></i></div>)
           }
         </div>
         <div className="noteFormArea">
-          <form action="addNote" className="addNoteForm">
+          <form className="addNoteForm" onSubmit={event => this.handleAddNote(event)}>
             <textarea 
               name="newNoteArea" 
               id="newNoteArea" 
@@ -57,8 +68,8 @@ class NotesComponent extends Component {
               ref={this.noteAreaRef}
               onChange={() => this.setState({ currentNoteTxt: this.noteAreaRef.current.value})}
             ></textarea>
-            <button className="noteSubmitButton" type="submit">
-              <i className={this.state.currentNoteTxt === '' ? "disabled far fa-plus-square fa-2x" : "far fa-plus-square fa-2x"}></i>
+            <button className="noteSubmitButton" type="submit" disabled={this.state.currentNoteTxt === '' ? true : false}>
+              <i className="far fa-plus-square fa-2x"></i>
             </button>
           </form>
         </div>

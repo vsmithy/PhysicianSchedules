@@ -947,15 +947,35 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 .noteItem {
   margin-left: 5px;
   margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 .noteItem:hover {
   background-color: #EEF0EA;
 }
+.noteItem:hover .exitIcon {
+  display: inline;
+  color: #88976D;
+}
+.noteItem:hover .exitIcon:hover {
+  color: #b2001d;
+}
 
 .noteLabel {
+  flex: 1;
   color: #88976D;
   font-style: italic;
-  margin-right: 8px;
+}
+
+.noteBody {
+  flex: 10;
+}
+
+.noteCloseIcon {
+  flex: 1;
+  margin: 0 2px;
 }
 
 .noteFormArea {
@@ -981,8 +1001,9 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none;
+  resize: none;
 }
-.addNoteForm button {
+.addNoteForm .noteSubmitButton {
   margin: 0;
   padding: 0 5px 0 0;
   height: 109px;
@@ -995,11 +1016,8 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   color: #dddddd;
   font-size: 1.4rem;
 }
-.addNoteForm button:hover {
+.addNoteForm .noteSubmitButton:hover {
   color: #88976D;
-}
-.addNoteForm button.disabled {
-  color: #dddddd;
 }
 
 /*# sourceMappingURL=styles/styles.css.map */

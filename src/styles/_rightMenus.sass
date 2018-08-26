@@ -195,15 +195,30 @@ aside
 .noteItem
   margin-left: 5px
   margin-bottom: 8px
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
   &:hover
     background-color: $olive-grey
+    .exitIcon
+      display: inline
+      color: $light-olive
+      // float: right
+      &:hover
+        color: $red
 
 .noteLabel
+  flex: 1
   color: $light-olive
   font-style: italic
-  margin-right: 8px
+  // margin-right: 8px
 
-//.noteBody
+.noteBody
+  flex: 10
+
+.noteCloseIcon
+  flex: 1
 
 .noteFormArea
   height: 7rem
@@ -227,7 +242,8 @@ aside
     border-top-right-radius: 0
     border-bottom-right-radius: 0
     border-right: none
-  button
+    resize: none
+  .noteSubmitButton
     margin: 0
     padding: 0 5px 0 0
     height: 109px
@@ -241,5 +257,3 @@ aside
     font-size: 1.4rem
     &:hover
       color: $light-olive
-    &.disabled
-      color: $light-grey
