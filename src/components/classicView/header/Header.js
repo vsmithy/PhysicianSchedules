@@ -199,10 +199,9 @@ class Header extends Component {
   }//meetingsToggle
 
   populateMeetingData(){
-    // grab meeting data (meetingData)
-    // call the reducer for each item in it where year = 2018
-    console.log('meetingData')
-    console.log(meetingData)
+    // we have specific meeting data listed as one of the data sources
+    //this function auto-creates meeting events based on the list of item in 
+    //the meetingData data source
 
     for(let i=0;i<meetingData.length;i++){
       //create the new object that will be sent to reducer
@@ -217,10 +216,9 @@ class Header extends Component {
         'dayName': meetingData[i].dayName
       }//newEventDetails
       
-      //send the details to the reducer
+      //use the action to send the details to the reducer
       this.props.addEvent(newEventDetails)
     }//for
-
   }//populateMeetingData
 
   render(){
@@ -247,7 +245,6 @@ class Header extends Component {
               </div>
             </div>
           </div>
-          <div type="button" role="button" className="dropbtn" onClick={() => this.populateMeetingData()}><i className="fas fa-birthday-cake fa-2x"></i></div>
         </div>
       </header>
     )//return
@@ -265,3 +262,5 @@ const mapStateToProps = state => ({
  const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
  
  export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+//<div type="button" role="button" className="dropbtn" onClick={() => this.populateMeetingData()}><i className="fas fa-birthday-cake fa-2x"></i></div>
