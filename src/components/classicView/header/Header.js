@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 //local files and components
-import * as actionCreators from '../../actions'
-import { getMonth, getWeekends, getMonthDates, getDayName } from '../../helpfulFiles/dateStuff'
-import { meetingData } from '../../data/meetingData'
+import * as actionCreators from '../../../actions'
+import { getMonth, getWeekends, getMonthDates, getDayName } from '../../../helpfulFiles/dateStuff'
+import { meetingData } from '../../../data/meetingData'
 
 class Header extends Component {
   constructor(props){
@@ -46,7 +46,7 @@ class Header extends Component {
   
   /*********************************************************
           this is the export to excel zone bro bro
-          generateBlob => calls genenrate => which calls getWorkbook
+          the generateBlob function => calls the genenrate function => which calls  the getWorkbook function
   *********************************************************/
   getWorkbook(){
     return XlsxPopulate.fromBlankAsync()

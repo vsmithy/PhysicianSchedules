@@ -1,9 +1,9 @@
 import React from 'react'
 
-//the subcomponents
-import Grid from '../components/classicView/Grid'
-import Header from '../components/classicView/Header'
-import RightMenus from '../components/classicView/RightMenus'
+//local files and imports
+import Grid from '../components/classicView/grid/Grid'
+import Header from '../components/classicView/header/Header'
+import RightMenus from '../components/classicView/rightMenus/RightMenus'
 
  function ClassicContainer(){
     return (

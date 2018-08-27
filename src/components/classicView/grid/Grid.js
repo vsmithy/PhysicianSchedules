@@ -9,12 +9,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 //local files and components
-import * as actionCreators from '../../actions'
+import * as actionCreators from '../../../actions'
 import ClassicPersonCol from './ClassicPersonCol'
-import ShiftSettings from './ShiftSettings'
-import PeopleSettings from './PeopleSettings'
-import MeetingSettings from './MeetingSettings'
-import { getMonth, getWeekends, getMonthDates, getDayName } from '../../helpfulFiles/dateStuff'
+import ShiftSettings from '../settingsMenus/ShiftSettings'
+import PeopleSettings from '../settingsMenus/PeopleSettings'
+import MeetingSettings from '../settingsMenus/MeetingSettings'
+import { getMonth, getWeekends, getMonthDates, getDayName } from '../../../helpfulFiles/dateStuff'
 
 
 class Grid extends Component {

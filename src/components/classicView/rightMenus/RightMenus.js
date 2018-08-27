@@ -1,10 +1,10 @@
 import React, {Component}  from 'react'
 
 //import the right-menu components
-import ShiftSelect from '../ShiftSelect'
-import Stats from '../Stats'
-import NotesComponent from '../NotesComponent'
-import Conflicts from '../Conflicts'
+import ShiftSelect from './ShiftSelect'
+import Stats from './Stats'
+import NotesComponent from './NotesComponent'
+import Conflicts from './Conflicts'
 
 
 export default class RightMenus extends Component {

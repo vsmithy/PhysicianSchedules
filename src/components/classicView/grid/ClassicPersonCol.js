@@ -8,10 +8,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 //local files and components
-import * as actionCreators from '../../actions'
+import * as actionCreators from '../../../actions'
 import ModalContent from './ModalContent'
 import GridCell from './GridCell'
-import { getMonth, getDayName } from '../../helpfulFiles/dateStuff'
+import { getMonth, getDayName } from '../../../helpfulFiles/dateStuff'
 
 class ClassicPersonCol extends Component{
   render(){

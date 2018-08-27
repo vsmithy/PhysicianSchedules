@@ -11,7 +11,7 @@
 
 
 import React, { Component } from 'react'
-import { getMonth } from '../../helpfulFiles/dateStuff'
+import { getMonth } from '../../../helpfulFiles/dateStuff'
 
 export default class ModalContent extends Component{
   constructor(props){

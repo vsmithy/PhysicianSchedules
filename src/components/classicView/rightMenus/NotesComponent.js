@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 //local files and components
-import * as actionCreators from '../actions'
-import { getMonth } from '../helpfulFiles/dateStuff'
+import * as actionCreators from '../../../actions'
+import { getMonth } from '../../../helpfulFiles/dateStuff'
 
 
 class NotesComponent extends Component {

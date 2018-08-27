@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 //local files and components
-import * as actionCreators from '../actions'
+import * as actionCreators from '../../../actions'
 
 
 class ShiftSelect extends Component {

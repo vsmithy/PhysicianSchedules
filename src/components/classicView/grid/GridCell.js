@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getDayName, getMonth } from '../../helpfulFiles/dateStuff'
+import { getDayName, getMonth } from '../../../helpfulFiles/dateStuff'
 
 class GridCell extends Component {
   constructor(props){
