@@ -40,7 +40,13 @@ class Grid extends Component {
   componentWillUnmount(){console.log('grid component will unmount')}
 
   //errorHandling
-  componentDidCatch(error, info){'grid component caught an error'}
+  // componentDidCatch(error, info){
+  //   console.log('stats component caught an error')
+  //   console.log('error:')
+  //   console.log(error)
+  //   console.log('info:')
+  //   console.log(info)
+  // }//componentDidCatch
   /*******************************************************************/
 
 

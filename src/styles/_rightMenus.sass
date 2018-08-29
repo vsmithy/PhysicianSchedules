@@ -17,98 +17,14 @@ $ruby: #CD0000
 $light-ruby: #dc4c4c
 $vashti: #fae5e5
 $weekend-blue: #eaf7ff
-
-aside
-  flex-basis: 19rem
-  background-color: #fff
-  display: inline-block
-  border-right: 0.0125rem solid #ddd
-  border-left: 0.0125rem solid #ddd
-  height: 10.09rem
-
-  .calendarSelect
-    button
-      width: 100%
-      background-color: #fff
-      font-size: 1.8rem
-      border: none
-      padding-bottom: 0.1rem
-    ul
-      list-style-type: none
-      margin: 0.3125rem 0 0 0
-      padding: 0 0 0 1.8rem
-      li
-        display: inline-block
-        width: 5rem
-        margin-bottom: 0.16rem
-        .calendarChoice
-          background-color: #ffffff
-          border: 0.125rem solid #ddd
-          border-radius: 0.12rem
-          width: 100%
-          padding: 0.2rem
-          font-size: 0.8333rem
-          &.active
-            border-color: teal
-            background-color: teal
-            color: #ffffff
-          &:hover
-              border-color: navy
-              background-color: navy
-              color: #ffffff
-
-  .supportingInfo
-    background-color: #ddd
-    height: 45.51rem
-    .switchBtn 
-      width: 100%
-      height: 3rem
-      border: 0.0625rem solid #000
-      background-color: #333
-      color: #fff
-      text-align: left
-      font-size: 1.2em
-      i
-        font-size: 0.8rem
-        right: 0.8rem
-        float: right
-        margin-top: 0.3rem
-      &:hover 
-        color: #b2001d
-
-    .shiftComponent
-      height: 8rem
-      transition: height .35s ease-in-out
-      overflow: hidden
-      &.closed
-        height: 0
-      ul
-        list-style-type: none
-        margin: 0
-        padding: 0
-        li
-          display: inline
-          .shiftBtn
-            height: 2rem
-            background-color: #f2f2f2
-            border: 0.125rem solid #f2f2f2
-            margin: 0.12rem 0.12rem 0.12rem
-            // color: #000000
-            &.active 
-              width: 5rem
-              background-color: #fff
-              border-color: #b2001d
-              font-size: 1.1rem
-            &:hover
-              border-color: #b2001d
-            &.none 
-              display: none
+$more-blue: #1361dd
 
 .classicAside
+  flex-basis: 19rem
+  background-color: $white
+  display: inline-block
   height: 55.6rem
-  border-right: 1px solid $light-grey
-  border-bottom: 1px solid $light-grey
-  border-left: 1px solid $light-grey
+  border: 0.0625rem solid $light-grey
   border-top: none
 
 .classicSupportingInfo
@@ -117,70 +33,97 @@ aside
   height: 55.6rem
   overflow: auto
   min-height: min-content
-  .switchBtn 
-    width: 100%
-    height: 3rem
-    border: 0.0625rem solid $medium-grey
-    background-color: $light-grey
-    color: $dark-olive
-    text-align: left
-    font-size: 1.2em
-    i
-      font-size: 0.8rem
-      right: 0.8rem
-      float: right
-      margin-top: 0.3rem
-      transition: all .35s ease-in-out
-      transform: rotate(180deg)
-      &.rotated
-        transform: rotate(0deg)
-    &:hover 
-      color: $light-ruby
 
-  .shiftComponent
-    height: 11.5rem
-    transition: height .25s ease-in-out
-    overflow: hidden
-    &.closed
-      height: 0
-    ul
-      list-style-type: none
-      margin: 0
-      padding: 0
-      li
-        display: inline
-        .shiftBtn
-          height: 2rem
-          background-color: $olive-grey
-          border: none
-          margin: 0.12rem 0.12rem 0.12rem
-          // color: #000000
-          &.active 
-            width: 5rem
-            background-color: $light-ruby
-            // border-color: #b2001d
-            font-size: 1.1rem
-          &:hover
-            background-color: $light-ruby
-          &.none 
-            display: none
+.switchBtn 
+  width: 100%
+  height: 3rem
+  border: 0.0625rem solid $medium-grey
+  background-color: $light-grey
+  color: $dark-olive
+  text-align: left
+  font-size: 1.2em
+  i
+    font-size: 0.8rem
+    right: 0.8rem
+    float: right
+    margin-top: 0.3rem
+    transition: all .35s ease-in-out
+    transform: rotate(180deg)
+    &.rotated
+      transform: rotate(0deg)
+  &:hover 
+    color: $light-ruby
 
-  .conflictsComponent
-    height: 7.5rem
-    transition: height .25s ease-in-out
-    overflow: hidden
-    &.closed
+.shiftComponent
+  height: 11.5rem
+  transition: height .25s ease-in-out
+  overflow: hidden
+  &.closed
+    height: 0
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+    li
+      display: inline
+
+.shiftBtn
+  height: 2rem
+  background-color: $olive-grey
+  border: none
+  margin: 0.12rem 0.12rem 0.12rem
+  &.active 
+    background-color: $light-ruby
+    font-size: 1.1rem
+  &:hover
+    background-color: $light-ruby
+  &.none 
+          display: none
+
+.conflictsComponent
+  height: 12rem
+  transition: height .25s ease-in-out
+  overflow: hidden
+  &.closed
+    height: 0
+
+.conflictsList
+  margin: 0
+  padding: 5px
+  list-style-type: none
+
+.conflictsListItem
+  height: 3rem
+  margin-top: 0.3rem
+
+.conflictsListLabel
+  color: $light-olive
+  font-style: italic
+  margin-right: 0.4rem
+  
+.statsComponent
+  height: 12rem
+  transition: height .25s ease-in-out
+  overflow: hidden
+  &.closed
       height: 0
 
-  .statsComponent
-    height: 7.5rem
-    transition: height .25s ease-in-out
-    overflow: hidden
-    &.closed
-      height: 0
+.statsList
+  margin: 0
+  padding: 5px
+  list-style-type: none
+
+.statsListItem
+  height: 1.8rem
+  margin-top: 0.3rem
+
+.statValue
+  float: right
+  font-size: 1.2rem
+  color: $light-olive
 
 .notesComponent
-  border-top: 1px solid $light-grey
+  border-top: 0.0625rem solid $light-grey
   position: relative
 
 .notesHeader
@@ -204,18 +147,16 @@ aside
     .exitIcon
       display: inline
       color: $light-olive
-      // float: right
       &:hover
         color: $red
 
 .noteLabel
-  flex: 1
+  flex: 2
   color: $light-olive
   font-style: italic
-  // margin-right: 8px
 
 .noteBody
-  flex: 10
+  flex: 9
 
 .noteCloseIcon
   flex: 1
@@ -224,7 +165,6 @@ aside
   height: 7rem
   bottom: 3px
   width: 100%
-  // background-color: $light-grey
 
 .addNoteForm
   margin-left: 10px
@@ -237,7 +177,7 @@ aside
   textarea
     margin: 0
     padding: 0
-    border: 1px solid $light-grey
+    border: 0.0625rem solid $light-grey
     border-radius: 5px
     border-top-right-radius: 0
     border-bottom-right-radius: 0
@@ -248,7 +188,7 @@ aside
     padding: 0 5px 0 0
     height: 109px
     background-color: $white
-    border: 1px solid $light-grey
+    border: 0.0625rem solid $light-grey
     border-radius: 5px
     border-left: none
     border-top-left-radius: 0

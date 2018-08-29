@@ -512,25 +512,25 @@ export const rules = {}
 
 export const notesSampleData = [
   {
-    id: 1,
+    id: 1031,
     comments: 'the cat is ugly',
     year: 2018,
     month: 'August'
   },
   {
-    id: 2,
+    id: 1062,
     comments: 'the dog is ugly',
     year: 2018,
     month: 'August'
   },
   {
-    id: 3,
+    id: 1073,
     comments: 'the horse is ugly',
     year: 2018,
     month: 'August'
   },
   {
-    id: 4,
+    id: 1408,
     comments: 'the cow is ugly',
     year: 2018,
     month: 'September'

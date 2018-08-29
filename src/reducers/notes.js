@@ -9,7 +9,7 @@ export default function notes(state = initialState, action){
       //if empty just return state
       if(action.data === ''){
         return state
-      } else if(state.find(item => item.comments === action.data && item.year === action.year && item.month == action.month) !== undefined){
+      } else if(state.find(item => item.comments === action.data && item.year === action.year && item.month === action.month) !== undefined){
         //if a duplicate just return state
         return state
       } else {

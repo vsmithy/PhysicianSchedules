@@ -740,111 +740,12 @@ header .viewSelectBtn.active {
   display: none;
 }
 
-aside {
+.classicAside {
   flex-basis: 19rem;
   background-color: #fff;
   display: inline-block;
-  border-right: 0.0125rem solid #ddd;
-  border-left: 0.0125rem solid #ddd;
-  height: 10.09rem;
-}
-aside .calendarSelect button {
-  width: 100%;
-  background-color: #fff;
-  font-size: 1.8rem;
-  border: none;
-  padding-bottom: 0.1rem;
-}
-aside .calendarSelect ul {
-  list-style-type: none;
-  margin: 0.3125rem 0 0 0;
-  padding: 0 0 0 1.8rem;
-}
-aside .calendarSelect ul li {
-  display: inline-block;
-  width: 5rem;
-  margin-bottom: 0.16rem;
-}
-aside .calendarSelect ul li .calendarChoice {
-  background-color: #ffffff;
-  border: 0.125rem solid #ddd;
-  border-radius: 0.12rem;
-  width: 100%;
-  padding: 0.2rem;
-  font-size: 0.8333rem;
-}
-aside .calendarSelect ul li .calendarChoice.active {
-  border-color: teal;
-  background-color: teal;
-  color: #ffffff;
-}
-aside .calendarSelect ul li .calendarChoice:hover {
-  border-color: navy;
-  background-color: navy;
-  color: #ffffff;
-}
-aside .supportingInfo {
-  background-color: #ddd;
-  height: 45.51rem;
-}
-aside .supportingInfo .switchBtn {
-  width: 100%;
-  height: 3rem;
-  border: 0.0625rem solid #000;
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  font-size: 1.2em;
-}
-aside .supportingInfo .switchBtn i {
-  font-size: 0.8rem;
-  right: 0.8rem;
-  float: right;
-  margin-top: 0.3rem;
-}
-aside .supportingInfo .switchBtn:hover {
-  color: #b2001d;
-}
-aside .supportingInfo .shiftComponent {
-  height: 8rem;
-  transition: height 0.35s ease-in-out;
-  overflow: hidden;
-}
-aside .supportingInfo .shiftComponent.closed {
-  height: 0;
-}
-aside .supportingInfo .shiftComponent ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-aside .supportingInfo .shiftComponent ul li {
-  display: inline;
-}
-aside .supportingInfo .shiftComponent ul li .shiftBtn {
-  height: 2rem;
-  background-color: #f2f2f2;
-  border: 0.125rem solid #f2f2f2;
-  margin: 0.12rem 0.12rem 0.12rem;
-}
-aside .supportingInfo .shiftComponent ul li .shiftBtn.active {
-  width: 5rem;
-  background-color: #fff;
-  border-color: #b2001d;
-  font-size: 1.1rem;
-}
-aside .supportingInfo .shiftComponent ul li .shiftBtn:hover {
-  border-color: #b2001d;
-}
-aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
-  display: none;
-}
-
-.classicAside {
   height: 55.6rem;
-  border-right: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
-  border-left: 1px solid #dddddd;
+  border: 0.0625rem solid #dddddd;
   border-top: none;
 }
 
@@ -855,7 +756,8 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   overflow: auto;
   min-height: min-content;
 }
-.classicSupportingInfo .switchBtn {
+
+.switchBtn {
   width: 100%;
   height: 3rem;
   border: 0.0625rem solid #898989;
@@ -864,7 +766,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   text-align: left;
   font-size: 1.2em;
 }
-.classicSupportingInfo .switchBtn i {
+.switchBtn i {
   font-size: 0.8rem;
   right: 0.8rem;
   float: right;
@@ -872,64 +774,101 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   transition: all 0.35s ease-in-out;
   transform: rotate(180deg);
 }
-.classicSupportingInfo .switchBtn i.rotated {
+.switchBtn i.rotated {
   transform: rotate(0deg);
 }
-.classicSupportingInfo .switchBtn:hover {
+.switchBtn:hover {
   color: #dc4c4c;
 }
-.classicSupportingInfo .shiftComponent {
+
+.shiftComponent {
   height: 11.5rem;
   transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
-.classicSupportingInfo .shiftComponent.closed {
+.shiftComponent.closed {
   height: 0;
 }
-.classicSupportingInfo .shiftComponent ul {
+.shiftComponent ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-.classicSupportingInfo .shiftComponent ul li {
+.shiftComponent ul li {
   display: inline;
 }
-.classicSupportingInfo .shiftComponent ul li .shiftBtn {
+
+.shiftBtn {
   height: 2rem;
   background-color: #EEF0EA;
   border: none;
   margin: 0.12rem 0.12rem 0.12rem;
 }
-.classicSupportingInfo .shiftComponent ul li .shiftBtn.active {
-  width: 5rem;
+.shiftBtn.active {
   background-color: #dc4c4c;
   font-size: 1.1rem;
 }
-.classicSupportingInfo .shiftComponent ul li .shiftBtn:hover {
+.shiftBtn:hover {
   background-color: #dc4c4c;
 }
-.classicSupportingInfo .shiftComponent ul li .shiftBtn.none {
+.shiftBtn.none {
   display: none;
 }
-.classicSupportingInfo .conflictsComponent {
-  height: 7.5rem;
+
+.conflictsComponent {
+  height: 12rem;
   transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
-.classicSupportingInfo .conflictsComponent.closed {
-  height: 0;
-}
-.classicSupportingInfo .statsComponent {
-  height: 7.5rem;
-  transition: height 0.25s ease-in-out;
-  overflow: hidden;
-}
-.classicSupportingInfo .statsComponent.closed {
+.conflictsComponent.closed {
   height: 0;
 }
 
+.conflictsList {
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.conflictsListItem {
+  height: 3rem;
+  margin-top: 0.3rem;
+}
+
+.conflictsListLabel {
+  color: #88976D;
+  font-style: italic;
+  margin-right: 0.4rem;
+}
+
+.statsComponent {
+  height: 12rem;
+  transition: height 0.25s ease-in-out;
+  overflow: hidden;
+}
+.statsComponent.closed {
+  height: 0;
+}
+
+.statsList {
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.statsListItem {
+  height: 1.8rem;
+  margin-top: 0.3rem;
+}
+
+.statValue {
+  float: right;
+  font-size: 1.2rem;
+  color: #88976D;
+}
+
 .notesComponent {
-  border-top: 1px solid #dddddd;
+  border-top: 0.0625rem solid #dddddd;
   position: relative;
 }
 
@@ -964,18 +903,17 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 }
 
 .noteLabel {
-  flex: 1;
+  flex: 2;
   color: #88976D;
   font-style: italic;
 }
 
 .noteBody {
-  flex: 10;
+  flex: 9;
 }
 
 .noteCloseIcon {
   flex: 1;
-  margin: 0 2px;
 }
 
 .noteFormArea {
@@ -996,7 +934,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
 .addNoteForm textarea {
   margin: 0;
   padding: 0;
-  border: 1px solid #dddddd;
+  border: 0.0625rem solid #dddddd;
   border-radius: 5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -1008,7 +946,7 @@ aside .supportingInfo .shiftComponent ul li .shiftBtn.none {
   padding: 0 5px 0 0;
   height: 109px;
   background-color: #fff;
-  border: 1px solid #dddddd;
+  border: 0.0625rem solid #dddddd;
   border-radius: 5px;
   border-left: none;
   border-top-left-radius: 0;

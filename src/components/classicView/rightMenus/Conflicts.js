@@ -1,50 +1,37 @@
+/*
+ *  For this sample version, I simply map over the sample conflicts data in the store
+ *  For the prod version, we have a set of business rules and whenever an event is added/edited/removed
+ *  the new state is reviewed to see if there are any scheduling conflicts
+ *  The viewHeight toggle can either be 'conflictsComponent' or 'conflictsComponent closed'
+ */
+
 import React, {Component}  from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-export default class Conflicts extends Component {
-  /*********************************************************/
-  //lifecycleMethods
-  //mounting
-  //static getDerivedStateFromProps(nextProps, prevState)
-  // componentDidMount(){console.log('conflicts component did mount')}
+//local files and components
+import * as actionCreators from '../../../actions'
 
-  // //updating
-  // //static getDerivedStateFromProps(nextProps, prevState)
-  // //shouldComponentUpdate(nextProps, nextState)
-  // //getSnapshotBeforeUpdate(prevProps, prevState)
-  // componentDidUpdate(prevProps, prevState, snapshot){console.log('conflicts component did update')}
-
-  // //unmounting
-  // componentWillUnmount(){console.log('conflicts component will unmount')}
-
-  // //errorHandling
-  // componentDidCatch(error, info){'conflicts component caught an error'}
-  /*******************************************************************/
-
+class Conflicts extends Component {
   render(){
     const { viewHeight, conflicts } = this.props
 
     return (
-      <div role="presentation" className={viewHeight}>In nostrud amet laborum mollit. Labore magna amet adipisicing exercitation sit. Enim et aliqua cupidatat pariatur irure et occaecat quis labore eu anim culpa Lorem. Eiusmod elit sint nulla ea. In qui aliqua in nostrud irure nulla ut ea dolore anim incididunt consectetur deserunt.</div>
+      <div className={viewHeight}>
+        <ul className='conflictsList'>
+          {conflicts.map(item => <li key={item.id} className="conflictsListItem">
+            <span className="conflictsListLabel">{item.eventDate.getMonth() + '/' + item.eventDate.getDate()} -</span>
+            <span className="conflictsListValue">{item.note}</span>
+          </li>)}
+        </ul>
+      </div>
     )//return
   }//render
 }//Component
 
-
-
-
-// export default class Conflicts extends Component {
-//   render(){
-//     const { viewHeight, conflicts } = this.props
-//     const defaultStyle = {
-//       transition: 'height 125ms ease-in-out',
-//       height: viewHeight, 
-//     }
-//     return (
-//       <section className='conflicts' style={defaultStyle}>
-//         <ul>
-//           {conflicts.map(item => <li className={viewHeight === 0 ? 'conflictListNone' : 'conflictList'} key={item.id}>{item.eventDate.getMonth() + '/' + item.eventDate.getDate()} - {item.note}</li>)}
-//         </ul>
-//       </section>
-//     )//return
-//   }//render
-// }//Component
+//now to specify the areas of state to connect to
+const mapStateToProps = state => ({
+  conflicts: state.conflicts, 
+ })//mapStateToProps
+const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+export default connect(mapStateToProps, mapDispatchToProps)(Conflicts)

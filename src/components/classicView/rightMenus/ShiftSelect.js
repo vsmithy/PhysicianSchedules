@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux'
 //local files and components
 import * as actionCreators from '../../../actions'
 
-
 class ShiftSelect extends Component {
   constructor(props){
     super(props)
@@ -17,28 +16,10 @@ class ShiftSelect extends Component {
     }
   }//constructor
 
-  /*********************************************************/
-  //lifecycleMethods
-  //mounting
-  //static getDerivedStateFromProps(nextProps, prevState)
-  // componentDidMount(){console.log('shiftSelect component did mount')}
-
-  // //updating
-  // //static getDerivedStateFromProps(nextProps, prevState)
-  // //shouldComponentUpdate(nextProps, nextState)
-  // //getSnapshotBeforeUpdate(prevProps, prevState)
-  // componentDidUpdate(prevProps, prevState, snapshot){console.log('shiftSelect component did update')}
-
-  // //unmounting
-  // componentWillUnmount(){console.log('shiftSelect component will unmount')}
-
-  // //errorHandling
-  // componentDidCatch(error, info){'shiftSelect component caught an error'}
-  /*******************************************************************/
-
   //change the shift that is used for event modification
   handleShiftChange(selected){
     if(this.state.activeShift === selected){
+      //basically de-select the shift
       this.setState({ activeShift: "" })
       this.props.changeSelectedShft("")
     } else {
@@ -102,13 +83,10 @@ class ShiftSelect extends Component {
   }//render
 }//Component
 
-
 //now to specify the areas of state to connect to
 const mapStateToProps = state => ({
   currentViewProperties: state.currentViewProperties,
   shifts: state.shifts, 
  })//mapStateToProps
- 
- const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
- 
- export default connect(mapStateToProps, mapDispatchToProps)(ShiftSelect)
+const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+export default connect(mapStateToProps, mapDispatchToProps)(ShiftSelect)
