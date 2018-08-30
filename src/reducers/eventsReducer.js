@@ -6,7 +6,6 @@ const initialState = calendarData
 export default function eventsReducer(state = initialState, action){
   switch(action.type){
     case ADD_EVENT:
-      console.log('in add event reducer')
       let newItem = {
         id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1, 
         year:action.eventDetails.selectedYear,

@@ -24,32 +24,6 @@ class Grid extends Component {
     this.handleHideModal = this.handleHideModal.bind(this)
   }//constructor
 
-  /*********************************************************/
-  //lifecycleMethods
-  //mounting
-  //static getDerivedStateFromProps(nextProps, prevState)
-  componentDidMount(){console.log('grid component did mount')}
-
-  //updating
-  //static getDerivedStateFromProps(nextProps, prevState)
-  //shouldComponentUpdate(nextProps, nextState)
-  //getSnapshotBeforeUpdate(prevProps, prevState)
-  componentDidUpdate(prevProps, prevState, snapshot){console.log('grid component did update')}
-
-  //unmounting
-  componentWillUnmount(){console.log('grid component will unmount')}
-
-  //errorHandling
-  // componentDidCatch(error, info){
-  //   console.log('stats component caught an error')
-  //   console.log('error:')
-  //   console.log(error)
-  //   console.log('info:')
-  //   console.log(info)
-  // }//componentDidCatch
-  /*******************************************************************/
-
-
   handleHideModal(){
     const { currentViewProperties } = this.props
     if(currentViewProperties.shiftSettingsWindow === "show" || currentViewProperties.peopleSettingsWindow === "show" || currentViewProperties.meetingSettingsWindow === "show" ){
@@ -59,12 +33,11 @@ class Grid extends Component {
 
   render(){
     const { currentViewProperties, people, shifts } = this.props
+    const person = people.filter(item => item.isActive === true)
 
     //generate some date related info for the selected year and month
     let selectedYear = currentViewProperties.yearSelect
     let selectedMonth = currentViewProperties.monthSelect
-    let selectedMonthName = getMonth(selectedMonth)
-    const person = people.filter(item => item.isActive === true)
     let monthDates = getMonthDates(selectedMonth, selectedYear) //for the days in a month (through 2021)
     let weekendList = getWeekends(monthDates.length+1, selectedMonth, selectedYear) //get a list of weekend days for the selected month
 
@@ -92,7 +65,6 @@ class Grid extends Component {
             currentViewProperties={currentViewProperties}
             shifts={shifts}
             />)}
-
         </div>
         <div className={modalView} onClick={this.handleHideModal}></div>
         <ShiftSettings 
@@ -124,7 +96,6 @@ class Grid extends Component {
   }//render
 }//grid
 
-
 //now to specify the areas of state to connect to
 const mapStateToProps = state => ({
   currentViewProperties: state.currentViewProperties,
@@ -132,8 +103,5 @@ const mapStateToProps = state => ({
   meetings: state.meetings,
   shifts: state.shifts,
  })
- 
- const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
- 
- export default connect(mapStateToProps, mapDispatchToProps)(Grid)
- //eventList={ calendarData.filter(evt => evt.personId === item.id && evt.year === selectedYear && evt.month === selectedMonthName) }
+const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+export default connect(mapStateToProps, mapDispatchToProps)(Grid)

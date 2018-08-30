@@ -1,12 +1,8 @@
 /*
-
-  This component returns year selector and the little month circles at the top of the app. Months older
-  than the current month will be grey, the rest of the year will be white.
-
-  The actively selected month will be red.
-
+ * This component returns year selector and the little month circles at the top of the app. Months older
+ * than the current month will be black, the rest of the year will be white.
+ * The actively selected month will be red.
 */
-
 
 import React, {Component}  from 'react'
 
@@ -16,13 +12,13 @@ export default class ClassicNavCal extends Component {
 
     this.state = {
       activeMonthSelection: this.props.currentViewProperties.monthSelect
-    }
-  }
+    }//state
+  }//constructor
 
   updateMonth(idx){
     this.props.changeMonth(idx)
     this.setState({activeMonthSelection: idx})
-  }
+  }//updateMonth
 
   render(){
     const { currentViewProperties } = this.props

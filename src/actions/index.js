@@ -30,7 +30,6 @@ export const togglePeopleSettingsWindow = () => ({ type: types.TOGGLE_PEOPLE_SET
 export const toggleMeetingSettingsWindow = () => ({ type: types.TOGGLE_MEETING_SETTINGS })
 export const changeModalContentId = (id) => ({ type: types.CHANGE_MODAL_CONTENT_ID, id })
 
-
 //people
 export const addPerson = (name, jobRole) => ({ type: types.ADD_PERSON, name, jobRole })
 export const activatePerson = (id) => ({ type: types.ACTIVATE_PERSON, id })
@@ -49,53 +48,3 @@ export const editMeeting = (id, data) => ({ type: types.EDIT_MEETING, id, data }
 export const addNote = (data, year, month) => ({ type: types.ADD_NOTE, data, year, month })
 export const removeNote = (id) => ({ type: types.REMOVE_NOTE, id })
 export const editNote = (id, data) => ({ type: types.EDIT_NOTE, id, data })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let instance = axios.create({
-//   baseURL: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes',
-//   timeout: 10000,
-//   headers: {
-//     'X-Mashape-Authorization': 'Jkhb6JFSa8mshtAeiugBBA43soUip11qPvmjsnOQUUS7RI7vtE',   //dev
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json',
-//     'dataType': 'json',
-//   }
-// })
-
-
-// export function getRecipes(category) {
-//   const getRandomRecipes = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=40&tags=" + category
-//   return (dispatch, getState) => {
-//     return instance.get(getRandomRecipes)
-//     .then(resp => {
-//       if(category === 'breakfast'){
-//         dispatch(setBreakfastData({recipes: resp}))
-//       } else if(category === 'lunch'){
-//         dispatch(setLunchData({recipes: resp}))
-//       } else if(category === 'dinner'){
-//         dispatch(setDinnerData({recipes: resp}))
-//       } else {
-//         dispatch(setDessertData({recipes: resp}))
-//       }
-//     })
-//     .catch( (ex) => {
-//       console.log(ex)
-//     })
-//   }//return
-// }//fetchRecipes

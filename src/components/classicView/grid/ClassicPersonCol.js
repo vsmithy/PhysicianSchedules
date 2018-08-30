@@ -9,9 +9,8 @@ import { bindActionCreators } from 'redux'
 
 //local files and components
 import * as actionCreators from '../../../actions'
-import ModalContent from './ModalContent'
 import GridCell from './GridCell'
-import { getMonth, getDayName } from '../../../helpfulFiles/dateStuff'
+import { getMonth } from '../../../helpfulFiles/dateStuff'
 
 class ClassicPersonCol extends Component{
   render(){
@@ -48,18 +47,6 @@ class ClassicPersonCol extends Component{
                 addEvent={this.props.addEvent}
                 updateEvent={this.props.updateEvent}
                 />
-              <ModalContent 
-                shifts={item} 
-                theDay={idx} 
-                listOfShifts={this.props.shifts} 
-                currentViewProperties={this.props.currentViewProperties} 
-                updateEvent={this.props.updateEvent}  
-                addEvent={this.props.addEvent}
-                removeEvent={this.props.removeEvent}
-                updateMaxId={this.props.updateMaxId}
-                personId={this.props.personDetails.id} 
-                modalId={this.props.personDetails.name + idx}
-              />
             </div>
           )
         }
@@ -72,7 +59,5 @@ class ClassicPersonCol extends Component{
 const mapStateToProps = state => ({
   eventsReducer: state.eventsReducer,
  })
-
-//connect to the action creators
 const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
 export default connect(mapStateToProps, mapDispatchToProps)(ClassicPersonCol)
