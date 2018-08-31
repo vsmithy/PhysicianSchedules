@@ -69,6 +69,7 @@ class ShiftSelect extends Component {
                       <option onClick={() => this.handleShiftChange("Admin-18")} value='Admin18'>Admin-18</option>
                       <option onClick={() => this.handleShiftChange("Admin-19")} value='Admin19'>Admin-19</option>
                       <option onClick={() => this.handleShiftChange("Admin-20")} value='Admin20'>Admin-20</option>
+                      <option onClick={() => this.handleShiftChange("Admin-21")} value='Admin20'>Admin-21</option>
                     </select>
                   </li>
                 ) : (<li key={shift.id}><button type="button" className={activeShift === shift.shiftName ? 'shiftBtn active' : 'shiftBtn'} onClick={() => this.handleShiftChange(shift.shiftName)}>{shift.shiftName}</button></li>)

@@ -505,6 +505,10 @@ export const meetingList = [
   {
     "id": 20,
     "data":" Patient experience: 4th Thurs 1330 (Bhavsar)"
+  },
+  {
+    "id": 21,
+    "data":" Code Blue Meeting: 2nd Weds 1300 (Bhavsar)"
   }
 ]
 

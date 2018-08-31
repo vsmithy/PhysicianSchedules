@@ -17,6 +17,7 @@ import ClassicPersonCol from './ClassicPersonCol'
 import ShiftSettings from '../settingsMenus/ShiftSettings'
 import PeopleSettings from '../settingsMenus/PeopleSettings'
 import MeetingSettings from '../settingsMenus/MeetingSettings'
+import { meetingData } from '../../../data/meetingData'
 import { getMonth, getWeekends, getMonthDates, getDayName } from '../../../helpfulFiles/dateStuff'
 
 
@@ -26,6 +27,26 @@ class Grid extends Component {
 
     this.handleHideModal = this.handleHideModal.bind(this)
   }//constructor
+
+  componentDidMount(){
+    //populate with meeting data
+    for(let i=0;i<meetingData.length;i++){
+      //create the new object for each meeting
+      let newEventDetails = {
+        'personId': meetingData[i].personId,
+        'shiftName': meetingData[i].shiftName,
+        'day': meetingData[i].day,
+        'selectedYear': meetingData[i].year,
+        'selectedMonthName': meetingData[i].month,
+        'shiftTime': meetingData[i].shiftTime,
+        'dayType': meetingData[i].dayType,
+        'dayName': meetingData[i].dayName
+      }//newEventDetails
+      
+      //send the details to the reducer
+      this.props.addEvent(newEventDetails)
+    }//for
+  }//componentDidMount
 
   handleHideModal(){
     const { currentViewProperties } = this.props
