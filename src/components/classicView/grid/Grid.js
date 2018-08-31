@@ -1,7 +1,10 @@
 /*******************************************************
  * The GRID Component shows a calendar-esque grid of days and
  * people, and the shift they are workin on that day. There are
- * two slots per day, corresponding to an AM and a PM shift assignment
+ * two slots per day, corresponding to an AM and a PM shift assignment.
+ * The client wanted this view to be as information dense as possible, and
+ * was explicit in their decision to sacrifice ux for being able to scroll and
+ * see more stuff.
 *******************************************************/
 
 import React, {Component}  from 'react'

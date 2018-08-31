@@ -10,10 +10,9 @@ class ShiftSelect extends Component {
     super(props)
 
     this.handleShiftChange = this.handleShiftChange.bind(this)
-
     this.state = {
       activeShift: this.props.currentViewProperties.shiftSelect,
-    }
+    }//state
   }//constructor
 
   //change the shift that is used for event modification
@@ -25,7 +24,7 @@ class ShiftSelect extends Component {
     } else {
       this.props.changeSelectedShft(selected)
       this.setState({ activeShift: selected })
-    }
+    }//if-else
   }//handle shift change
 
   render(){
@@ -33,7 +32,7 @@ class ShiftSelect extends Component {
     const { activeShift } = this.state
 
     return (
-      <div role="presentation" className={viewHeight}>
+      <div className={viewHeight}>
         <ul role="listbox">
           {
             shifts.map(shift => (

@@ -16,31 +16,8 @@ class NotesComponent extends Component {
       currentNoteTxt: ''
     }//state
   }//constructor
-  /*********************************************************/
-  //lifecycleMethods
-  //mounting
-  //static getDerivedStateFromProps(nextProps, prevState)
-  // componentDidMount(){console.log('notes component did mount')}
 
-  // //updating
-  // //static getDerivedStateFromProps(nextProps, prevState)
-  // //shouldComponentUpdate(nextProps, nextState)
-  // //getSnapshotBeforeUpdate(prevProps, prevState)
-  // componentDidUpdate(prevProps, prevState, snapshot){console.log('notes component did update')}
-
-  // //unmounting
-  // componentWillUnmount(){console.log('notes component will unmount')}
-
-  // //errorHandling
-  // componentDidCatch(error, info){'notes component caught an error'}
-  /*******************************************************************/
-
-  handleAddNote(e){
-    // alert('A name was submitted: ' + this.state.currentNoteTxt)
-    // console.log('A name was submitted: ' + this.state.currentNoteTxt)
-    const monthName = getMonth(this.props.currentViewProperties.monthSelect)
-    const theYear = this.props.currentViewProperties.yearSelect
-
+  handleAddNote(e, monthName, theYear){
     this.props.addNote(this.state.currentNoteTxt, theYear, monthName)
     this.noteAreaRef.current.value = ''
     e.preventDefault()
@@ -49,6 +26,7 @@ class NotesComponent extends Component {
   render() {
     const monthName = getMonth(this.props.currentViewProperties.monthSelect)
     const theYear = this.props.currentViewProperties.yearSelect
+    
     return (
       <section className='notesComponent'>
         <h3 className="notesHeader">{monthName} Notes</h3>
@@ -58,7 +36,7 @@ class NotesComponent extends Component {
           }
         </div>
         <div className="noteFormArea">
-          <form className="addNoteForm" onSubmit={event => this.handleAddNote(event)}>
+          <form className="addNoteForm" onSubmit={event => this.handleAddNote(event, monthName, theYear)}>
             <textarea 
               name="newNoteArea" 
               id="newNoteArea" 
@@ -83,7 +61,5 @@ const mapStateToProps = state => ({
   currentViewProperties: state.currentViewProperties,
   notes: state.notes, 
  })//mapStateToProps
- 
- const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
- 
- export default connect(mapStateToProps, mapDispatchToProps)(NotesComponent)
+const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
+export default connect(mapStateToProps, mapDispatchToProps)(NotesComponent)

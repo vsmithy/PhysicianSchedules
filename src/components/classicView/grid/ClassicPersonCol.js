@@ -18,6 +18,8 @@ class ClassicPersonCol extends Component{
     let selectedYear = this.props.currentViewProperties.yearSelect
     let selectedMonth = this.props.currentViewProperties.monthSelect
     let selectedMonthName = getMonth(selectedMonth)
+
+    //filter out the events for each specific person:
     let eventList = this.props.eventsReducer.filter(evt => evt.year === selectedYear && evt.month === selectedMonthName && this.props.personDetails.id === evt.personId)
 
     return (
@@ -55,7 +57,7 @@ class ClassicPersonCol extends Component{
   }//render
 }//ClassicPersonCol component
 
-//connect to state for events
+//connect to state
 const mapStateToProps = state => ({
   eventsReducer: state.eventsReducer,
  })

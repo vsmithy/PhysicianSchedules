@@ -1,8 +1,8 @@
 /*
- *  This component computes some basic stats on the fly based on the events data
- *  The actual metrics are based on business logic which is private, so for this sample
- *  version, I simply map over the sample stats data in the store.
- *  The viewHeight toggle can either be 'statsComponent' or 'statsComponent closed'
+ *  For this sample version, I simply map over the sample stats data in the store because
+ *  the actual metrics are based on business logic which is private.
+ *  The production version of this component computes some basic stats on the fly based on the events data.
+ *  Also, the viewHeight toggle can either be 'statsComponent' or 'statsComponent closed'
  */
 
 import React, {Component}  from 'react'
