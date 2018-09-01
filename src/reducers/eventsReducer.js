@@ -6,6 +6,18 @@ const initialState = calendarData
 export default function eventsReducer(state = initialState, action){
   switch(action.type){
     case ADD_EVENT:
+      /*  First, check to see if the new event is a meeting (Admin-xx)
+       *  if so AND the new event is also a meeting on the same day, then 
+       *  just concat the name of the meetings together
+      */
+
+      // if(action.eventDetails.shiftName startsWith 'Admin'){
+      //   nested if(state.filter(personId, day, month, year, shiftTime, and shiftName starts with 'Admin')){
+      //     concat the two and return the new item
+      //   }//inner if
+      // }//if
+      
+      //otherwise, it isn't a conflicting admin
       let newItem = {
         id: state.reduce((maxId, item) => Math.max(item.id, maxId), -1) + 1, 
         year:action.eventDetails.selectedYear,
