@@ -52,7 +52,7 @@ export const docList = [
     'id':8,
     'name':'Smith',
     'jobrole':'Full Scope',
-    'rules': [],
+    'rules': ['weekend days'],
     'isActive':true,
   },
   {
@@ -94,7 +94,7 @@ export const docList = [
     'id':14,
     'name':'Bhavsar',
     'jobrole':'Full Scope',
-    'rules': [],
+    'rules': ['weekend nights'],
     'isActive':true,
   },
   {
@@ -115,7 +115,7 @@ export const docList = [
     'id':17,
     'name':'Teneyuque',
     'jobrole':'Full Scope',
-    'rules': [],
+    'rules': ['weekend days'],
     'isActive':true,
   },
   {

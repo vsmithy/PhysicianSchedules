@@ -144,6 +144,90 @@ class Header extends Component {
     }//if-else
   }//shiftSettingsToggle
 
+checkAvailability(personId){
+  //check and see if they have a manually added event for the day
+  //let available = this.props.eventsReducer.filter(person, year, month, day).length > 0
+  //if not, this.props.updateQueue('weekend', 'bumptwo'), then check for availability again. if no one, mark as a conflict and move to next shift
+}//checkAvailability
+
+addWeekends(weekendList, monthDates, selectedMonth, selectedYear){
+  let personOneId = this.props.queues[weekend][0]
+  if(this.checkAvailability(personOneId) === false){
+    for(let i=1;i<this.props.queues[weekend].length;i++){
+      if(this.checkAvailability(this.props.queues[weekend][i])){
+        personOneId = i
+        break
+      }//if
+    }//for
+  }//if
+  while(this.checkAvailability(personOneId) === false){
+    stuff
+  }//while
+
+  //now for person two
+  let personTwoId = this.props.queues[weekend][the vvvvveeeeerrrryyy next index]
+  while(this.checkAvailability(personTwoId) === false){
+    stuff
+  }//while
+  
+  //if not, this.props.updateQueue('weekend', 'bumptwo'), then check for availability again. if no one, mark as a conflict and move to next shift
+
+  //does one have a pref for mornings or not?
+  //this.props.people.filter(personId).rules contains 'weekend days' or 'weekend nights'
+  //if both prefer days, disregard prefs and put on nights
+
+
+  //add shifts
+  let newEventDetails = {
+    'personId': this.props.personDetails.id,
+    'shiftName': this.props.currentViewProperties.shiftSelect,
+    'day': this.props.day,
+    'selectedYear': this.props.currentViewProperties.yearSelect,
+    'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect),
+    'shiftTime': this.props.shiftTime,
+    'dayType': this.props.dayType,
+    'dayName': getDayName(selectedYear,selectedMonth,this.props.day)
+  }//newEventDetails
+  
+  //send the details to the reducer
+  this.props.addEvent(newEventDetails)
+  //do this for each weekend day
+}//addweekends
+
+autoFill(){
+  /*
+   * start with weekends
+   * if the first day is a sunday or the last day is a saturday, there is a carry-over
+   * isolate the weekend days for the month
+   * add the info manually entered
+   * now map over the weekend days adding the people where appropriate
+   */
+  
+  //generate some date related info for the selected year and month
+  let selectedYear = this.props.currentViewProperties.yearSelect
+  let selectedMonth = this.props.currentViewProperties.monthSelect
+  let monthDates = getMonthDates(selectedMonth, selectedYear) //for the days in a month (through 2021)
+  let weekendList = getWeekends(monthDates.length+1, selectedMonth, selectedYear) //get a list of weekend days for the selected month
+
+  //weekends: check to see if there is a carryover
+  if(getDayName(selectedYear, selectedMonth, weekendList[0]) === 'Saturday'){
+    //start with carry-over
+    //if the first day of month is a sunday, use the people from last month
+
+    //the add remaining weekends
+    this.addWeekends(weekendList, monthDates, selectedMonth, selectedYear)
+  } else {
+    //no carry-over
+    this.addWeekends(weekendList, monthDates, selectedMonth, selectedYear)
+  }//if-else
+
+  //next is LDD
+
+  //then do LDD > LDN > Ward > CMD > G > Clinic
+  //Then do proc/well
+
+}//autoFill
+
   render(){
     return (
       <header>
@@ -164,6 +248,7 @@ class Header extends Component {
                 <button onClick={() => this.settingsToggle('people')}>Edit People</button>
                 <button onClick={() => this.settingsToggle('shifts')}>Edit Shifts</button>
                 <button onClick={() => this.settingsToggle('meetings')}>Edit Meetings</button>
+                <button onClick={() => this.autoFill()}>Auto-Fill</button>
                 <button onClick={() => this.generateBlob()}>Export to Excel</button>
               </div>
             </div>
@@ -180,6 +265,7 @@ const mapStateToProps = state => ({
   people: state.people, 
   meetings: state.meetings,
   eventsReducer: state.eventsReducer,
+  queues: state.queues
  })
 const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

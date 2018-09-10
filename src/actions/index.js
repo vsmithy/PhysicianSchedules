@@ -48,3 +48,6 @@ export const editMeeting = (id, data) => ({ type: types.EDIT_MEETING, id, data }
 export const addNote = (data, year, month) => ({ type: types.ADD_NOTE, data, year, month })
 export const removeNote = (id) => ({ type: types.REMOVE_NOTE, id })
 export const editNote = (id, data) => ({ type: types.EDIT_NOTE, id, data })
+
+//shiftQueues For Auto-Delete
+export const updateQueue = (whichQueue, whichMove) => ({ type: types.UPDATE_QUEUE, whichQueue, whichMove })

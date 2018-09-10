@@ -52,6 +52,7 @@ class ClassicPersonCol extends Component{
             </div>
           )
         }
+        <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
       </div>
     )
   }//render

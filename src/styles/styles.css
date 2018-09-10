@@ -283,6 +283,7 @@ header .viewSelectBtn.active {
 .classicGridPersonCol {
   width: 6.3rem;
   height: 100%;
+  display: block;
 }
 
 .AM, .PM, .classicGridPersonName, .classicGridDayName, .classicGridMonthName, .classicGridDayNum {
