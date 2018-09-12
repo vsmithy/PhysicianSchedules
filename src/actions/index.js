@@ -50,4 +50,4 @@ export const removeNote = (id) => ({ type: types.REMOVE_NOTE, id })
 export const editNote = (id, data) => ({ type: types.EDIT_NOTE, id, data })
 
 //shiftQueues For Auto-Delete
-export const updateQueue = (whichQueue, whichMove) => ({ type: types.UPDATE_QUEUE, whichQueue, whichMove })
+export const updateQueue = (whichQueue, firstMove, secondMove) => ({ type: types.UPDATE_QUEUE, whichQueue, firstMove, secondMove })

@@ -6,8 +6,25 @@ const initialState = queuesData
 export default function queues(state = initialState, action){
   switch(action.type){
     case UPDATE_QUEUE:
-      //action.whichQueue [weekend, ldd, ldn, cmd, ward, g]
-      //action.whichMove bumpone, bumptwo, rotate
+      //isolate the proper queue
+      const workingQueue = state[action.whichQueue]
+
+      //get index of first move
+      //slice workingQueue
+      //slice(0,idx)  .concat slice(idx+1)
+      //push firstMove onto new array
+      
+      //get index of second move
+      //slice modified queue
+      //slice(0,idx)  .concat slice(idx+1)
+      //push secondMove onto array
+
+      //copy state object
+
+      //assign modified working queue to newState object
+
+      //return newState
+
       return state
     default:
       return state
