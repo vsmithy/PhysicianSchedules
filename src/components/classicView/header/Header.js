@@ -146,7 +146,7 @@ class Header extends Component {
 
   checkAvailability(personId, shiftNeed, selectedYear, selectedMonth, weekendDate, firstPerson){
     //for scheduling onCall weekends, the person has to be avail both Saturday AND Sunday
-    console.log('just checked for availability of ' + personId)
+    // console.log('just checked for availability of ' + personId)
 
     //make sure their status is still 'active'
     let currentPerson = this.props.people.filter(item => item.id === personId)
@@ -168,11 +168,13 @@ class Header extends Component {
 
         //see if they are good to make the needed shift
         if(timePref = 'none' || shiftNeed === timePref){
+          console.log('person  ' + personId + ' is available')
           return true
         }//if
       }//if hasManualEvnt
     }//if isActive
 
+    console.log('person  ' + personId + ' is not available')
     return false
   }//checkAvailability - returns bool
 
@@ -184,7 +186,7 @@ class Header extends Component {
     if(this.checkAvailability(personOneId, shift, selectedYear, selectedMonth, weekendDate, firstPerson) === false){
       for(let i=1;i<this.props.queues['weekend'].length;i++){
         if(this.checkAvailability(this.props.queues['weekend'][i], shift, selectedYear, selectedMonth, weekendDate)){
-          personOneId = i
+          personOneId = this.props.queues['weekend'][i]
           break
         }//if
       }//for
@@ -210,6 +212,9 @@ class Header extends Component {
 
     for(let i=0;i<weekendList.length;i++){
       let weekendDate = weekendList[i]
+      console.log('now on weekend date: ' + weekendDate)
+      console.log('the shift queue is')
+      console.log(this.props.queues['weekend'])
       let firstPerson = 'none'
       let secondPerson = 'none'
 
@@ -240,6 +245,7 @@ class Header extends Component {
       const nightShiftExists = this.props.eventsReducer.filter(item => item.year === selectedYear && item.month === getMonth(selectedMonth) && item.day === weekendDate && item.shiftName === 'Night').length === 0
       if(nightShiftExists){
         const personToAdd = this.getPerson('night', selectedYear, getMonth(selectedMonth), weekendDate, firstPerson)
+        console.log('second person is: ' + personToAdd)
         if(personToAdd === 'CONFLICT'){
           //this.props.addConflict(with the details)
         } else {
@@ -262,6 +268,7 @@ class Header extends Component {
 
       //if the day is Sunday, update the queue
       if(getDayName(selectedYear,selectedMonth,weekendDate) === 'Sunday'){
+        console.log('updating queue after sunday')
         this.props.updateQueue('weekend', firstPerson, secondPerson)
       }//if
     }//for length of weekendList
