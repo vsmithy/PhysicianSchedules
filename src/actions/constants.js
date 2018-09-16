@@ -52,3 +52,4 @@ export const EDIT_NOTE = 'EDIT_NOTE'
 
 //shiftQueues For Auto-Delete
 export const UPDATE_QUEUE = 'UPDATE_QUEUE'
+export const REPLACE_QUEUE = 'REPLACE_QUEUE'

@@ -1,4 +1,4 @@
-import { UPDATE_QUEUE } from '../actions/constants'
+import { UPDATE_QUEUE, REPLACE_QUEUE } from '../actions/constants'
 import { queuesData } from '../data/queuesData'
 
 const initialState = queuesData
@@ -40,6 +40,15 @@ export default function queues(state = initialState, action){
 
       //return newState
       return newState
+    case REPLACE_QUEUE:
+      //copy state object
+      let replacedState = {}
+      Object.assign(replacedState, state)
+
+      //assign modified working queue to newState object
+      replacedState[action.whichQueue] = action.queue
+
+      return replacedState
     default:
       return state
   }//switch

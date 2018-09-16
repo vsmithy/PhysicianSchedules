@@ -166,9 +166,12 @@ class Header extends Component {
           timePref = 'night'
         }//if-else
 
+
         //see if they are good to make the needed shift
-        if(timePref = 'none' || shiftNeed === timePref){
-          console.log('person  ' + personId + ' is available')
+        if(timePref === 'none' || shiftNeed === timePref){
+          // console.log(currentPerson[0].name)
+          // console.log(timePref)
+          // console.log(shiftNeed)
           return true
         }//if
       }//if hasManualEvnt
@@ -178,25 +181,40 @@ class Header extends Component {
     return false
   }//checkAvailability - returns bool
 
-  getPerson(shift, selectedYear, selectedMonth, weekendDate, firstPerson){
+  getPerson(shift, selectedYear, selectedMonth, weekendDate, queue, firstPerson){
     //get next person in shift queue
-    let personOneId = this.props.queues['weekend'][0]
+    let currPersonId = queue[0]
 
     //check the availability of personOne and cycle through people if unavailable
-    if(this.checkAvailability(personOneId, shift, selectedYear, selectedMonth, weekendDate, firstPerson) === false){
-      for(let i=1;i<this.props.queues['weekend'].length;i++){
-        if(this.checkAvailability(this.props.queues['weekend'][i], shift, selectedYear, selectedMonth, weekendDate)){
-          personOneId = this.props.queues['weekend'][i]
+    if(this.checkAvailability(currPersonId, shift, selectedYear, selectedMonth, weekendDate, firstPerson) === false){
+      for(let i=1;i<queue.length;i++){
+        if(this.checkAvailability(queue[i], shift, selectedYear, selectedMonth, weekendDate, firstPerson)){
+          currPersonId = queue[i]
           break
         }//if
       }//for
-      if(personOneId === this.props.queues['weekend'][0]){
+      if(currPersonId === queue[0]){
         console.log('CONFLICT:: there was no one available for this shift')
         return 'CONFLICT'
       }//if conflict
     }//if
-    return personOneId
+    return currPersonId
   }//getPerson
+
+  rotateQueue(person, queue){
+    //get index of move
+    const firstIdx = queue.findIndex(item => item === person)
+
+    //slice workingQueue
+    let part1 = queue.slice(0,firstIdx)  
+    let part2 = queue.slice(firstIdx+1)
+    let slicedInitialQueue = part1.concat(part2)
+    
+    //push firstMove onto new array
+    slicedInitialQueue.push(person)
+    
+    return slicedInitialQueue
+  }//rotateQueue
 
   addWeekends(weekendList, selectedMonth, selectedYear){
     /*
@@ -207,72 +225,94 @@ class Header extends Component {
      * already manually entered into the time slot
     */
 
-    //using the weekendList, check and see what weekend shifts have already been manually entered
-    //get person returns the next avail candidate or "CONFLICT"
+    const eventsThisMonth =  this.props.eventsReducer.filter(item => item.year === selectedYear && item.month === getMonth(selectedMonth) )
+    let currentWkendQueue = [...this.props.queues['weekend']]
+    let firstPerson = 'none'
+    
+    //get needed slots
+    let neededWeekendSlots = weekendList.map(function(weekendDate){
+      const dayShift = eventsThisMonth.filter(item => item.day === weekendDate && item.shiftName === 'Day').length === 0 
+      const nightShift = eventsThisMonth.filter(item => item.day === weekendDate && item.shiftName === 'Night').length === 0
 
-    for(let i=0;i<weekendList.length;i++){
-      let weekendDate = weekendList[i]
-      console.log('now on weekend date: ' + weekendDate)
-      console.log('the shift queue is')
-      console.log(this.props.queues['weekend'])
-      let firstPerson = 'none'
-      let secondPerson = 'none'
+      if(dayShift && nightShift){ return weekendDate }
+    })//neededWeekendSlots
 
-      //does a shift already exist?
-      const dayShiftExists = this.props.eventsReducer.filter(item => item.year === selectedYear && item.month === getMonth(selectedMonth) && item.day === weekendDate && item.shiftName === 'Day').length === 0
-      if(dayShiftExists){
-        const personToAdd = this.getPerson('day', selectedYear, getMonth(selectedMonth), weekendDate, firstPerson)
-        if(personToAdd === 'CONFLICT'){
-          //this.props.addConflict(with the details)
-        } else {
-          let newEventDetails = {
-            'personId': personToAdd,
-            'shiftName': 'Day',
-            'day': weekendDate,
-            'selectedYear': selectedYear,
-            'selectedMonthName': getMonth(selectedMonth),
-            'shiftTime': 'AM',
-            'dayType': 'weekend',
-            'dayName': getDayName(selectedYear,selectedMonth,weekendDate)
-          }//newEventDetails
-          
-          //send the details to the reducer
-          this.props.addEvent(newEventDetails)
-          firstPerson = personToAdd
-        }//if-else
-      } else { firstPerson = this.props.eventsReducer.filter(item => item.year === selectedYear && item.month === getMonth(selectedMonth) && item.day === weekendDate && item.shiftName === 'Day')[0].personId }
+    //get available people for those slots
+    let peopleToUse = neededWeekendSlots.map(function(weekendSlot){
+      const dayPerson = this.getPerson('day', selectedYear, getMonth(selectedMonth), weekendSlot, currentWkendQueue, null)
+      firstPerson = dayPerson
+      const nightPerson = this.getPerson('night', selectedYear, getMonth(selectedMonth), weekendSlot, currentWkendQueue, firstPerson)
 
-      const nightShiftExists = this.props.eventsReducer.filter(item => item.year === selectedYear && item.month === getMonth(selectedMonth) && item.day === weekendDate && item.shiftName === 'Night').length === 0
-      if(nightShiftExists){
-        const personToAdd = this.getPerson('night', selectedYear, getMonth(selectedMonth), weekendDate, firstPerson)
-        console.log('second person is: ' + personToAdd)
-        if(personToAdd === 'CONFLICT'){
-          //this.props.addConflict(with the details)
-        } else {
-          let newEventDetails = {
-            'personId': personToAdd,
-            'shiftName': 'Night',
-            'day': weekendDate,
-            'selectedYear': selectedYear,
-            'selectedMonthName': getMonth(selectedMonth),
-            'shiftTime': 'PM',
-            'dayType': 'weekend',
-            'dayName': getDayName(selectedYear,selectedMonth,weekendDate)
-          }//newEventDetails
-          
-          //send the details to the reducer
-          this.props.addEvent(newEventDetails)
-          secondPerson = personToAdd
-        }//if-else
-      } else { secondPerson = this.props.eventsReducer.filter(item => item.year === selectedYear && item.month === getMonth(selectedMonth) && item.day === weekendDate && item.shiftName === 'Night')[0].personId }
+      if(getDayName(selectedYear,selectedMonth,weekendSlot) === 'Sunday'){
+        let updatedQueue = this.rotateQueue(dayPerson, currentWkendQueue)
+        currentWkendQueue = updatedQueue
 
-      //if the day is Sunday, update the queue
-      if(getDayName(selectedYear,selectedMonth,weekendDate) === 'Sunday'){
-        console.log('updating queue after sunday')
-        this.props.updateQueue('weekend', firstPerson, secondPerson)
+        updatedQueue = this.rotateQueue(nightPerson, currentWkendQueue)
+        currentWkendQueue = updatedQueue
       }//if
-    }//for length of weekendList
-  }//addweekends
+
+      return [dayPerson, nightPerson]
+    }, this)//peopleToUse is an array of arrays
+
+    //now to  create the events:
+    //map over weekendSlots
+    // console.log('peopleToUse: ')
+    // console.log(peopleToUse)
+    neededWeekendSlots.map(function(slot, idx){
+      //Use index to find AM and PM person
+      let amPerson = peopleToUse[idx][0]
+      let pmPerson = peopleToUse[idx][1]
+
+      //add the events
+      if(amPerson === 'CONFLICT' || pmPerson === 'CONFLICT'){
+        console.log('there was a CONFLICT bro!!!')
+      } else {
+        let morningDetails = {
+          'personId': amPerson,
+          'shiftName': 'Day',
+          'day': slot,
+          'selectedYear': selectedYear,
+          'selectedMonthName': getMonth(selectedMonth),
+          'shiftTime': 'AM',
+          'dayType': 'weekend',
+          'dayName': getDayName(selectedYear,selectedMonth,slot)
+        }//morningDetails
+
+        let eveningDetails = {
+          'personId': pmPerson,
+          'shiftName': 'Night',
+          'day': slot,
+          'selectedYear': selectedYear,
+          'selectedMonthName': getMonth(selectedMonth),
+          'shiftTime': 'PM',
+          'dayType': 'weekend',
+          'dayName': getDayName(selectedYear,selectedMonth,slot)
+        }//eveningDetails
+        
+        //send the details to the reducer
+        this.props.addEvent(morningDetails)
+        this.props.addEvent(eveningDetails)
+
+        //add the OFF days
+        //add logic for split weekend months
+        //if it is NOT a split weekend:
+        //if slot%2 === 0
+        ////if getDayName(selectedYear,selectedMonth,slot) === Saturday
+        ////////if 'that dude with Mon Tues off'
+        ////if getDayName(selectedYear,selectedMonth,slot) === Sunday
+        ////////if 'that dude with Mon Tues off'
+
+      }//if-else
+    }, this)
+
+    // //call the reducer to modify the queue in the store
+    // //if the day is Sunday, update the queue
+    // if(getDayName(selectedYear,selectedMonth,slot) === 'Sunday'){
+    //   console.log('updating queue after sunday')
+    this.props.replaceQueue('weekend', currentWkendQueue)
+    // }//if
+    
+  }//addWeekends
 
   autoFill(){
     /*
