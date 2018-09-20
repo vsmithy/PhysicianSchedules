@@ -929,10 +929,11 @@ header .viewSelectBtn.active {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-content: center;
   align-items: center;
+  height: 100%;
 }
 .addNoteForm textarea {
+  height: 98%;
   margin: 0;
   padding: 0;
   border: 0.0625rem solid #dddddd;
@@ -945,7 +946,7 @@ header .viewSelectBtn.active {
 .addNoteForm .noteSubmitButton {
   margin: 0;
   padding: 0 5px 0 0;
-  height: 109px;
+  height: 100%;
   background-color: #fff;
   border: 0.0625rem solid #dddddd;
   border-radius: 5px;

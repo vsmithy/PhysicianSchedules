@@ -15,23 +15,19 @@ export const shiftList = [
   },
   {
     'id':5,
-    'shiftName':'OR'
+    'shiftName':'Data Entry'
   },
   {
     'id':6,
-    'shiftName':'Admin'
+    'shiftName':'Meetings'
   },
   {
     'id':7,
-    'shiftName':'Leave'
+    'shiftName':'Vacation'
   },
   {
     'id':8,
     'shiftName':'Ward'
-  },
-  {
-    'id':9,
-    'shiftName':'G'
   },
   {
     'id':10,
@@ -56,15 +52,7 @@ export const shiftList = [
   {
     'id':16,
     'shiftName':'Night'
-  },
-  {
-    'id':17,
-    'shiftName':'Proc'
-  },
-  {
-    'id':18,
-    'shiftName':'Well'
-  },
+  }
 ]
 
 export const conflictsData = [
@@ -423,92 +411,76 @@ export const person = [
     ],
     'isActive': true,
   },
+  {
+    'id': 5,
+    'name': 'Jane Doughnut',
+    'jobRole': 'Full Scope',
+    'rules': [
+      {
+        'id': 389,
+        'detail': 'Never allowed to do data entry...after what happenend last time...'
+      },
+    ],
+    'isActive': true,
+  },
+  {
+    'id': 6,
+    'name': 'Tony Stark',
+    'jobRole': 'MFM',
+    'rules': [
+      {
+        'id': 811,
+        'detail': 'does not like people handing him things directly. give items to his assistant.'
+      },
+    ],
+    'isActive': true,
+  },
 ]
 
 export const meetingList = [
   {
     "id": 1,
-    "data":"Surv, Prev & Control of Infection Committee: 1st Thursday every odd month at 1230 (DiazPerez)"
+    "data":"The importantest meeting"
   },
   {
     "id": 2,
-    "data":"Credentials Meeting, 1st and 3rd Thurs @1400  (Devore)"
+    "data":"Credentials Meeting"
   },
   {
     "id": 3,
-    "data":"MSEC:  1st Thursday @ 1430 (Devore)"
+    "data":"Pizza Decision Meeting"
   },
   {
     "id": 4,
-    "data":"Medication Use and Evaluation/Pharmacy & therapeutics:  1st Friday @1400 (Bhavsar)"
+    "data":"The dress code policy meeting"
   },
   {
     "id": 5,
-    "data":"Tumor Board:  Second Thursday @ 1300 (Barron)"
+    "data":"Meeting with vendor to discuss costs"
   },
   {
     "id": 6,
-    "data":"Medical Records Review:  Quarterly 3rd Fri @ 1500  DCCS Conference Room (Diazperez)"
+    "data":"Code Review Meeting"
   },
   {
     "id": 7,
-    "data":"Ethics Committee Aug, Nov, Feb, May first Thursday at noon (Diazperez)"
+    "data":"Ethics Committee"
   },
   {
     "id": 8,
-    "data":"General Suregry Staff Meeting  SECOND thur @ 1430 (Barron)"
+    "data":"General Staff Meeting"
   },
   {
     "id": 9,
-    "data":"QMC- 4th Thurs 0800  (Devore)"
+    "data":"Time Wasting Meeting"
   },
   {
     "id": 10,
-    "data":" Education Committee 3rd Wed @ 1300"
+    "data":" Education and Outreach Committee"
   },
   {
     "id": 11,
-    "data":" Risk Mgmt Meeting 3rd Thurs @ 0930 Dr. Smith	"
-  },
-  {
-    "id": 12,
-    "data":" Blood Utilization Committee: 4th Thurs @ 1200 (Bhavsar)"
-  },
-  {
-    "id": 13,
-    "data":" Medication Mgmt Committee:  4th Tues @ 0800 (Chiles)"
-  },
-  {
-    "id": 14,
-    "data":" Patient Flow -1st Mon Feb, May, Aug, Nov at 0900 DCCS Conf rm- (Devore)"
-  },
-  {
-    "id": 15,
-    "data":" OB quality, safety, and satisfaction group - 4th Wednesday of every month @ 1100 (Teneyuque/Devore)"
-  },
-  {
-    "id": 16,
-    "data":" DCSS meeting 2nd Thurs 1430 (Devore)"
-  },
-  {
-    "id": 17,
-    "data":" Chiefs meeting every Thurs 0800 (Devore)"
-  },
-  {
-    "id": 18,
-    "data":" WHSL commander brief odd months, 2nd fri, 0830 (Devore)"
-  },
-  {
-    "id": 19,
-    "data":" Stork - (Hendrix, Teneyuque, Devore)"
-  },
-  {
-    "id": 20,
-    "data":" Patient experience: 4th Thurs 1330 (Bhavsar)"
-  },
-  {
-    "id": 21,
-    "data":" Code Blue Meeting: 2nd Weds 1300 (Bhavsar)"
+    "data":" Risk Mgmt Meeting"
   }
 ]
 
@@ -538,5 +510,23 @@ export const notesSampleData = [
     comments: 'the cow is ugly',
     year: 2018,
     month: 'September'
+  },
+  {
+    id: 1411,
+    comments: 'the lizard is cute',
+    year: 2018,
+    month: 'September'
+  },
+  {
+    id: 1412,
+    comments: 'dogs are the best pets',
+    year: 2018,
+    month: 'October'
+  },
+  {
+    id: 1413,
+    comments: 'lamas are ugly',
+    year: 2018,
+    month: 'October'
   }
 ]

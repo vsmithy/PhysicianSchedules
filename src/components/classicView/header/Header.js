@@ -294,9 +294,11 @@ class Header extends Component {
         this.props.addEvent(eveningDetails)
 
         //add the OFF days
-        //add logic for split weekend months
-        //if it is NOT a split weekend:
-        //if slot%2 === 0
+        //slot has to be > 1 && < lastDayOfMonth
+        //if slot === 2, the day cannot be sunday
+        //if slot === lastDayOfmonth-1, the day cannot be Saturday
+
+        
         ////if getDayName(selectedYear,selectedMonth,slot) === Saturday
         ////////if 'that dude with Mon Tues off'
         ////if getDayName(selectedYear,selectedMonth,slot) === Sunday
@@ -313,6 +315,19 @@ class Header extends Component {
     // }//if
     
   }//addWeekends
+
+  addOffDays(){
+    /*
+    *   for off days we have three diffferent scenarios:
+    *     the first is if the first day of the month is weekend adjacent
+    *     the second is the normal/default case where a weekend is not adjacent to 
+    *       the beginning or end of the month
+    *     the third is if the last day of the month is weekend adjacent
+    *     in addition, there is one guy who wants to work the day immediately preceeding his call shift
+    */
+    console.log('Next, I will add the off days...')
+
+  }//addOffDays
 
   autoFill(){
     /*
@@ -382,14 +397,12 @@ class Header extends Component {
       //modify the weekendList, then add remaining weekends
       weekendList.shift()
       this.addWeekends(weekendList, selectedMonth, selectedYear)
+      this.addOffDays()
     } else {
       //no carry-over
       this.addWeekends(weekendList, selectedMonth, selectedYear)
+      this.addOffDays()
     }//if-else
-
-    //next is LDD
-    //then do LDD > LDN > Ward > CMD > G > Clinic
-    //Then do proc/well
   }//autoFill
 
   render(){
@@ -411,8 +424,6 @@ class Header extends Component {
               <div className="dropdownContent">
                 <button onClick={() => this.settingsToggle('people')}>Edit People</button>
                 <button onClick={() => this.settingsToggle('shifts')}>Edit Shifts</button>
-                <button onClick={() => this.settingsToggle('meetings')}>Edit Meetings</button>
-                <button onClick={() => this.autoFill()}>Auto-Fill</button>
                 <button onClick={() => this.generateBlob()}>Export to Excel</button>
               </div>
             </div>

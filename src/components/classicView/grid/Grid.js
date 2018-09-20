@@ -89,13 +89,6 @@ class Grid extends Component {
             currentViewProperties={currentViewProperties}
             shifts={shifts}
             />)}
-          <div className="classicGridDateCol" role="column">
-            <div className="classicGridMonthName" role="columnheader">{getMonth(selectedMonth)}</div>
-            {
-              monthDates.map(day => <div className={weekendList.includes(day) ? "classicGridDate weekend" : "classicGridDate"}  role="rowheader" key={day}><div className={weekendList.includes(day) ? "classicGridDayNum weekend" : "classicGridDayNum"}>{day}</div><div className={weekendList.includes(day) ? "classicGridDayName weekend" : "classicGridDayName"}>{getDayName(selectedYear,selectedMonth,day)}</div></div>)
-            }
-            <div className="classicGridMonthName" role="columnheader">{getMonth(selectedMonth)}</div>
-          </div>
         </div>
         <div className={modalView} onClick={this.handleHideModal}></div>
         <ShiftSettings 
