@@ -22,3 +22,5 @@ This app has a very specific use-case: rapid doctor's schedule creation. Source 
 2. After that, I will clean up the styling and verify cross-browser compatibility
 3. Add the calendarView portion of the app
 4. I have a 'helpful files' folder that I need to clean up and make into a standard thing that I import for all of my projects
+
+Also, currently digging into cypress.io for UI testing.
