@@ -18,7 +18,6 @@ export default class ClassicNavCal extends Component {
   }//constructor
 
   updateMonth(idx, ctx){
-    // this.props.changeMonth(idx)
     ctx.updaterFunctions.updateMonth(idx)
     this.setState({activeMonthSelection: idx})
   }//updateMonth

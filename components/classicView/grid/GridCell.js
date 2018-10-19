@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { getDayName, getMonth } from '../../../helpfulFiles/dateStuff'
 import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 
@@ -60,5 +61,16 @@ class GridCell extends Component {
     )//return
   }//render
 }//shiftSettings
+
+GridCell.propTypes = {
+  shiftTime: PropTypes.string,
+  theEvent: PropTypes.array,
+  dayType: PropTypes.string,
+  personDetails: PropTypes.object,
+  day: PropTypes.number,
+  removeEvent: PropTypes.func.isRequired,
+  addEvent: PropTypes.func.isRequired,
+  updateEvent: PropTypes.func.isRequired,
+}//propTypes
 
 export default GridCell

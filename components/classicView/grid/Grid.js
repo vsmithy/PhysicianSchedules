@@ -8,6 +8,7 @@
 *******************************************************/
 
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 
 //local files and components
@@ -76,5 +77,22 @@ const GridCtx = props => (
     {context => <Grid {...props} context={context} />}
   </CurrSettingsContext.Consumer>
 )
+
+Grid.propTypes = {
+  shifts: PropTypes.array,
+  people: PropTypes.array,
+  context: PropTypes.object,
+  shifts: PropTypes.array,
+  eventsReducer: PropTypes.array,
+  activatePerson: PropTypes.func.isRequired,
+  deactivatePerson: PropTypes.func.isRequired,
+  addPerson: PropTypes.func.isRequired,
+  changeRole: PropTypes.func.isRequired,
+  addShift: PropTypes.func.isRequired,
+  removeShift: PropTypes.func.isRequired,
+  addEvent: PropTypes.func.isRequired,
+  removeEvent: PropTypes.func.isRequired,
+  updateEvent: PropTypes.func.isRequired
+}//propTypes
 
 export default GridCtx

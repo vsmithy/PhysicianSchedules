@@ -11,7 +11,7 @@ function Header(props){
       </div>
       <div className="headerDateSelector">
         <ClassicNavCal />
-        <Dropdown {...props} />
+        <Dropdown />
       </div>
     </header>
   )//return

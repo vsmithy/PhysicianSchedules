@@ -5,6 +5,7 @@
 
 import React from 'react'
 import GridCell from './GridCell'
+import PropTypes from 'prop-types'
 import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 import { getMonth } from '../../../helpfulFiles/dateStuff'
 
@@ -46,5 +47,17 @@ const ClassicPersonColCtx = props => (
     {context => <ClassicPersonCol {...props} context={context} eventList={props.eventsReducer.filter(evt => evt.year === context.yearSelect && evt.month === getMonth(context.monthSelect) && props.personDetails.id === evt.personId)} />}
   </CurrSettingsContext.Consumer>
 )
+
+ClassicPersonCol.propTypes = {
+  key: PropTypes.number,
+  personDetails: PropTypes.object,
+  monthDates: PropTypes.array,
+  weekendList: PropTypes.array,
+  shifts: PropTypes.array,
+  eventsReducer: PropTypes.array,
+  addEvent: PropTypes.func.isRequired,
+  removeEvent: PropTypes.func.isRequired,
+  updateEvent: PropTypes.func.isRequired
+}//propTypes
 
 export default ClassicPersonColCtx

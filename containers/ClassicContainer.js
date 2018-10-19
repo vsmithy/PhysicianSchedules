@@ -42,7 +42,7 @@ class ClassicContainer extends Component {
   render(){
     return (
         <CurrSettingsContext.Provider value={this.state}>
-          <Header {...this.props} />
+          <Header />
           <main>
             <GridCtx  {...this.props} />
             <RightMenus {...this.props} />
