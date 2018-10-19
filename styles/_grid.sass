@@ -1,0 +1,505 @@
+
+//variables
+////colors
+$red: #b2001d
+$white: #fff
+$dark-grey: #333
+$medium-grey: #898989
+$light-grey: #dddddd
+$olive-black: #19200E
+$dark-olive: #33401C
+$olive: #556B2F
+$light-olive: #88976D
+$olive-grey: #EEF0EA
+$beans: #3d0000
+$dark-ruby: #8f0000
+$ruby: #CD0000
+$light-ruby: #dc4c4c
+$vashti: #fae5e5
+$weekend-blue: #eaf7ff
+
+.gridSection
+  flex-basis: 75rem
+  height: 100%
+
+.grid
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+
+.gridHeaderRow
+  flex: 1
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  border-left: 0.0625rem solid $light-grey
+
+.gridRow
+  flex: 5
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+  border-bottom: 0.0625rem solid $light-grey
+  border-left: 0.0625rem solid $light-grey
+
+.gridHeaderCell
+  flex: 1
+  text-align: left
+  border-right: 0.0625rem solid $light-grey
+  height: 100%
+
+.gridCell
+  flex: 1
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: flex-start
+  border-right: 0.0625rem solid $light-grey
+
+.gridNum
+  padding: 0.125rem
+
+.gridEvent
+  background-color: teal
+  color: $white
+  text-align: left
+  width:90%
+  padding: 0.125rem
+  border-radius: 0.2rem
+  margin-top: 0.2rem
+
+
+
+//---------------------------------------------- now for the classic view grid
+.classicGridSection
+  flex-basis: 75rem
+  height: 100%
+  display: inline-block
+  border-bottom: 0.0625rem solid $light-grey
+  border-left: 0.0625rem solid $light-grey
+  overflow: auto
+  // border-top-width: 0
+  // border-right-width: 0
+
+.classicGrid
+  width: 100%
+  height: 100%
+  display: flex
+  min-width: min-content
+  min-height: min-content
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+
+.classicGridDateCol
+  width: 6rem
+  height: 100%
+  border-right: 0.0625rem solid $light-grey
+
+.classicGridPersonCol
+  width: 6.3rem
+  height: 100%
+  display: block
+
+.AM,.PM, .classicGridPersonName, .classicGridDayName, .classicGridMonthName, .classicGridDayNum
+  height: 1.5rem
+  width: 100%
+  text-align: center
+  font-size: 0.8rem
+  border-right: 0.0625rem solid $light-grey
+
+.classicGridPersonName
+  border-bottom: 0.0625rem solid $light-grey
+  overflow: hidden
+  font-size: 1.1rem
+
+.classicGridMonthName
+  border-bottom: 0.0625rem solid $light-grey
+  font-size: 1.1rem
+
+.classicGridCell
+  border-bottom: 0.0625rem solid $light-grey
+  position: relative
+  &.weekend
+    background-color: $olive-grey
+
+.classicGridDate
+  border-bottom: 0.0625rem solid $light-grey
+  &.weekend
+    background-color: $olive-grey
+
+.classicGridDate:last-child
+  border-bottom: none
+
+.AM
+  margin: 0
+  padding: 0
+  border-bottom: 0.0625rem solid $light-grey
+  &:hover
+    background-color: $medium-grey
+    color: $white
+.PM
+  margin: 0
+  padding: 0
+  &:hover
+    background-color: $medium-grey
+    color: $white
+
+.classicGridCell:last-child
+  border-bottom: none
+
+.classicGridDayNum
+  border-bottom: 0.0625rem solid $white
+  margin: 0
+  padding: 0
+  &.weekend
+    border-bottom-color: $olive-grey
+
+.classicGridDayName
+  margin: 0
+  padding: 0
+
+//modal
+.modal
+  display: block
+  position: fixed
+  z-index: 1
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: #000000
+  background-color: rgba(0,0,0,0.1)
+  &.hidden
+    display: none
+
+.modal-content
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  position: absolute
+  z-index: 3
+  left: 3.75rem
+  bottom: 1.25rem
+  color: #000000
+  width: 10rem
+  height: 4rem
+  padding: 0.5rem
+  background-color: $white
+  border-radius: 0.1875rem
+  box-shadow: 0 0 0.3rem rgba(0,0,0,0.3)
+  &.hidden
+    display: none
+
+.shiftExitBtn
+  background-color: $white
+  color: $light-grey
+  border: none
+  float: right
+  margin-top: 7%
+  &:hover
+    color: $ruby
+  
+.modalContentShift
+  background-color: $white
+  height: 2rem
+  width: 100%
+
+.modalContentShiftName
+  display: inline
+  margin-right: 0.2rem
+  height: 100%
+  float: left
+  border: 1px solid $olive-grey
+  border-radius: 3px
+  width: 70%
+
+.addBtn
+  width: 100%
+  height: 2rem
+  border: none
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  margin: 0
+  padding: 0
+  background-color: $white
+  &:hover
+    .left
+      background-color: $olive-grey
+    .right
+      background-color: $light-olive
+      color: $white
+  .left
+    border: 1px solid $olive-grey
+    border-right-width: 0
+    border-bottom-left-radius: 5px 
+    border-top-left-radius: 5px 
+    flex: 1
+    margin: 0
+    padding: 5% 0 0 0
+    color: $olive
+    height: 2rem
+    text-align: center
+    i
+      margin: 5px 0 0 0
+  .right
+    border: 1px solid $olive-grey
+    border-bottom-right-radius: 5px 
+    border-top-right-radius: 5px 
+    flex: 5
+    height: 2rem
+    margin: 0
+    padding: 0
+    padding: 5% 0 0 0
+    font-size: 1.4rem
+    text-align: center
+    background-color: $olive-grey
+    color: $olive
+
+.shiftSettings
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  position: absolute
+  top: 200px
+  left: 40%
+  width: 250px
+  // height: 800px
+  padding: 25px
+  z-index: 8
+  background-color: $white
+  border-radius: 0.1875rem
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
+  &.hidden
+    display: none
+  h1
+    flex: 1
+    color: $olive-black
+
+.exitIcon
+  margin-right: 3px
+  display: none
+
+.editShiftList
+  flex: 8
+  margin-top: 10px
+  width: 80%
+
+.editShiftListItem
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  height: 1.5rem
+  padding: 2px
+  &:hover
+    background-color: $olive-grey
+    .exitIcon
+      display: inline
+      color: $light-olive
+      &:hover
+        color: $red
+
+.editShiftInputArea
+  flex: 1
+  width: 100%
+  // margin-top: 15px
+  display: flex
+  height: 2rem
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  input
+    flex: 5
+    height: 86%
+    border-top-left-radius: 3px
+    border-bottom-left-radius: 3px
+    padding-left: 5px
+    // border-radius: 3px
+    // border-radius: 3px
+    // margin-right: 5px
+    border: 1px solid $light-olive
+  button
+    flex: 1
+    height: 100%
+    border-top-right-radius: 3px
+    border-bottom-right-radius: 3px
+    background-color: $light-olive
+    color: $olive-grey
+    font-size: 1.4rem
+    border: 1px solid $light-olive
+    // margin: 0
+    // padding: 0
+    &:hover
+      color: $white
+      background-color: $olive
+
+
+.closeEditShiftsBtn
+  flex: 1
+  flex-basis: 2rem
+  margin-top: 10px
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width:35%
+  color: $olive-grey
+  font-size: 1.4rem
+  &:hover
+    background-color: $olive
+    color: $white
+
+.peopleSettings
+  position: absolute
+  top: 200px
+  left: 25%
+  width: 650px
+  padding: 0
+  z-index: 8
+  background-color: $olive-grey
+  border-radius: 5px
+  // background-clip: padding-box
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+  &.hidden
+    display: none
+
+.peopleLeft
+  height: 100%
+  background-color: $olive-grey
+  flex: 2
+  .active
+    background-color: $white
+
+.peopleRight
+  flex: 4
+  height: 500px
+  background-color: $white
+  padding: 10px
+  h1
+    display: inline
+    margin-left: 25%
+
+.personToggleButtons
+  margin-left: 5px
+  button
+    border-radius: 2px
+    margin-right: 5px
+    border: none
+    background-color: $light-grey
+    color: $medium-grey
+    &.active
+      &.yes
+        background-color: $light-olive
+        color: $white
+      &.no
+        background-color: $light-ruby
+        color: $white
+.jobRoleChooser
+  margin-left: 5px
+  border-radius: 2px
+  border: 1px solid $olive-grey
+
+.addNewPersonBtn
+  display: block
+  margin: 15px 0 5px 25%
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width:45%
+  color: $olive-grey
+  font-size: 1.2rem
+  &:hover
+    background-color: $olive
+    color: $white
+  &.disabled
+    color: $medium-grey
+    background-color: $light-grey
+
+.addNewPersonInput
+  margin-left: 5px
+  border: 1px solid $olive-grey
+  border-radius: 2px
+
+.addPeopleChoiceBtns
+  position: relative
+  margin: 350px 0 0 30%
+  
+
+.addPeopleSubmitBtn
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width: 30%
+  font-size: 1.2rem
+  color: $white
+  &:hover
+    background-color: $olive
+    color: $white
+
+.addPeopleCancelBtn
+  margin-left: 15px
+  background-color: $white
+  color: $light-grey
+  border-radius: 5px
+  border: none
+  font-size: 1.2rem
+  &:hover
+    color: $ruby
+    background-color: $light-grey
+
+.addPeopleCloseBtn
+  margin-top: 30px
+  background-color: $light-olive
+  border-radius: 5px
+  border: none
+  width:25%
+  color: $olive-grey
+  font-size: 1.4rem
+  margin-left: 34%
+  &:hover
+    background-color: $olive
+    color: $white
+
+.personTab
+  padding: 7px 0 0 7px
+  &:hover
+    background-color: $medium-grey 
+    color: $white
+
+.managePeopleItem
+  margin-top: 10px
+
+.meetingSettings
+  position: absolute
+  top: 200px
+  left: 25%
+  width: 650px
+  padding: 50px
+  z-index: 8
+  background-color: $white
+  // border-radius: 12.5%
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  &.hidden
+    display: none

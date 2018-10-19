@@ -1,0 +1,963 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 60rem;
+  width: 94rem;
+  background-color: #fff;
+}
+
+section, aside {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 55.6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+header {
+  height: 4.4rem;
+  width: 100%;
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+header .viewSelectBtns {
+  margin-left: 0.5rem;
+}
+header .viewSelectBtn {
+  display: inline;
+  color: #33401C;
+  background-color: #dddddd;
+  border: none;
+}
+header .viewSelectBtn:hover {
+  color: #dc4c4c;
+}
+header .viewSelectBtn.active {
+  color: #dc4c4c;
+}
+
+.headerDateSelector {
+  flex: 10;
+  margin-left: 3.125rem;
+  color: #33401C;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dddddd;
+}
+
+.headerFlexContainer {
+  width: 28.125rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.headerCalNavYear {
+  flex: 1;
+  margin-top: 0.3125rem;
+  align-self: center;
+  font-size: 1.2rem;
+}
+.headerCalNavYear button {
+  text-decoration: none;
+  color: #33401C;
+  background-color: #dddddd;
+  border: none;
+  margin-right: 0.3125rem;
+  margin-left: 0.3125rem;
+}
+.headerCalNavYear button:hover {
+  color: #dc4c4c;
+}
+
+.headerCalNavMonth {
+  flex: 3;
+  margin-top: 0.3125rem;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+.headerCalNavMonth li {
+  list-style-type: none;
+  margin-left: 0.625rem;
+  flex: 1;
+  text-align: center;
+}
+.headerCalNavMonth li a {
+  display: block;
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.1rem;
+  border-width: medium;
+  border-style: solid;
+  border-radius: 50%;
+}
+.headerCalNavMonth li a:hover {
+  color: #dc4c4c;
+  border-color: #dc4c4c;
+}
+
+.headerCalCircleColor {
+  color: #33401C;
+  border-color: #33401C;
+}
+
+.headerCalCircleColorActive {
+  color: #dc4c4c;
+  border-color: #dc4c4c;
+}
+
+.headerCalCircleColorPast {
+  color: #EEF0EA;
+  border-color: #EEF0EA;
+}
+
+.dropdown {
+  flex: 1;
+  height: 100%;
+  padding-right: 1.25rem;
+  position: relative;
+}
+
+.dropbtn {
+  display: inline;
+  float: right;
+  color: #33401C;
+  background-color: #dddddd;
+  border: none;
+  margin-top: 1.4rem;
+}
+.dropbtn:hover {
+  color: #dc4c4c;
+}
+.dropbtn:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  float: right;
+  right: 1.25rem;
+  top: 3.025rem;
+  background-color: #dddddd;
+  min-width: 10rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdownContent button {
+  color: #33401C;
+  padding: 0.75rem 1rem;
+  border: none;
+  width: 100%;
+  display: block;
+  font-size: 1.2rem;
+}
+.dropdownContent button:hover {
+  background-color: #898989;
+  color: #ffffff;
+}
+
+.gridSection {
+  flex-basis: 75rem;
+  height: 100%;
+}
+
+.grid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gridHeaderRow {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 0.0625rem solid #dddddd;
+}
+
+.gridRow {
+  flex: 5;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 0.0625rem solid #dddddd;
+  border-left: 0.0625rem solid #dddddd;
+}
+
+.gridHeaderCell {
+  flex: 1;
+  text-align: left;
+  border-right: 0.0625rem solid #dddddd;
+  height: 100%;
+}
+
+.gridCell {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-right: 0.0625rem solid #dddddd;
+}
+
+.gridNum {
+  padding: 0.125rem;
+}
+
+.gridEvent {
+  background-color: teal;
+  color: #fff;
+  text-align: left;
+  width: 90%;
+  padding: 0.125rem;
+  border-radius: 0.2rem;
+  margin-top: 0.2rem;
+}
+
+.classicGridSection {
+  flex-basis: 75rem;
+  height: 100%;
+  display: inline-block;
+  border-bottom: 0.0625rem solid #dddddd;
+  border-left: 0.0625rem solid #dddddd;
+  overflow: auto;
+}
+
+.classicGrid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  min-width: min-content;
+  min-height: min-content;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.classicGridDateCol {
+  width: 6rem;
+  height: 100%;
+  border-right: 0.0625rem solid #dddddd;
+}
+
+.classicGridPersonCol {
+  width: 6.3rem;
+  height: 100%;
+  display: block;
+}
+
+.AM, .PM, .classicGridPersonName, .classicGridDayName, .classicGridMonthName, .classicGridDayNum {
+  height: 1.5rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  border-right: 0.0625rem solid #dddddd;
+}
+
+.classicGridPersonName {
+  border-bottom: 0.0625rem solid #dddddd;
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+
+.classicGridMonthName {
+  border-bottom: 0.0625rem solid #dddddd;
+  font-size: 1.1rem;
+}
+
+.classicGridCell {
+  border-bottom: 0.0625rem solid #dddddd;
+  position: relative;
+}
+.classicGridCell.weekend {
+  background-color: #EEF0EA;
+}
+
+.classicGridDate {
+  border-bottom: 0.0625rem solid #dddddd;
+}
+.classicGridDate.weekend {
+  background-color: #EEF0EA;
+}
+
+.classicGridDate:last-child {
+  border-bottom: none;
+}
+
+.AM {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0.0625rem solid #dddddd;
+}
+.AM:hover {
+  background-color: #898989;
+  color: #fff;
+}
+
+.PM {
+  margin: 0;
+  padding: 0;
+}
+.PM:hover {
+  background-color: #898989;
+  color: #fff;
+}
+
+.classicGridCell:last-child {
+  border-bottom: none;
+}
+
+.classicGridDayNum {
+  border-bottom: 0.0625rem solid #fff;
+  margin: 0;
+  padding: 0;
+}
+.classicGridDayNum.weekend {
+  border-bottom-color: #EEF0EA;
+}
+
+.classicGridDayName {
+  margin: 0;
+  padding: 0;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  left: 3.75rem;
+  bottom: 1.25rem;
+  color: #000000;
+  width: 10rem;
+  height: 4rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 0.1875rem;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
+}
+.modal-content.hidden {
+  display: none;
+}
+
+.shiftExitBtn {
+  background-color: #fff;
+  color: #dddddd;
+  border: none;
+  float: right;
+  margin-top: 7%;
+}
+.shiftExitBtn:hover {
+  color: #CD0000;
+}
+
+.modalContentShift {
+  background-color: #fff;
+  height: 2rem;
+  width: 100%;
+}
+
+.modalContentShiftName {
+  display: inline;
+  margin-right: 0.2rem;
+  height: 100%;
+  float: left;
+  border: 1px solid #EEF0EA;
+  border-radius: 3px;
+  width: 70%;
+}
+
+.addBtn {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.addBtn:hover .left {
+  background-color: #EEF0EA;
+}
+.addBtn:hover .right {
+  background-color: #88976D;
+  color: #fff;
+}
+.addBtn .left {
+  border: 1px solid #EEF0EA;
+  border-right-width: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  flex: 1;
+  margin: 0;
+  padding: 5% 0 0 0;
+  color: #556B2F;
+  height: 2rem;
+  text-align: center;
+}
+.addBtn .left i {
+  margin: 5px 0 0 0;
+}
+.addBtn .right {
+  border: 1px solid #EEF0EA;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  flex: 5;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  padding: 5% 0 0 0;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: #EEF0EA;
+  color: #556B2F;
+}
+
+.shiftSettings {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 200px;
+  left: 40%;
+  width: 250px;
+  padding: 25px;
+  z-index: 8;
+  background-color: #fff;
+  border-radius: 0.1875rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+}
+.shiftSettings.hidden {
+  display: none;
+}
+.shiftSettings h1 {
+  flex: 1;
+  color: #19200E;
+}
+
+.exitIcon {
+  margin-right: 3px;
+  display: none;
+}
+
+.editShiftList {
+  flex: 8;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.editShiftListItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.5rem;
+  padding: 2px;
+}
+.editShiftListItem:hover {
+  background-color: #EEF0EA;
+}
+.editShiftListItem:hover .exitIcon {
+  display: inline;
+  color: #88976D;
+}
+.editShiftListItem:hover .exitIcon:hover {
+  color: #b2001d;
+}
+
+.editShiftInputArea {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  height: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.editShiftInputArea input {
+  flex: 5;
+  height: 86%;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding-left: 5px;
+  border: 1px solid #88976D;
+}
+.editShiftInputArea button {
+  flex: 1;
+  height: 100%;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: #88976D;
+  color: #EEF0EA;
+  font-size: 1.4rem;
+  border: 1px solid #88976D;
+}
+.editShiftInputArea button:hover {
+  color: #fff;
+  background-color: #556B2F;
+}
+
+.closeEditShiftsBtn {
+  flex: 1;
+  flex-basis: 2rem;
+  margin-top: 10px;
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 35%;
+  color: #EEF0EA;
+  font-size: 1.4rem;
+}
+.closeEditShiftsBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+
+.peopleSettings {
+  position: absolute;
+  top: 200px;
+  left: 25%;
+  width: 650px;
+  padding: 0;
+  z-index: 8;
+  background-color: #EEF0EA;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.peopleSettings.hidden {
+  display: none;
+}
+
+.peopleLeft {
+  height: 100%;
+  background-color: #EEF0EA;
+  flex: 2;
+}
+.peopleLeft .active {
+  background-color: #fff;
+}
+
+.peopleRight {
+  flex: 4;
+  height: 500px;
+  background-color: #fff;
+  padding: 10px;
+}
+.peopleRight h1 {
+  display: inline;
+  margin-left: 25%;
+}
+
+.personToggleButtons {
+  margin-left: 5px;
+}
+.personToggleButtons button {
+  border-radius: 2px;
+  margin-right: 5px;
+  border: none;
+  background-color: #dddddd;
+  color: #898989;
+}
+.personToggleButtons button.active.yes {
+  background-color: #88976D;
+  color: #fff;
+}
+.personToggleButtons button.active.no {
+  background-color: #dc4c4c;
+  color: #fff;
+}
+
+.jobRoleChooser {
+  margin-left: 5px;
+  border-radius: 2px;
+  border: 1px solid #EEF0EA;
+}
+
+.addNewPersonBtn {
+  display: block;
+  margin: 15px 0 5px 25%;
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 45%;
+  color: #EEF0EA;
+  font-size: 1.2rem;
+}
+.addNewPersonBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+.addNewPersonBtn.disabled {
+  color: #898989;
+  background-color: #dddddd;
+}
+
+.addNewPersonInput {
+  margin-left: 5px;
+  border: 1px solid #EEF0EA;
+  border-radius: 2px;
+}
+
+.addPeopleChoiceBtns {
+  position: relative;
+  margin: 350px 0 0 30%;
+}
+
+.addPeopleSubmitBtn {
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 30%;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.addPeopleSubmitBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+
+.addPeopleCancelBtn {
+  margin-left: 15px;
+  background-color: #fff;
+  color: #dddddd;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+}
+.addPeopleCancelBtn:hover {
+  color: #CD0000;
+  background-color: #dddddd;
+}
+
+.addPeopleCloseBtn {
+  margin-top: 30px;
+  background-color: #88976D;
+  border-radius: 5px;
+  border: none;
+  width: 25%;
+  color: #EEF0EA;
+  font-size: 1.4rem;
+  margin-left: 34%;
+}
+.addPeopleCloseBtn:hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+
+.personTab {
+  padding: 7px 0 0 7px;
+}
+.personTab:hover {
+  background-color: #898989;
+  color: #fff;
+}
+
+.managePeopleItem {
+  margin-top: 10px;
+}
+
+.meetingSettings {
+  position: absolute;
+  top: 200px;
+  left: 25%;
+  width: 650px;
+  padding: 50px;
+  z-index: 8;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.meetingSettings.hidden {
+  display: none;
+}
+
+.classicAside {
+  flex-basis: 19rem;
+  background-color: #fff;
+  display: inline-block;
+  height: 55.6rem;
+  border: 0.0625rem solid #dddddd;
+  border-top: none;
+}
+
+.classicSupportingInfo {
+  background-color: #fff;
+  position: relative;
+  height: 55.6rem;
+  overflow: auto;
+  min-height: min-content;
+}
+
+.switchBtn {
+  width: 100%;
+  height: 3rem;
+  border: 0.0625rem solid #898989;
+  background-color: #dddddd;
+  color: #33401C;
+  text-align: left;
+  font-size: 1.2em;
+}
+.switchBtn i {
+  font-size: 0.8rem;
+  right: 0.8rem;
+  float: right;
+  margin-top: 0.3rem;
+  transition: all 0.35s ease-in-out;
+  transform: rotate(180deg);
+}
+.switchBtn i.rotated {
+  transform: rotate(0deg);
+}
+.switchBtn:hover {
+  color: #dc4c4c;
+}
+
+.shiftComponent {
+  height: 11.5rem;
+  transition: height 0.25s ease-in-out;
+  overflow: hidden;
+}
+.shiftComponent.closed {
+  height: 0;
+}
+.shiftComponent ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.shiftComponent ul li {
+  display: inline;
+}
+
+.shiftBtn {
+  height: 2rem;
+  background-color: #EEF0EA;
+  border: none;
+  margin: 0.12rem 0.12rem 0.12rem;
+}
+.shiftBtn.active {
+  background-color: #dc4c4c;
+  font-size: 1.1rem;
+}
+.shiftBtn:hover {
+  background-color: #dc4c4c;
+}
+.shiftBtn.none {
+  display: none;
+}
+
+.conflictsComponent {
+  height: 12rem;
+  transition: height 0.25s ease-in-out;
+  overflow: hidden;
+}
+.conflictsComponent.closed {
+  height: 0;
+}
+
+.conflictsList {
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.conflictsListItem {
+  height: 3rem;
+  margin-top: 0.3rem;
+}
+
+.conflictsListLabel {
+  color: #88976D;
+  font-style: italic;
+  margin-right: 0.4rem;
+}
+
+.statsComponent {
+  height: 12rem;
+  transition: height 0.25s ease-in-out;
+  overflow: hidden;
+}
+.statsComponent.closed {
+  height: 0;
+}
+
+.statsList {
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.statsListItem {
+  height: 1.8rem;
+  margin-top: 0.3rem;
+}
+
+.statValue {
+  float: right;
+  font-size: 1.2rem;
+  color: #88976D;
+}
+
+.notesComponent {
+  border-top: 0.0625rem solid #dddddd;
+  position: relative;
+}
+
+.notesHeader {
+  margin: none;
+  padding: none;
+  text-align: center;
+}
+
+.noteListArea {
+  height: 100%;
+  min-height: min-content;
+}
+
+.noteItem {
+  margin-left: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.noteItem:hover {
+  background-color: #EEF0EA;
+}
+.noteItem:hover .exitIcon {
+  display: inline;
+  color: #88976D;
+}
+.noteItem:hover .exitIcon:hover {
+  color: #b2001d;
+}
+
+.noteLabel {
+  flex: 2;
+  color: #88976D;
+  font-style: italic;
+}
+
+.noteBody {
+  flex: 9;
+}
+
+.noteCloseIcon {
+  flex: 1;
+}
+
+.noteFormArea {
+  height: 7rem;
+  bottom: 3px;
+  width: 100%;
+}
+
+.addNoteForm {
+  margin-left: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+.addNoteForm textarea {
+  height: 98%;
+  margin: 0;
+  padding: 0;
+  border: 0.0625rem solid #dddddd;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  resize: none;
+}
+.addNoteForm .noteSubmitButton {
+  margin: 0;
+  padding: 0 5px 0 0;
+  height: 100%;
+  background-color: #fff;
+  border: 0.0625rem solid #dddddd;
+  border-radius: 5px;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #dddddd;
+  font-size: 1.4rem;
+}
+.addNoteForm .noteSubmitButton:hover {
+  color: #88976D;
+}
+
+/*# sourceMappingURL=styles/styles.css.map */

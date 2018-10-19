@@ -1,0 +1,167 @@
+
+/* ------- now for the classic view styles ------------ */
+/*                      body                        */
+/*                  /         \                     */
+/*           header            gridStats            */
+/*                             \        \           */
+/*                             grid      rightMenus */
+/* ----------------------------------------------------------------*/
+
+
+.classicHeader {
+  margin: 0;
+  padding: 0;
+  height: 4.4rem;
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gridStats {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* gridstats stuffs */
+.grid {
+  margin: 0;
+  flex-basis: 75rem;
+  background-color: #e3e3e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightMenus {
+  margin: 0;
+  padding: 0;
+  height: 60rem;
+  flex-basis: 19rem;
+  background-color: #898989;
+  display: inline-block;
+}
+
+
+/*     grid stuff     */
+.classicTable {
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.grid > td {
+  border: 0.125rem solid #ddd;
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.grid > th {
+  border: 0.125rem solid #ddd;
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.grid > tr:nth-child(even){
+  background-color: #ddd;
+}
+
+
+/*   rightMenu stuff    */
+.expandToggle {
+  width: 100%;
+  height: 3rem;
+  border: 0.0625rem solid #000;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+}
+
+.expandToggle:hover {
+  color: #b2001d;
+}
+
+.shiftBtn {
+  width: 6rem;
+  height: 2.2rem;
+  background-color: #f2f2f2;
+  border: none;
+  margin: 0.12rem;
+}
+
+.shiftBtnActive {
+  width: 6rem;
+  height: 2.2rem;
+  background-color: #fff;
+  border: none;
+  margin: 0.12rem;
+  border: 0.125rem solid #b2001d;
+  font-size: 1.1rem;
+}
+
+.shiftBtn:hover {
+  border: 0.125rem solid #b2001d;
+}
+
+.shiftBtnNone {
+  display: none;
+}
+
+
+/*   conflicts stuffs   */
+.conflicts {
+  margin: 0;
+  padding: 0.12rem;
+}
+
+.conflicts > ul {
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+}
+
+.conflicts > ul li {
+  list-style-type: none;
+}
+
+.conflictListNone {
+  display: none;
+}
+
+.conflictsList {
+  margin-left: 0.12rem;
+  margin-bottom: 0.5rem;
+}
+
+/*  stats stuff     */
+.stats {
+  margin: 0;
+  padding: 0.12rem;
+}
+
+.stats > ul {
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+}
+
+.stats > ul li {
+  list-style-type: none;
+}
+
+.statsListNone {
+  display: none;
+}
+
+.statsList {
+  margin-left: 0.12rem;
+  margin-bottom: 0.5rem;
+}
+

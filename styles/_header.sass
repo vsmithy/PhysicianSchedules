@@ -1,0 +1,174 @@
+// the header has 3 parts:
+// the dropdown
+// the date selector
+// the export buttons
+
+//variables
+////colors
+$red: #b2001d
+$white: #ffffff
+$black: #000000
+$dark-grey: #333
+$medium-grey: #898989
+$light-grey: #dddddd
+$olive-black: #19200E
+$dark-olive: #33401C
+$olive: #556B2F
+$light-olive: #88976D
+$olive-grey: #EEF0EA
+$beans: #3d0000
+$dark-ruby: #8f0000
+$ruby: #CD0000
+$light-ruby: #dc4c4c
+$vashti: #fae5e5
+$weekend-blue: #eaf7ff
+
+//palettes
+$header-bkg: $light-grey
+$header-dropdown-bkg: $light-grey
+$header-icons: $dark-olive
+$header-circle-future: $dark-olive
+$header-dropdown-hover: $medium-grey
+$header-circle-active: $light-ruby
+$header-icons-active: $light-ruby
+$header-circle-past: $olive-grey
+
+
+//header
+header
+  height: 4.4rem
+  width: 100%
+  background-color: $header-bkg
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  .viewSelectBtns
+    margin-left: 0.5rem
+  .viewSelectBtn 
+    display: inline
+    color: $header-icons
+    background-color: $header-bkg
+    border: none
+    &:hover
+      color: $header-icons-active
+    &.active
+      color: $header-icons-active
+
+
+  
+// Date selector stuff
+.headerDateSelector
+  flex: 10
+  margin-left: 3.125rem
+  color: $header-circle-future
+  height: 100%
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  background-color: $header-bkg
+
+.headerFlexContainer
+  width: 28.125rem
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: stretch
+
+.headerCalNavYear 
+  flex: 1
+  margin-top: 0.3125rem
+  align-self: center
+  font-size: 1.2rem
+  button
+    text-decoration: none
+    color: $header-circle-future
+    background-color: $header-bkg
+    border: none
+    margin-right: 0.3125rem
+    margin-left: 0.3125rem
+    &:hover 
+      color: $header-circle-active
+
+.headerCalNavMonth 
+  flex: 3
+  margin-top: 0.3125rem
+  padding: 0
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: stretch
+  li 
+    list-style-type: none
+    margin-left: 0.625rem
+    flex: 1
+    text-align: center
+    // display: inline
+  li a 
+    display: block
+    text-decoration: none
+    font-family: 'Roboto Mono', monospace
+    font-size: 1.1rem
+    border-width: medium
+    border-style: solid
+    border-radius: 50%
+    &:hover 
+      color: $header-circle-active
+      border-color: $header-circle-active
+
+.headerCalCircleColor 
+  color: $header-circle-future
+  border-color: $header-circle-future
+
+.headerCalCircleColorActive 
+  color: $header-circle-active
+  border-color: $header-circle-active
+
+.headerCalCircleColorPast 
+  color: $header-circle-past
+  border-color: $header-circle-past
+  
+  
+  
+  
+// export button stuff
+.dropdown
+  flex: 1
+  height: 100%
+  padding-right: 1.25rem
+  position: relative
+
+.dropbtn
+  display: inline
+  float: right
+  color: $header-icons
+  background-color: $header-dropdown-bkg
+  border: none
+  margin-top: 1.4rem
+  &:hover 
+    color: $header-icons-active
+    .dropdownContent
+      display: block
+
+.dropdownContent
+  display: none
+  position: absolute
+  float: right
+  right: 1.25rem
+  top: 3.025rem
+  background-color: $header-dropdown-bkg
+  min-width: 10rem
+  box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2)
+  z-index: 1
+  button
+    color: $dark-olive
+    padding: 0.75rem 1rem
+    border: none
+    width: 100%
+    display: block
+    font-size: 1.2rem
+    &:hover
+      background-color: $header-dropdown-hover
+      color: $white
