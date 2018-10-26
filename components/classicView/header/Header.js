@@ -2,7 +2,7 @@ import React from 'react'
 import ClassicNavCal from './ClassicNavCal'
 import Dropdown from './Dropdown'
 
-function Header(props){
+function Header(){
   return (
     <header>
       <div className="viewSelectBtns">

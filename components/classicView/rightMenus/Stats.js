@@ -6,13 +6,19 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Stats = (props) => (
-      <div className={props.viewHeight}>
-        <ul className="statsList">
-          {props.stats.map(statItem => <li key={statItem.id} className="statsListItem"><span>{statItem.stat}:</span><span className='statValue'>{statItem.count}</span></li>)}
-        </ul>
-      </div>
+  <div className={props.viewHeight}>
+    <ul className="statsList">
+      {props.stats.map(statItem => <li key={statItem.id} className="statsListItem"><span>{statItem.stat}:</span><span className='statValue'>{statItem.count}</span></li>)}
+    </ul>
+  </div>
 )//Stats Component
+
+Stats.propTypes = {
+  stats: PropTypes.array.isRequired,
+  viewHeight: PropTypes.string.isRequired
+}//propTypes
 
 export default Stats

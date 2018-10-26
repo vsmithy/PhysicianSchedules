@@ -1,5 +1,7 @@
 import React, {Component}  from 'react'
+import PropTypes from 'prop-types'
 import { CurrSettingsContext } from '../../../containers/ClassicContainer'
+import { changeSelectedShft } from '../../../actions';
 
 class ShiftSelect extends Component {
   constructor(props){
@@ -82,5 +84,11 @@ class ShiftSelect extends Component {
     )//return
   }//render
 }//ShiftSelect Component
+
+ShiftSelect.propTypes = {
+  viewHeight: PropTypes.string.isRequired,
+  shifts: PropTypes.array.isRequired,
+  changeSelectedShft: PropTypes.func
+}//propTypes
 
 export default ShiftSelect

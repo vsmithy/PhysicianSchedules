@@ -1,4 +1,5 @@
 import React, {Component}  from 'react'
+import PropTypes from 'prop-types'
 import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 import { getMonth } from '../../../helpfulFiles/dateStuff'
 
@@ -51,5 +52,11 @@ class NotesComponent extends Component {
     )//return
   }//render
 }//Component
+
+NotesComponent.propTypes = {
+  notes: PropTypes.array.isRequired,
+  addNote: PropTypes.func,
+  removeNote: PropTypes.func
+}//proptypes
 
 export default NotesComponent

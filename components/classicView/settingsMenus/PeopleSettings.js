@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 import PersonRules from './PersonRules'
 
 class PeopleSettings extends Component {
@@ -151,6 +151,15 @@ class PeopleSettings extends Component {
     }//else
   }//render
 }//PeopleSettings
+
+PeopleSettings.propTypes = {
+  viewChoice: PropTypes.string.isRequired,
+  people: PropTypes.array.isRequired,
+  activatePerson: PropTypes.func,
+  deactivatePerson: PropTypes.func,
+  addPerson: PropTypes.func,
+  changeRole: PropTypes.func
+}//propTypes
 
 export default PeopleSettings
 

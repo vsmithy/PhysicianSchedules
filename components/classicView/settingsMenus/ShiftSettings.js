@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { removeNote } from '../../../actions';
 
 class ShiftSettings extends Component {
   constructor(props){
@@ -48,5 +50,12 @@ class ShiftSettings extends Component {
     )
   }//render
 }//shiftSettings
+
+ShiftSettings.propTypes = {
+  viewChoice: PropTypes.string.isRequired,
+  shifts: PropTypes.array.isRequired,
+  addShift: PropTypes.func,
+  removeShift: PropTypes.func
+}//propTypes
 
 export default ShiftSettings
