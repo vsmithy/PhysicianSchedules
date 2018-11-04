@@ -57,7 +57,7 @@ export default function eventsReducer(state = initialState, action){
         day:action.eventDetails.day,
         dayName:action.eventDetails.dayName,
         dayType:action.eventDetails.dayType,
-        personId: action.eventDetails.personId,
+        personId: action.eventDetails.personId, 
         shiftName: action.eventDetails.shiftName,
         shiftTime: action.eventDetails.shiftTime
       }

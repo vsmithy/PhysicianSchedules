@@ -5,33 +5,23 @@
  *  The viewHeight toggle can either be 'conflictsComponent' or 'conflictsComponent closed'
  */
 
-import React, {Component}  from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-//local files and components
-import * as actionCreators from '../../../actions'
+const Conflicts = (props) => (
+  <div className={props.viewHeight}>
+    <ul className='conflictsList'>
+      {props.conflicts.map(item => <li key={item.id} className="conflictsListItem">
+        <span className="conflictsListLabel">{item.eventDate.getMonth() + '/' + item.eventDate.getDate()} -</span>
+        <span className="conflictsListValue">{item.note}</span>
+      </li>)}
+    </ul>
+  </div>
+)//Conflict Component
 
-class Conflicts extends Component {
-  render(){
-    const { viewHeight, conflicts } = this.props
+Conflicts.propTypes = {
+  viewHeight: PropTypes.string.isRequired,
+  conflicts: PropTypes.array.isRequired
+}//proptypes
 
-    return (
-      <div className={viewHeight}>
-        <ul className='conflictsList'>
-          {conflicts.map(item => <li key={item.id} className="conflictsListItem">
-            <span className="conflictsListLabel">{item.eventDate.getMonth() + '/' + item.eventDate.getDate()} -</span>
-            <span className="conflictsListValue">{item.note}</span>
-          </li>)}
-        </ul>
-      </div>
-    )//return
-  }//render
-}//Component
-
-//now to specify the areas of state to connect to
-const mapStateToProps = state => ({
-  conflicts: state.conflicts, 
- })//mapStateToProps
-const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
-export default connect(mapStateToProps, mapDispatchToProps)(Conflicts)
+export default Conflicts

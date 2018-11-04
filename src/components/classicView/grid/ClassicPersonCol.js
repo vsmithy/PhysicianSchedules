@@ -3,64 +3,61 @@
    - First we show the person's name, and then we map over each item in an array of events
 */
 
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-
-//local files and components
-import * as actionCreators from '../../../actions'
+import React from 'react'
 import GridCell from './GridCell'
+import PropTypes from 'prop-types'
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 import { getMonth } from '../../../helpfulFiles/dateStuff'
 
-class ClassicPersonCol extends Component{
-  render(){
-    //generate some date related info for the selected year and month
-    let selectedYear = this.props.currentViewProperties.yearSelect
-    let selectedMonth = this.props.currentViewProperties.monthSelect
-    let selectedMonthName = getMonth(selectedMonth)
+const ClassicPersonCol = (props) => (
+  <div className="classicGridPersonCol" role="column">
+    <div className="classicGridPersonName" role="columnheader">{props.personDetails.name}</div>
+    {
+      props.monthDates.map((item, idx) => <div key={idx} className={props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" >
+          <GridCell 
+            shiftTime="AM" 
+            theEvent={props.eventList.filter(evtListItem => evtListItem.day === item && evtListItem.shiftTime === "AM")} 
+            dayType={props.weekendList.includes(idx+1) ? "weekend" : "standard"}
+            personDetails={props.personDetails}
+            day={idx+1}
+            removeEvent={props.removeEvent}
+            addEvent={props.addEvent}
+            updateEvent={props.updateEvent}
+            />
+          <GridCell 
+            shiftTime="PM" 
+            theEvent={props.eventList.filter(evtListItem => evtListItem.day === item && evtListItem.shiftTime === "PM")} 
+            dayType={props.weekendList.includes(idx+1) ? "weekend" : "standard"}
+            personDetails={props.personDetails}
+            day={idx+1}
+            removeEvent={props.removeEvent}
+            addEvent={props.addEvent}
+            updateEvent={props.updateEvent}
+            />
+        </div>
+      )
+    }
+    <div className="classicGridPersonName" role="columnheader">{props.personDetails.name}</div>
+  </div>
+)//ClassicPersonCol component
 
-    //filter out the events for each specific person:
-    let eventList = this.props.eventsReducer.filter(evt => evt.year === selectedYear && evt.month === selectedMonthName && this.props.personDetails.id === evt.personId)
+//passing the context in as a prop
+const ClassicPersonColCtx = props => (
+  <CurrSettingsContext.Consumer>
+    {context => <ClassicPersonCol {...props} context={context} eventList={props.eventsReducer.filter(evt => evt.year === context.yearSelect && evt.month === getMonth(context.monthSelect) && props.personDetails.id === evt.personId)} />}
+  </CurrSettingsContext.Consumer>
+)
 
-    return (
-      <div className="classicGridPersonCol" role="column">
-        <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-        {
-          this.props.monthDates.map((item, idx) => <div key={idx} className={this.props.weekendList.includes(idx+1) ? "classicGridCell weekend" : "classicGridCell"} role="cell" >
-              <GridCell 
-                shiftTime="AM" 
-                currentViewProperties={this.props.currentViewProperties} 
-                theEvent={eventList.filter(evtListItem => evtListItem.day === item && evtListItem.shiftTime === "AM")} 
-                dayType={this.props.weekendList.includes(idx+1) ? "weekend" : "standard"}
-                personDetails={this.props.personDetails}
-                day={idx+1}
-                removeEvent={this.props.removeEvent}
-                addEvent={this.props.addEvent}
-                updateEvent={this.props.updateEvent}
-                />
-              <GridCell 
-                shiftTime="PM" 
-                currentViewProperties={this.props.currentViewProperties} 
-                theEvent={eventList.filter(evtListItem => evtListItem.day === item && evtListItem.shiftTime === "PM")} 
-                dayType={this.props.weekendList.includes(idx+1) ? "weekend" : "standard"}
-                personDetails={this.props.personDetails}
-                day={idx+1}
-                removeEvent={this.props.removeEvent}
-                addEvent={this.props.addEvent}
-                updateEvent={this.props.updateEvent}
-                />
-            </div>
-          )
-        }
-        <div className="classicGridPersonName" role="columnheader">{this.props.personDetails.name}</div>
-      </div>
-    )
-  }//render
-}//ClassicPersonCol component
+ClassicPersonCol.propTypes = {
+  key: PropTypes.number,
+  personDetails: PropTypes.object,
+  monthDates: PropTypes.array,
+  weekendList: PropTypes.array,
+  shifts: PropTypes.array,
+  eventsReducer: PropTypes.array,
+  addEvent: PropTypes.func.isRequired,
+  removeEvent: PropTypes.func.isRequired,
+  updateEvent: PropTypes.func.isRequired
+}//propTypes
 
-//connect to state
-const mapStateToProps = state => ({
-  eventsReducer: state.eventsReducer,
- })
-const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
-export default connect(mapStateToProps, mapDispatchToProps)(ClassicPersonCol)
+export default ClassicPersonColCtx

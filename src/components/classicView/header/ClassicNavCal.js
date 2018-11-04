@@ -5,42 +5,46 @@
 */
 
 import React, {Component}  from 'react'
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 
 export default class ClassicNavCal extends Component {
   constructor(props){
     super(props)
 
+    const d = new Date()
     this.state = {
-      activeMonthSelection: this.props.currentViewProperties.monthSelect
+      activeMonthSelection: d.getMonth()
     }//state
   }//constructor
 
-  updateMonth(idx){
-    this.props.changeMonth(idx)
+  updateMonth(idx, ctx){
+    ctx.updaterFunctions.updateMonth(idx)
     this.setState({activeMonthSelection: idx})
   }//updateMonth
-
+  
   render(){
-    const { currentViewProperties } = this.props
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
-    const whichClass = (idx) => currentViewProperties.currentMonth > idx ? 'headerCalCircleColorPast' : 'headerCalCircleColor'
-    let showBackArrow = currentViewProperties.yearSelect === 2018 ? '' : <button type="button" onClick={() => this.props.changeYear(-1)}><i className="fas fa-chevron-left"></i></button>
+    const whichClass = (idx, mo) => mo > idx ? 'headerCalCircleColorPast' : 'headerCalCircleColor'
 
     return (
-      <div className="headerFlexContainer" role="presentation">
-        <div role="presentation" className="headerCalNavYear">
-          {showBackArrow}
-          <span>{this.props.currentViewProperties.yearSelect}</span>
-          <button type="button" onClick={() => this.props.changeYear(1)}><i className="fas fa-chevron-right"></i></button>
-        </div>
-        <ol role="listbox" className="headerCalNavMonth">
-          {
-            months.map((month, i) => (
-              <li key={i} value={i}><a className={this.state.activeMonthSelection === i ? 'headerCalCircleColorActive' : whichClass(i)} onClick={() => this.updateMonth(i)}>{month[0]}</a></li>
-            ))
-          }
-        </ol>
-      </div>
+      <CurrSettingsContext.Consumer>
+        {context => (
+          <div className="headerFlexContainer" role="presentation">
+            <div role="presentation" className="headerCalNavYear">
+              {context.yearSelect === 2018 ? '' : <button type="button" onClick={() => context.updaterFunctions.updateYear(-1)}><i className="fas fa-chevron-left"></i></button>}
+              <span>{context.yearSelect}</span>
+              <button type="button" onClick={() => context.updaterFunctions.updateYear(1)}><i className="fas fa-chevron-right"></i></button>
+            </div>
+            <ol role="listbox" className="headerCalNavMonth">
+              {
+                months.map((month, i) => (
+                  <li key={i} value={i}><a className={this.state.activeMonthSelection === i ? 'headerCalCircleColorActive' : whichClass(i, context.currentMonth)} onClick={() => this.updateMonth(i, context)}>{month[0]}</a></li>
+                ))
+              }
+            </ol>
+          </div>
+        )}
+      </CurrSettingsContext.Consumer>
     )//return
   }//render
 }//ClassicNavCal

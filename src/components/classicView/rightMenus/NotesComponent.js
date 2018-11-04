@@ -1,11 +1,7 @@
 import React, {Component}  from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-
-//local files and components
-import * as actionCreators from '../../../actions'
+import PropTypes from 'prop-types'
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 import { getMonth } from '../../../helpfulFiles/dateStuff'
-
 
 class NotesComponent extends Component {
   constructor(props){
@@ -24,42 +20,43 @@ class NotesComponent extends Component {
   }//handleAddNote
 
   render() {
-    const monthName = getMonth(this.props.currentViewProperties.monthSelect)
-    const theYear = this.props.currentViewProperties.yearSelect
-    
     return (
-      <section className='notesComponent'>
-        <h3 className="notesHeader">{monthName} Notes</h3>
-        <div className="notesListArea">
-          {
-            this.props.notes.filter(item => item.year === theYear && item.month === monthName).map(noteItem => <div className="noteItem" key={noteItem.id}><span className="noteLabel">{noteItem.id}</span><span className="noteBody">{noteItem.comments}</span><i className="fas fa-times exitIcon noteCloseIcon" onClick={() => this.props.removeNote(noteItem.id)}></i></div>)
-          }
-        </div>
-        <div className="noteFormArea">
-          <form className="addNoteForm" onSubmit={event => this.handleAddNote(event, monthName, theYear)}>
-            <textarea 
-              name="newNoteArea" 
-              id="newNoteArea" 
-              cols="27" 
-              rows="6" 
-              placeholder="Add Another Note..."
-              ref={this.noteAreaRef}
-              onChange={() => this.setState({ currentNoteTxt: this.noteAreaRef.current.value})}
-            ></textarea>
-            <button className="noteSubmitButton" type="submit" disabled={this.state.currentNoteTxt === '' ? true : false}>
-              <i className="far fa-plus-square fa-2x"></i>
-            </button>
-          </form>
-        </div>
-      </section>
+      <CurrSettingsContext.Consumer>
+        {context => (
+          <section className='notesComponent'>
+            <h3 className="notesHeader">{getMonth(context.monthSelect)} Notes</h3>
+            <div className="notesListArea">
+              {
+                this.props.notes.filter(item => item.year === context.yearSelect && item.month === getMonth(context.monthSelect)).map(noteItem => <div className="noteItem" key={noteItem.id}><span className="noteLabel">{noteItem.id}</span><span className="noteBody">{noteItem.comments}</span><i className="fas fa-times exitIcon noteCloseIcon" onClick={() => this.props.removeNote(noteItem.id)}></i></div>)
+              }
+            </div>
+            <div className="noteFormArea">
+              <form className="addNoteForm" onSubmit={event => this.handleAddNote(event, getMonth(context.monthSelect), context.yearSelect)}>
+                <textarea 
+                  name="newNoteArea" 
+                  id="newNoteArea" 
+                  cols="27" 
+                  rows="6" 
+                  placeholder="Add Another Note..."
+                  ref={this.noteAreaRef}
+                  onChange={() => this.setState({ currentNoteTxt: this.noteAreaRef.current.value})}
+                ></textarea>
+                <button className="noteSubmitButton" type="submit" disabled={this.state.currentNoteTxt === '' ? true : false}>
+                  <i className="far fa-plus-square fa-2x"></i>
+                </button>
+              </form>
+            </div>
+          </section>
+        )}
+      </CurrSettingsContext.Consumer>
     )//return
   }//render
 }//Component
 
-//now to specify the areas of state to connect to
-const mapStateToProps = state => ({
-  currentViewProperties: state.currentViewProperties,
-  notes: state.notes, 
- })//mapStateToProps
-const mapDispatchToProps = dispatch => (bindActionCreators(actionCreators, dispatch))
-export default connect(mapStateToProps, mapDispatchToProps)(NotesComponent)
+NotesComponent.propTypes = {
+  notes: PropTypes.array.isRequired,
+  addNote: PropTypes.func,
+  removeNote: PropTypes.func
+}//proptypes
+
+export default NotesComponent

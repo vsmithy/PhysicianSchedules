@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { removeNote } from '../../../actions';
 
 class ShiftSettings extends Component {
   constructor(props){
@@ -7,7 +9,7 @@ class ShiftSettings extends Component {
     this.shiftInput = React.createRef()
     this.makeNewShift = this.makeNewShift.bind(this)
     this.hideSettings = this.hideSettings.bind(this)
-  }
+  }//constructor
 
   makeNewShift(){
     //add the shift
@@ -15,17 +17,19 @@ class ShiftSettings extends Component {
 
     //clear out the input box
     this.shiftInput.current.value = ''
-  }
+  }//makeNewShift
 
   hideSettings(){
     //hides the modal and the settings window
     this.props.toggleModal()
+
+    // context.updaterFunctions.toggleModal()
+
+    
     this.props.toggleShiftSettingsWindow()
-  }
+  }//hideSettings
 
   render() {
-    
-
     return (
       <div className={this.props.viewChoice}>
         <h1>Edit Shifts</h1>
@@ -46,5 +50,12 @@ class ShiftSettings extends Component {
     )
   }//render
 }//shiftSettings
+
+ShiftSettings.propTypes = {
+  viewChoice: PropTypes.string.isRequired,
+  shifts: PropTypes.array.isRequired,
+  addShift: PropTypes.func,
+  removeShift: PropTypes.func
+}//propTypes
 
 export default ShiftSettings

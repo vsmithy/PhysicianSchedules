@@ -1,50 +1,76 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { getDayName, getMonth } from '../../../helpfulFiles/dateStuff'
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
+
+function handleClickEvent(props, context){
+  console.log('i have been clicked')
+  // console.log(context)
+  let selectedYear = context.yearSelect
+  let selectedMonth = context.monthSelect
+
+  if(context.shiftSelect === ''){
+    //either delete or do nothing
+    console.log('no shift is selected')
+    if(props.theEvent[0]){
+      props.removeEvent(props.theEvent[0].id)
+    }//inner if
+    } else if(props.theEvent.length > 0){
+      console.log('updating current event with new event')
+      //create object with details for update
+      let updateEventDetails = {
+      'id': props.theEvent[0].id,
+      'shiftName': context.shiftSelect,
+    }//updateEventDetails
+
+    //send the details to the reducer
+    props.updateEvent(updateEventDetails)
+    } else {
+      console.log('adding a completely new item')
+    //create the new object that will be sent to reducer
+    let newEventDetails = {
+        'personId': props.personDetails.id,
+        'shiftName': context.shiftSelect,
+        'day': props.day,
+        'selectedYear': selectedYear,
+        'selectedMonthName': getMonth(selectedMonth),
+        'shiftTime': props.shiftTime,
+        'dayType': props.dayType,
+        'dayName': getDayName(selectedYear,selectedMonth,props.day)
+      }//newEventDetails
+      
+      //send the details to the reducer
+      console.log('the newEventDetails will be')
+      console.log(newEventDetails)
+      props.addEvent(newEventDetails)
+    }//else
+}//end of handleClickEvent
 
 class GridCell extends Component {
-  handleClickEvent(){
-    let selectedYear = this.props.currentViewProperties.yearSelect
-    let selectedMonth = this.props.currentViewProperties.monthSelect
-
-    if(this.props.currentViewProperties.shiftSelect === ''){
-      //either delete or do nothing
-      if(this.props.theEvent[0]){
-        this.props.removeEvent(this.props.theEvent[0].id)
-      }//inner if
-     } else if(this.props.theEvent.length > 0){
-       //create object with details for update
-       let updateEventDetails = {
-        'id': this.props.theEvent[0].id,
-        'shiftName': this.props.currentViewProperties.shiftSelect,
-      }//updateEventDetails
-
-      //send the details to the reducer
-      this.props.updateEvent(updateEventDetails)
-     } else {
-      //create the new object that will be sent to reducer
-      let newEventDetails = {
-          'personId': this.props.personDetails.id,
-          'shiftName': this.props.currentViewProperties.shiftSelect,
-          'day': this.props.day,
-          'selectedYear': this.props.currentViewProperties.yearSelect,
-          'selectedMonthName': getMonth(this.props.currentViewProperties.monthSelect),
-          'shiftTime': this.props.shiftTime,
-          'dayType': this.props.dayType,
-          'dayName': getDayName(selectedYear,selectedMonth,this.props.day)
-        }//newEventDetails
-        
-        //send the details to the reducer
-        this.props.addEvent(newEventDetails)
-      }//else
-    }//end of handleClickEvent
-
-  render() {
+  // componentDidMount(){ console.log('GridCell did mount') }
+  componentDidUpdate(){ console.log('GridcellDidUpdate') }
+  render(){
     return (
-      <div className={this.props.shiftTime} onClick={() => this.handleClickEvent()}>
-        {this.props.theEvent[0] ? this.props.theEvent[0].shiftName : ''}
-      </div>
+      <CurrSettingsContext.Consumer>
+        {context => (
+          <div className={this.props.shiftTime} onClick={() => handleClickEvent(this.props, context)}>
+            {this.props.theEvent[0] ? this.props.theEvent[0].shiftName : ''}
+          </div>
+        )}
+      </CurrSettingsContext.Consumer>
     )//return
   }//render
 }//shiftSettings
+
+GridCell.propTypes = {
+  shiftTime: PropTypes.string,
+  theEvent: PropTypes.array,
+  dayType: PropTypes.string,
+  personDetails: PropTypes.object,
+  day: PropTypes.number,
+  removeEvent: PropTypes.func.isRequired,
+  addEvent: PropTypes.func.isRequired,
+  updateEvent: PropTypes.func.isRequired,
+}//propTypes
 
 export default GridCell

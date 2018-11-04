@@ -19,6 +19,7 @@
 backlog.txt
 rawMarkup.html
 rawMarkupClassic.html
+*.pdf
 
 npm-debug.log*
 yarn-debug.log*
