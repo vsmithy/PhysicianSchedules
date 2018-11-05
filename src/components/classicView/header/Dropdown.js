@@ -1,31 +1,30 @@
 import React  from 'react'
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 
-function settingsToggle(toggleChoice, props){
-  alert('Show the ' + toggleChoice + ' menu!!!')
+function settingsToggle(toggleChoice, context){
+  //toggleModal
+  context.updaterFunctions.toggleModal()
 
-
-  // //change modalContentId: none0
-  // props.changeModalContentId('none0')
-  // //toggleModal
-  // // context.updaterFunctions.toggleModal()
-  // props.toggleModal()
-  // //show chosen component
-  // toggleChoice === 'shifts' ? props.toggleShiftSettingsWindow() : props.togglePeopleSettingsWindow()
-
+  //toggleMenu
+  toggleChoice === 'shifts' ? context.updaterFunctions.toggleShiftSettings() : context.updaterFunctions.togglePeopleSettings()
 }//shiftSettingsToggle
 
 function Dropdown(props){
   return (
-    <div className="dropdown">
-      <div type="button" role="button" className="dropbtn">
-        <i className="fas fa-bars fa-2x"></i>
-        <div className="dropdownContent">
-          <button onClick={() => settingsToggle('people', props)}>Edit People</button>
-          <button onClick={() => settingsToggle('shifts', props)}>Edit Shifts</button>
-          <button onClick={() => settingsToggle('excel', props)}>Export to Excel</button>
+    <CurrSettingsContext.Consumer>
+      {context => (
+        <div className="dropdown">
+          <div type="button" role="button" className="dropbtn">
+            <i className="fas fa-bars fa-2x"></i>
+            <div className="dropdownContent">
+              <button onClick={() => settingsToggle('people', context)}>Edit People</button>
+              <button onClick={() => settingsToggle('shifts', context)}>Edit Shifts</button>
+              <button onClick={() => settingsToggle('excel', props)}>Export to Excel</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </CurrSettingsContext.Consumer>
   )//return
 }//header
 

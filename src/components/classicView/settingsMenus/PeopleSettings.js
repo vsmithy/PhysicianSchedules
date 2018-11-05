@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
 
 class PeopleSettings extends Component {
   constructor(props){
@@ -29,14 +30,12 @@ class PeopleSettings extends Component {
     })
   }//will mount
 
-  hideSettings(){
-    //hides the modal and the settings window
-    this.props.toggleModal()
-
-    // context.updaterFunctions.toggleModal()
-
-
-    this.props.togglePeopleSettingsWindow()
+  hideSettings(context){
+    //toggleModal
+    context.updaterFunctions.toggleModal()
+  
+    //toggleMenu
+    context.updaterFunctions.togglePeopleSettings()
   }//hideSettings
 
   personClicked(theID){
@@ -112,39 +111,43 @@ class PeopleSettings extends Component {
     }
     else{
       return (
-        <div className={this.props.viewChoice}>
-          <div className="peopleLeft">
-            {sortedPeople.map(item => <div key={item.id} className={this.state.chosenPerson === item.name ? "personTab active" : "personTab"} onClick={() => this.personClicked(item.id)} >{item.name}</div>)}
-            <button onClick={() => this.addNewPerson()} className="addNewPersonBtn">Add New</button>
-          </div>
-          <div className="peopleRight">
-            <h1>Manage People</h1>
-            <div className="managePeopleItem managePeopleName">Name: {this.state.chosenPerson}</div>
-            <div className="managePeopleItem managePeopleId">ID: {this.state.chosenPersonId}</div>
-            <div className="managePeopleItem managePeopleIsactive">Is Active:
-              <span className="personToggleButtons">
-                <button className={activePersonYes} onClick={() => this.props.activatePerson(this.state.chosenPersonId) }>Yes</button>
-                <button className={activePersonNo} onClick={() => this.props.deactivatePerson(this.state.chosenPersonId) }>No</button>
-              </span>
+        <CurrSettingsContext.Consumer>
+          {context => (
+            <div className={this.props.viewChoice}>
+              <div className="peopleLeft">
+                {sortedPeople.map(item => <div key={item.id} className={this.state.chosenPerson === item.name ? "personTab active" : "personTab"} onClick={() => this.personClicked(item.id)} >{item.name}</div>)}
+                <button onClick={() => this.addNewPerson()} className="addNewPersonBtn">Add New</button>
+              </div>
+              <div className="peopleRight">
+                <h1>Manage People</h1>
+                <div className="managePeopleItem managePeopleName">Name: {this.state.chosenPerson}</div>
+                <div className="managePeopleItem managePeopleId">ID: {this.state.chosenPersonId}</div>
+                <div className="managePeopleItem managePeopleIsactive">Is Active:
+                  <span className="personToggleButtons">
+                    <button className={activePersonYes} onClick={() => this.props.activatePerson(this.state.chosenPersonId) }>Yes</button>
+                    <button className={activePersonNo} onClick={() => this.props.deactivatePerson(this.state.chosenPersonId) }>No</button>
+                  </span>
+                </div>
+                <div className="managePeopleItem managePeopleJobRole">Job Role:
+                  <select 
+                  name="jobRoleChooser" 
+                  id="jobRoleChooser" 
+                  className="jobRoleChooser" 
+                  ref={this.jobRoleInput}
+                  onChange={() => this.handleRoleChange()}
+                  value={this.state.chosenPersonRole}
+                  >
+                    <option value="Full Scope">Full Scope</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="GYN">GYN</option>
+                    <option value="MFM">MFM</option>
+                  </select>
+                </div>
+                <button className="addPeopleCloseBtn" onClick={() => this.hideSettings(context)}>Close</button>
+              </div>
             </div>
-            <div className="managePeopleItem managePeopleJobRole">Job Role:
-              <select 
-              name="jobRoleChooser" 
-              id="jobRoleChooser" 
-              className="jobRoleChooser" 
-              ref={this.jobRoleInput}
-              onChange={() => this.handleRoleChange()}
-              value={this.state.chosenPersonRole}
-              >
-                <option value="Full Scope">Full Scope</option>
-                <option value="Part Time">Part Time</option>
-                <option value="GYN">GYN</option>
-                <option value="MFM">MFM</option>
-              </select>
-            </div>
-            <button className="addPeopleCloseBtn" onClick={() => this.hideSettings()}>Close</button>
-          </div>
-        </div>
+          )}
+        </CurrSettingsContext.Consumer>
       )//return
     }//else
   }//render

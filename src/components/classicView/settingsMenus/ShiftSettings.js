@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
- 
+import { CurrSettingsContext } from '../../../containers/ClassicContainer'
+
 class ShiftSettings extends Component {
   constructor(props){
     super(props)
@@ -18,34 +19,36 @@ class ShiftSettings extends Component {
     this.shiftInput.current.value = ''
   }//makeNewShift
 
-  hideSettings(){
-    //hides the modal and the settings window
-    this.props.toggleModal()
-
-    // context.updaterFunctions.toggleModal()
-
-    
-    this.props.toggleShiftSettingsWindow()
+  hideSettings(context){
+    //toggleModal
+    context.updaterFunctions.toggleModal()
+  
+    //toggleMenu
+    context.updaterFunctions.toggleShiftSettings()
   }//hideSettings
 
   render() {
     return (
-      <div className={this.props.viewChoice}>
-        <h1>Edit Shifts</h1>
-        <div className="editShiftInputArea">
-          <input 
-            type="text" 
-            name="shiftInput" 
-            placeholder="add shift type" 
-            ref={this.shiftInput}
-          />
-          <button role="button" onClick={() => this.makeNewShift()}>Add</button>
-        </div>
-        <div role="presentation" className="editShiftList">
-        {this.props.shifts.sort( (a, b) => a.shiftName < b.shiftName ? -1 : 1).map(shiftItem => <div key={shiftItem.id} className="editShiftListItem">{shiftItem.shiftName}<i className="fas fa-times exitIcon" onClick={() => this.props.removeShift(shiftItem.id)}></i></div>)}
-        </div>
-        <button onClick={() => this.hideSettings()} className="closeEditShiftsBtn">Close</button>
-      </div>
+      <CurrSettingsContext.Consumer>
+        {context => (
+          <div className={this.props.viewChoice}>
+            <h1>Edit Shifts</h1>
+            <div className="editShiftInputArea">
+              <input 
+                type="text" 
+                name="shiftInput" 
+                placeholder="add shift type" 
+                ref={this.shiftInput}
+              />
+              <button role="button" onClick={() => this.makeNewShift()}>Add</button>
+            </div>
+            <div role="presentation" className="editShiftList">
+            {this.props.shifts.sort( (a, b) => a.shiftName < b.shiftName ? -1 : 1).map(shiftItem => <div key={shiftItem.id} className="editShiftListItem">{shiftItem.shiftName}<i className="fas fa-times exitIcon" onClick={() => this.props.removeShift(shiftItem.id)}></i></div>)}
+            </div>
+            <button onClick={() => this.hideSettings(context)} className="closeEditShiftsBtn">Close</button>
+          </div>
+        )}
+      </CurrSettingsContext.Consumer>
     )
   }//render
 }//shiftSettings
