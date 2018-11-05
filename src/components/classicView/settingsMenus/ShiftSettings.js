@@ -6,12 +6,23 @@ class ShiftSettings extends Component {
   constructor(props){
     super(props)
 
+    this.shiftInputForm = React.createRef()
     this.shiftInput = React.createRef()
     this.makeNewShift = this.makeNewShift.bind(this)
     this.hideSettings = this.hideSettings.bind(this)
   }//constructor
 
-  makeNewShift(){
+  // componentDidMount(){
+  //   console.log('shift settings did mount')
+  // }//componentDidMount
+
+  // componentWillUnmount(){
+  //   console.log('shift settings will unmount')
+  // }//unmount
+
+  makeNewShift(event){
+    event.preventDefault()
+
     //add the shift
     this.props.addShift(this.shiftInput.current.value)
 
@@ -33,16 +44,16 @@ class ShiftSettings extends Component {
         {context => (
           <div className={this.props.viewChoice}>
             <h1>Edit Shifts</h1>
-            <div className="editShiftInputArea">
+            <form ref={this.shiftInputForm} className="editShiftInputArea" onSubmit={(e) => this.makeNewShift(e)}>
               <input 
                 type="text" 
                 name="shiftInput" 
                 placeholder="add shift type" 
                 ref={this.shiftInput}
               />
-              <button role="button" onClick={() => this.makeNewShift()}>Add</button>
-            </div>
-            <div role="presentation" className="editShiftList">
+              <button role="submit" onClick={(e) => this.makeNewShift(e)}>Add</button>
+            </form>
+            <div className="editShiftList">
             {this.props.shifts.sort( (a, b) => a.shiftName < b.shiftName ? -1 : 1).map(shiftItem => <div key={shiftItem.id} className="editShiftListItem">{shiftItem.shiftName}<i className="fas fa-times exitIcon" onClick={() => this.props.removeShift(shiftItem.id)}></i></div>)}
             </div>
             <button onClick={() => this.hideSettings(context)} className="closeEditShiftsBtn">Close</button>

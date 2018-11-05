@@ -52,7 +52,9 @@ class Grid extends Component {
             />)}
         </div>
         <div className={context.modal ? "modal" : "modal hidden"}></div>
-        <ShiftSettings 
+        {context.modal ? (
+          <div>
+          <ShiftSettings 
           viewChoice={context.shiftSettingsWindow ? "shiftSettings" : "shiftSettings hidden"} 
           shifts={shifts} 
           addShift={this.props.addShift} 
@@ -66,6 +68,8 @@ class Grid extends Component {
           addPerson={this.props.addPerson}
           changeRole={this.props.changeRole}
         />
+        </div>
+        ) : ''}
       </section>
     )//return
   }//render

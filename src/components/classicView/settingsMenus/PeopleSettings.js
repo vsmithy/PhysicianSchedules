@@ -9,9 +9,9 @@ class PeopleSettings extends Component {
     this.hideSettings = this.hideSettings.bind(this)
     this.jobRoleInput = React.createRef()
     this.newNameInput = React.createRef()
+    this.managePeopleForm = React.createRef()
     this.handleRoleChange = this.handleRoleChange.bind(this)
     this.addNewPerson = this.addNewPerson.bind(this)
-    this.cancelAddingPerson = this.cancelAddingPerson.bind(this)
 
     this.state = {
       chosenPerson: "i am the chosen",
@@ -58,13 +58,11 @@ class PeopleSettings extends Component {
     this.setState({ addMode: true })
   }//addNewPerson
 
-  cancelAddingPerson(){
-    // this.hideSettings()
-    this.setState({ addMode: false })
-  }//cancelAddingPerson
-  
-  submitNewPerson(){
+  submitNewPerson(evt){
+    evt.preventDefault()
+
     this.props.addPerson(this.newNameInput.current.value, this.jobRoleInput.current.value)
+    this.newNameInput.current.value = ''
     this.setState({ addMode: false })
   }//submitNewPerson
   
@@ -84,27 +82,30 @@ class PeopleSettings extends Component {
           </div>
           <div className="peopleRight">
             <h1>Add A Person</h1>
-            <div className="managePeopleItem managePeopleName">
-              Name: 
-              <input className="addNewPersonInput" ref={this.newNameInput} />
-            </div>
-            <div className="managePeopleItem managePeopleJobRole">Job Role:
-              <select 
-              name="jobRoleChooser" 
-              id="jobRoleChooser" 
-              className="jobRoleChooser" 
-              ref={this.jobRoleInput}
-              >
-                <option value="Full Scope">Full Scope</option>
-                <option value="Part Time">Part Time</option>
-                <option value="GYN">GYN</option>
-                <option value="MFM">MFM</option>
-              </select>
-            </div>
-            <div className="addPeopleChoiceBtns" >
-              <button className="addPeopleSubmitBtn" onClick={() => this.submitNewPerson()}>Submit</button>
-              <button className="addPeopleCancelBtn" onClick={() => this.cancelAddingPerson()}>Cancel</button>
-            </div>
+            <form ref={this.managePeopleForm} className="managePeopleForm" onSubmit={(e) => this.submitNewPerson(e)}>
+              <div className="managePeopleItem managePeopleName">
+                <label>Name: </label>
+                <input className="addNewPersonInput" ref={this.newNameInput} />
+              </div>
+              <div className="managePeopleItem managePeopleJobRole">
+                <label>Job Role:</label>
+                <select 
+                name="jobRoleChooser" 
+                id="jobRoleChooser" 
+                className="jobRoleChooser" 
+                ref={this.jobRoleInput}
+                >
+                  <option value="Full Scope">Full Scope</option>
+                  <option value="Part Time">Part Time</option>
+                  <option value="GYN">GYN</option>
+                  <option value="MFM">MFM</option>
+                </select>
+              </div>
+              <div className="addPeopleChoiceBtns" >
+                <button className="addPeopleSubmitBtn" onClick={(e) => this.submitNewPerson(e)}>Submit</button>
+                <button className="addPeopleCancelBtn" onClick={() => this.setState({ addMode: false })}>Cancel</button>
+              </div>
+            </form>
           </div>
         </div>
       )//return
