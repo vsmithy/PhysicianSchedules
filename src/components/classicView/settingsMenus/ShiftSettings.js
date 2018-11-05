@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { removeNote } from '../../../actions';
-
+ 
 class ShiftSettings extends Component {
   constructor(props){
     super(props)

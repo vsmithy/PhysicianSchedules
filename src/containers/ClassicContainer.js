@@ -21,7 +21,10 @@ class ClassicContainer extends Component {
       updateYear: (diff) => (this.setState({ yearSelect: this.state.yearSelect+diff })),
       updateMonth: (mo) => (this.setState({ monthSelect: mo })),
       changeShift: (shift) => (this.setState({ shiftSelect: shift })),
-      toggleModal: () => (this.setState({ modal: !this.state.modal }))
+      toggleModal: () => (this.setState({ modal: !this.state.modal })),
+      togglePeopleSettings: () => (this.setState({ peopleSettingsWindow: !this.state.peopleSettingsWindow })),
+      toggleShiftSettings: () => (this.setState({ shiftSettingsWindow: !this.state.shiftSettingsWindow })),
+      chageModalId: (id) => (this.setState({ modalId: id }))
     }//updaterFunctinos
 
     this.state = {

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 
 //bring in the other reducers
-import currentViewProperties from './currentViewProperties'
 import shifts from './shifts'
 import conflicts from './conflicts'
 import stats from './stats'
@@ -12,7 +11,6 @@ import notes from './notes'
 import queues from './queues'
 
 const rootReducer = combineReducers({
-  currentViewProperties,
   shifts,
   conflicts,
   stats,
