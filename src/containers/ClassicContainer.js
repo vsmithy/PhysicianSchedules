@@ -45,7 +45,7 @@ class ClassicContainer extends Component {
   render(){
     return (
         <CurrSettingsContext.Provider value={this.state}>
-          <Header />
+          <Header people={this.props.people} meetings={this.props.meetings} eventsReducer={this.props.eventsReducer} />
           <main>
             <GridCtx  {...this.props} />
             <RightMenus {...this.props} />

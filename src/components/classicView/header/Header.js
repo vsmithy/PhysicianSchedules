@@ -2,7 +2,7 @@ import React from 'react'
 import ClassicNavCal from './ClassicNavCal'
 import Dropdown from './Dropdown'
 
-function Header(){
+function Header(props){
   return (
     <header>
       <div className="viewSelectBtns">
@@ -11,7 +11,7 @@ function Header(){
       </div>
       <div className="headerDateSelector">
         <ClassicNavCal />
-        <Dropdown />
+        <Dropdown {...props} />
       </div>
     </header>
   )//return

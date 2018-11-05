@@ -20,7 +20,7 @@ function Dropdown(props){
             <div className="dropdownContent">
               <button onClick={() => settingsToggle('people', context)}>Edit People</button>
               <button onClick={() => settingsToggle('shifts', context)}>Edit Shifts</button>
-              <button onClick={() => generateBase64()}>Export to Excel</button>
+              <button onClick={() => generateBase64(context, props)}>Export to Excel</button>
             </div>
           </div>
         </div>
