@@ -528,5 +528,17 @@ export const notesSampleData = [
     comments: 'lamas are ugly',
     year: 2018,
     month: 'October'
+  },
+  {
+    id: 1604,
+    comments: 'lamas are still ugly',
+    year: 2018,
+    month: 'November'
+  },
+  {
+    id: 1605,
+    comments: 'be honest, cheetos are delicious.',
+    year: 2018,
+    month: 'November'
   }
 ]

@@ -1,5 +1,6 @@
 import React  from 'react'
 import { CurrSettingsContext } from '../../../containers/ClassicContainer'
+import { generateBase64 } from '../../../data/exportToExcel'
 
 function settingsToggle(toggleChoice, context){
   //toggleModal
@@ -19,7 +20,7 @@ function Dropdown(props){
             <div className="dropdownContent">
               <button onClick={() => settingsToggle('people', context)}>Edit People</button>
               <button onClick={() => settingsToggle('shifts', context)}>Edit Shifts</button>
-              <button onClick={() => settingsToggle('excel', props)}>Export to Excel</button>
+              <button onClick={() => generateBase64()}>Export to Excel</button>
             </div>
           </div>
         </div>
