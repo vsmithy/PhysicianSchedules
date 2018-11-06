@@ -28,7 +28,7 @@ class PeopleSettings extends Component {
       chosenPersonId: [...this.props.people].sort( (a, b) => a.name < b.name ? -1 : 1 )[0].id,
       chosenPersonRole: [...this.props.people].sort( (a, b) => a.name < b.name ? -1 : 1 )[0].jobRole,
     })
-  }//will mount
+  }//componentWillMount
 
   hideSettings(context){
     //toggleModal

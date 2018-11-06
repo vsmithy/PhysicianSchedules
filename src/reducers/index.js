@@ -2,23 +2,17 @@ import { combineReducers } from 'redux'
 
 //bring in the other reducers
 import shifts from './shifts'
-import conflicts from './conflicts'
-import stats from './stats'
 import eventsReducer from './eventsReducer'
 import people from './people'
 import meetings from './meetings'
 import notes from './notes'
-import queues from './queues'
 
 const rootReducer = combineReducers({
   shifts,
-  conflicts,
-  stats,
   eventsReducer,
   people,
   meetings,
-  notes,
-  queues
+  notes
 }) //combineReducers
 
 export default rootReducer

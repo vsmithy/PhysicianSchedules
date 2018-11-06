@@ -1,10 +1,7 @@
 export const dayNum = function(day){
-  // let milli = day * 24 * 60 * 60 * 1000
   let theDate = Date.UTC(day)
-
   return theDate.toUTCString()
 }//dayNum
-
 
 let monthName = {
   0: 'January',
@@ -54,17 +51,14 @@ export const makeWeekends = function (calendarData) {
   return dataCopy
 }//makeWeends
 
-
 export const getWeekends = function(monthlength, selectedMonth, selectedYear){
   let weekendList = []
   for(let i=1;i<monthlength;i++){
 
     //make a date
     let milliUTC = Date.UTC(selectedYear,selectedMonth,i)
-    // console.log(milliUTC)
     let d = new Date(milliUTC)
 
-    // console.log(d)
     //calc which day of week
     let dayOfWeek = d.getUTCDay()
 
@@ -106,10 +100,8 @@ export const getMonthDates = function(selectedMonth, selectedYear){
 export const getDayName = function(selectedYear,selectedMonth,dayNbr) {
   //make a date
   let milliUTC = Date.UTC(selectedYear,selectedMonth,dayNbr)
-  // console.log(milliUTC)
   let d = new Date(milliUTC)
 
-  // console.log(d)
   //calc which day of week
   let dayOfWeek = d.getUTCDay()
 

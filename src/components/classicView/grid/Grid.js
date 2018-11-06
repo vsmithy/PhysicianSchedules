@@ -18,8 +18,6 @@ import PeopleSettings from '../settingsMenus/PeopleSettings'
 import { getMonth, getWeekends, getMonthDates, getDayName } from '../../../helpfulFiles/dateStuff'
 
 class Grid extends Component {
-  componentDidMount(){ console.log('Grid component mounted') }
-  componentDidUpdate(){ console.log('Grid component updated') }
   render(){
     const { context, people, shifts } = this.props
     const person = people.filter(item => item.isActive === true) //get the people listed as active

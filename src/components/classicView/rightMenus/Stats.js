@@ -5,16 +5,35 @@
  *  Also, the viewHeight toggle can either be 'statsComponent' or 'statsComponent closed'
  */
 
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const Stats = (props) => (
-  <div className={props.viewHeight}>
-    <ul className="statsList">
-      {props.stats.map(statItem => <li key={statItem.id} className="statsListItem"><span>{statItem.stat}:</span><span className='statValue'>{statItem.count}</span></li>)}
-    </ul>
-  </div>
-)//Stats Component
+//local files and data
+import { statsData } from '../../../data/sampleData'
+
+class Stats extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      stats: []
+    }//state
+  }//constructor
+  
+  componentDidMount(){
+    this.setState({ stats: statsData })
+  }//componentDidMount
+  
+  render(){
+    return (
+      <div className={this.props.viewHeight}>
+        <ul className="statsList">
+          {this.state.stats.map(statItem => <li key={statItem.id} className="statsListItem"><span>{statItem.stat}:</span><span className='statValue'>{statItem.count}</span></li>)}
+        </ul>
+      </div>
+    )
+  }//render
+}//Stats Component
 
 Stats.propTypes = {
   stats: PropTypes.array.isRequired,

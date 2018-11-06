@@ -4,7 +4,6 @@ import * as types from './constants'
 export const changeYear = (year) => ({ type: types.CHANGE_YEAR, year })
 export const changeMonth = (month) => ({ type: types.CHANGE_MONTH, month })
 export const excelExport = () => ({ type: types.EXCEL_EXPORT })
-// export const pdfExport = () => ({ type: types.PDF_EXPORT })
 
 //shifts
 export const addShift = (data) => ({ type: types.ADD_SHIFT, data })

@@ -11,7 +11,6 @@ import * as actionCreators from '../actions'
 //create the context for downstream items
 export const CurrSettingsContext = React.createContext()
 
-
 class ClassicContainer extends Component {
   constructor(props){
     super(props)
@@ -24,7 +23,6 @@ class ClassicContainer extends Component {
       toggleModal: () => (this.setState({ modal: !this.state.modal })),
       togglePeopleSettings: () => (this.setState({ peopleSettingsWindow: !this.state.peopleSettingsWindow })),
       toggleShiftSettings: () => (this.setState({ shiftSettingsWindow: !this.state.shiftSettingsWindow })),
-      chageModalId: (id) => (this.setState({ modalId: id }))
     }//updaterFunctinos
 
     this.state = {
@@ -52,11 +50,9 @@ class ClassicContainer extends Component {
           </main>
         </CurrSettingsContext.Provider>
     )//return
-  }//return
+  }//render
 }//ClassicContainer Component
  
-//  export default ClassicContainer
-
 //  now to specify the areas of state to connect to
 const mapStateToProps = state => ({
     stats: state.stats,

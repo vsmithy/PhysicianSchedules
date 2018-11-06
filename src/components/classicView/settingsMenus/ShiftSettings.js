@@ -12,14 +12,6 @@ class ShiftSettings extends Component {
     this.hideSettings = this.hideSettings.bind(this)
   }//constructor
 
-  // componentDidMount(){
-  //   console.log('shift settings did mount')
-  // }//componentDidMount
-
-  // componentWillUnmount(){
-  //   console.log('shift settings will unmount')
-  // }//unmount
-
   makeNewShift(event){
     event.preventDefault()
 

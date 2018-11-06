@@ -107,17 +107,16 @@ function generate(type, context, props){
 }//generate
 
 export function generateBase64(context, props) {
-    // console.log(props)
-    return generate("base64", context, props)
-        .then(function (base64) {
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                throw new Error("Navigating to data URI is not supported in IE.")
-            } else {
-                window.location.href = "data:" + XlsxPopulate.MIME_TYPE + ";base64," + base64
-            }
-        })
-        .catch(function (err) {
-            alert(err.message || err)
-            throw err
-        })
+  return generate("base64", context, props)
+    .then(function (base64) {
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            throw new Error("Navigating to data URI is not supported in IE.")
+        } else {
+            window.location.href = "data:" + XlsxPopulate.MIME_TYPE + ";base64," + base64
+        }
+    })
+    .catch(function (err) {
+        alert(err.message || err)
+        throw err
+    })
 }

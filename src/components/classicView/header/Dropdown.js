@@ -30,5 +30,3 @@ function Dropdown(props){
 }//header
 
 export default Dropdown
-
-//</div><button onClick={() => this.generateBlob()}>Export to Excel</button>

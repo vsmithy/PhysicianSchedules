@@ -5,19 +5,38 @@
  *  The viewHeight toggle can either be 'conflictsComponent' or 'conflictsComponent closed'
  */
 
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const Conflicts = (props) => (
-  <div className={props.viewHeight}>
-    <ul className='conflictsList'>
-      {props.conflicts.map(item => <li key={item.id} className="conflictsListItem">
-        <span className="conflictsListLabel">{item.eventDate.getMonth() + '/' + item.eventDate.getDate()} -</span>
-        <span className="conflictsListValue">{item.note}</span>
-      </li>)}
-    </ul>
-  </div>
-)//Conflict Component
+//local files and data
+import { conflictsData } from '../../../data/sampleData'
+
+class Conflicts extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      conflicts: []
+    }//state
+  }//constructor
+
+  componentDidMount(){
+    this.setState({ conflicts: conflictsData })
+  }//componentDidMount
+
+  render(){
+    return(
+      <div className={this.props.viewHeight}>
+        <ul className='conflictsList'>
+          {this.state.conflicts.map(item => <li key={item.id} className="conflictsListItem">
+            <span className="conflictsListLabel">{item.eventDate.getMonth() + '/' + item.eventDate.getDate()} -</span>
+            <span className="conflictsListValue">{item.note}</span>
+          </li>)}
+        </ul>
+      </div>
+    )//return
+  }//render
+}//Conflict Component
 
 Conflicts.propTypes = {
   viewHeight: PropTypes.string.isRequired,
