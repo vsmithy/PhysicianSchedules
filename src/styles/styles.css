@@ -783,7 +783,7 @@ header .viewSelectBtn.active {
 }
 
 .shiftComponent {
-  height: 11.5rem;
+  height: 8rem;
   transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
@@ -817,7 +817,7 @@ header .viewSelectBtn.active {
 }
 
 .conflictsComponent {
-  height: 12rem;
+  height: 11rem;
   transition: height 0.25s ease-in-out;
   overflow: hidden;
 }
@@ -843,7 +843,7 @@ header .viewSelectBtn.active {
 }
 
 .statsComponent {
-  height: 12rem;
+  height: 10rem;
   transition: height 0.25s ease-in-out;
   overflow: hidden;
 }

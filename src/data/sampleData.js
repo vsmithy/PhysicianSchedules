@@ -2,18 +2,6 @@ export const dayTypes = ['holiday','standard','furlough','weekend']
 
 export const shiftList = [
   {
-    'id':0,
-    'shiftName':'LDD'
-  },
-  {
-    'id':1,
-    'shiftName':'LDN'
-  },
-  {
-    'id':2,
-    'shiftName':'Backup'
-  },
-  {
     'id':5,
     'shiftName':'Data Entry'
   },
@@ -81,11 +69,6 @@ export const statsData = [
     'id':11,
     'count':6,
     'stat':'Empty Call Shifts'
-  },
-  {
-    'id':12,
-    'count':13,
-    'stat':'Unfilled Ward Assignments'
   },
   {
     'id':13,
